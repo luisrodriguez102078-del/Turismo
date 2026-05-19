@@ -44,8 +44,9 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
 /* ── HERO ── */
 .hero {
   position: relative; width: 100%; height: 100vh;
-  display: flex; align-items: flex-end;
-  padding: 0 60px 90px; overflow: hidden;
+  display: flex; align-items: center;
+  padding: 40px 20px 0;
+  overflow: hidden;
 }
 
 .hero-slides { position: absolute; inset: 0; }
@@ -76,44 +77,45 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
 /* ── HERO THUMBNAIL CARDS (panel derecho) ── */
 .hero-thumbs {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 60px;
+  right: 40px;
+  bottom: 80px;
   z-index: 10;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  gap: 14px;
+  gap: 10px;
   animation: fadeUp 0.8s 0.5s both;
 }
 
 .hero-thumb {
   position: relative;
-  width: 130px;
-  height: 190px;
+  width: 100px;
+  height: 140px;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   border: 2px solid rgba(255,255,255,0.12);
-  transition: all 0.45s cubic-bezier(0.19,1,0.22,1);
   flex-shrink: 0;
-  transform: scale(0.92) translateY(10px);
-  opacity: 0.65;
+  opacity: 0.6;
+  transform: scale(0.88) translateY(12px);
+  transition: all 0.6s cubic-bezier(0.19,1,0.22,1);
+  order: 2;
 }
-
 /* La card activa se agranda */
 .hero-thumb.active {
-  width: 180px;
-  height: 230px;
+  width: 140px;
+  height: 180px;
   border-color: var(--accent);
-  transform: scale(1) translateY(0);
   opacity: 1;
+  transform: scale(1) translateY(0);
   box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,229,160,0.4);
+  order: 1;
 }
 
+
 .hero-thumb:hover:not(.active) {
-  transform: scale(0.96) translateY(4px);
-  opacity: 0.85;
+  opacity: 0.82;
+  transform: scale(0.93) translateY(6px);
   border-color: rgba(255,255,255,0.3);
 }
 
@@ -382,3 +384,338 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ── ANIMACIÓN FLOTANTE DE LAS CARDS ── */
+.hero-thumb:nth-child(1) { animation: flotar 3s ease-in-out infinite; }
+.hero-thumb:nth-child(2) { animation: flotar 3s ease-in-out infinite 0.4s; }
+.hero-thumb:nth-child(3) { animation: flotar 3s ease-in-out infinite 0.8s; }
+.hero-thumb:nth-child(4) { animation: flotar 3s ease-in-out infinite 1.2s; }
+.hero-thumb:nth-child(5) { animation: flotar 3s ease-in-out infinite 1.6s; }
+.hero-thumb:nth-child(6) { animation: flotar 3s ease-in-out infinite 2.0s; }
+
+@keyframes flotar {
+  0%   { transform: translateY(0px) scale(0.88); }
+  50%  { transform: translateY(-8px) scale(0.88); }
+  100% { transform: translateY(0px) scale(0.88); }
+}
+
+/* La card activa también flota pero más suave */
+.hero-thumb.active {
+  animation: flotarActiva 3s ease-in-out infinite !important;
+}
+
+@keyframes flotarActiva {
+  0%   { transform: translateY(0px) scale(1); }
+  50%  { transform: translateY(-6px) scale(1); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+/* ══════════════════════════════════════════
+   COSTUMBRES Y TRADICIONES
+   ══════════════════════════════════════════ */
+
+.ct-bloque {
+  margin-bottom: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border);
+}
+.ct-bloque:last-child { border-bottom: none; margin-bottom: 0; }
+
+.ct-bloque-header {
+  display: flex; align-items: flex-start; gap: 20px;
+  margin-bottom: 40px;
+}
+.ct-icono { font-size: 2.5rem; flex-shrink: 0; margin-top: 4px; }
+.ct-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  letter-spacing: 1px; color: var(--text);
+  margin-bottom: 6px; line-height: 1.1;
+}
+.ct-subtitulo { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ── DANZAS ── */
+.ct-danzas-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.ct-danza-card {
+  position: relative; border-radius: var(--radius);
+  overflow: hidden; cursor: pointer;
+  aspect-ratio: 3/4;
+  border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.ct-danza-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.ct-danza-card img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  filter: brightness(0.6);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+.ct-danza-card:hover img { filter: brightness(0.8); transform: scale(1.06); }
+.ct-danza-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+}
+.ct-danza-num {
+  font-family: var(--font-display);
+  font-size: 0.75rem; letter-spacing: 3px;
+  color: var(--accent); margin-bottom: 6px;
+}
+.ct-danza-overlay h4 {
+  font-family: var(--font-display);
+  font-size: 1rem; letter-spacing: 1px;
+  color: #fff; margin-bottom: 6px; line-height: 1.2;
+}
+.ct-danza-overlay p {
+  font-size: 0.75rem; color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.ct-danza-card:hover .ct-danza-overlay p {
+  opacity: 1; transform: translateY(0);
+}
+
+/* ── FIESTA PATRONAL ── */
+.ct-fiesta-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 50px; align-items: start;
+}
+.ct-fiesta-img { position: relative; border-radius: var(--radius); overflow: hidden; }
+.ct-fiesta-img img {
+  width: 100%; height: 460px;
+  object-fit: cover; display: block;
+}
+.ct-fiesta-img-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 30px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+}
+.ct-fecha-badge {
+  display: inline-block;
+  background: var(--accent); color: #000;
+  font-size: 0.75rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 50px;
+  margin-bottom: 8px; letter-spacing: 0.5px;
+}
+.ct-fiesta-img-label p {
+  font-family: var(--font-display);
+  font-size: 1.1rem; letter-spacing: 2px; color: #fff;
+}
+
+.ct-leyenda {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius); padding: 20px;
+  margin-bottom: 28px;
+}
+.ct-leyenda-icon { font-size: 1.5rem; flex-shrink: 0; }
+.ct-leyenda strong { display: block; color: var(--accent); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.ct-leyenda p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+.ct-actividades-lista { display: flex; flex-direction: column; gap: 16px; }
+.ct-act-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px; border-radius: 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  transition: border-color var(--transition);
+}
+.ct-act-item:hover { border-color: rgba(0,229,160,0.25); }
+.ct-act-item span { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+.ct-act-item strong { display: block; color: var(--text); font-size: 0.85rem; margin-bottom: 3px; }
+.ct-act-item p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ── ALFONSO UGARTE ── */
+.ct-ugarte-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 50px; align-items: center;
+}
+.ct-ugarte-img { border-radius: var(--radius); overflow: hidden; }
+.ct-ugarte-img img {
+  width: 100%; height: 360px;
+  object-fit: cover; display: block;
+  transition: transform 0.6s ease;
+}
+.ct-ugarte-img:hover img { transform: scale(1.04); }
+
+.ct-ugarte-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-bottom: 28px;
+}
+.ct-stat {
+  text-align: center; padding: 20px 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+.ct-stat:hover { border-color: rgba(0,229,160,0.3); }
+.ct-stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem; color: var(--accent);
+  letter-spacing: 2px; line-height: 1;
+  margin-bottom: 8px;
+}
+.ct-stat-label {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-muted); line-height: 1.4;
+}
+.ct-ugarte-desc {
+  font-size: 0.95rem; color: var(--text-muted);
+  line-height: 1.8;
+}
+.ct-ugarte-desc strong { color: var(--accent); }
+
+
+/* ══════════════════════════════════════════
+   DANZAS FOLKLÓRICAS — layout alternado
+   Pega esto al final de estilos-destino.css
+   ══════════════════════════════════════════ */
+
+/* ── Fila de danza: fotos + info ── */
+.danza-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border);
+}
+.danza-row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Invertir orden para filas pares */
+.danza-row--reverse {
+  direction: rtl; /* truco para invertir sin tocar el HTML */
+}
+.danza-row--reverse > * {
+  direction: ltr; /* restaurar dirección de texto */
+}
+
+/* ── Grid de 4 fotos ── */
+.danza-foto-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: 380px;
+  gap: 10px;
+  height: 380px;
+  overflow: hidden;
+}
+
+.danza-foto {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1d24;
+  position: relative;
+}
+.danza-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.88);
+}
+.danza-foto:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* Foto grande a la izquierda ocupa toda la altura */
+.danza-foto--tall {
+  grid-row: 1 / -1;
+  height: 100%;
+}
+
+/* Columna derecha: 3 fotos apiladas */
+.danza-foto-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+.danza-foto-col .danza-foto {
+  flex: 1;
+}
+
+/* ── Info de la danza ── */
+.danza-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.danza-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(0, 229, 160, 0.15);
+  letter-spacing: 4px;
+  display: block;
+  margin-bottom: -10px;
+}
+
+.danza-nombre {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: 1px;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.danza-desc {
+  font-size: 0.97rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  border-left: 3px solid var(--accent);
+  padding-left: 18px;
+}
+
+/* Fila de metadatos */
+.danza-meta {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 6px;
+}
+.danza-meta-item {
+  flex: 1;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-right: 1px solid var(--border);
+  transition: background var(--transition);
+}
+.danza-meta-item:last-child { border-right: none; }
+.danza-meta-item:hover { background: var(--surface); }
+
+.danza-meta-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.danza-meta-val {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--text);
+}

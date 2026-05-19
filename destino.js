@@ -1,8 +1,6 @@
-/* ============================================================
-   VALLE CHICAMA – destino.js
-   Solo Chiclín por ahora
-   ============================================================ */
-
+/**
+ * CHICLIN
+ */
 const destinos = {
 
   chiclin: {
@@ -12,15 +10,14 @@ const destinos = {
     desc: "Pueblo tradicional del Valle de Chicama, reconocido por su historia, tranquilidad y conexión con la cultura cañavelera del norte peruano.",
     badges: ["Cultura", "Tradición", "Caña de Azúcar"],
 
-    // ↓ FOTOS DEL HERO (cambian cada 8 segundos)
-    // Pon tus 5 fotos en img/CHICLIN/fotos/ con estos nombres
-    // Cada slide puede tener un "label" que aparece en la card thumbnail
+
     heroSlides: [
-      { img: "img/CHICLIN/atractivos/c9.jpg",       label: "Atractivos" },
-      { img: "img/CHICLIN/fotos/d2.jpg",             label: "Paisajes"   },
+      { img: "img/CHICLIN/atractivos/c9.jpg",       label: "Cristo Rey" },
+      { img: "img/CHICLIN/fotos/d2.jpg",             label: "Museo Chiclín"   },       
       { img: "img/CHICLIN/fotos/d8.png",             label: "Pueblo"     },
       { img: "img/CHICLIN/fotos/Principal.jpg",      label: "Principal"  },
-      { img: "img/CHICLIN/fotos/d7.png",             label: "Vida local" },
+      { img: "img/CHICLIN/fotos/d7.png",             label: "Plaza de Armas" },
+      { img: "img/CHICLIN/festividades/R3.jpg",             label: "Danza"     },
     ],
 
     historia: {
@@ -110,10 +107,6 @@ const destinos = {
 
 };
 
-// ══════════════════════════════════════════════
-// NO TOQUES NADA DEBAJO — carga automática
-// ══════════════════════════════════════════════
-
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 const d = destinos[id];
@@ -181,10 +174,20 @@ function goToSlide(index) {
   // Dots
   document.querySelectorAll('.hdot')[currentSlide].classList.remove('active');
   document.querySelectorAll('.hdot')[index].classList.add('active');
-  // Thumbs
-  document.querySelectorAll('.hero-thumb')[currentSlide].classList.remove('active');
-  document.querySelectorAll('.hero-thumb')[index].classList.add('active');
-
+  // Thumbs — rotación tipo carrusel
+  const thumbs = document.querySelectorAll('.hero-thumb');
+  const total = thumbs.length;
+  thumbs.forEach((thumb, i) => {
+    thumb.classList.remove('active');
+    // Calcula la posición relativa al slide activo
+    const pos = (i - index + total) % total;
+    thumb.style.order = pos;
+    thumb.style.opacity = pos === 0 ? '1' : pos === 1 ? '0.75' : pos === 2 ? '0.55' : '0.35';
+    thumb.style.transform = pos === 0
+      ? 'scale(1) translateY(0)'
+      : `scale(${0.92 - pos * 0.04}) translateY(${pos * 8}px)`;
+  });
+  thumbs[index].classList.add('active');
   currentSlide = index;
 }
 
