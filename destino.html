@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="pageTitle">Destino – Valle Chicama</title>
+  <link rel="stylesheet" href="estilos-destino.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img//location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#categorias">Categorías</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <button class="btn-volver" onclick="window.location.href='index.html'">← Volver</button>
+  </nav>
+
+  <!-- ══════════ HERO CON IMÁGENES ROTATIVAS ══════════ -->
+  <section class="hero" id="hero">
+
+    <!-- SLIDES: se generan desde destino.js -->
+    <div class="hero-slides" id="heroSlides"></div>
+
+    <div class="hero-overlay"></div>
+    <div class="scan-lines"></div>
+
+    <!-- CONTENIDO IZQUIERDO -->
+    <div class="hero-content">
+      <div class="hero-tag" id="heroTag">Valle Chicama</div>
+      <h1 class="hero-title" id="heroTitle">NOMBRE</h1>
+      <p class="hero-ubicacion" id="heroUbicacion">Ubicación</p>
+      <p class="hero-desc" id="heroDesc">Descripción</p>
+      <div class="hero-badges" id="heroBadges"></div>
+    </div>
+
+    <!-- THUMBNAIL CARDS DERECHA: se generan desde destino.js -->
+    <div class="hero-thumbs" id="heroThumbs"></div>
+
+    <!-- DOTS: se generan desde destino.js -->
+    <div class="hero-dots" id="heroDots"></div>
+
+
+
+  </section>
+
+  <!-- ══════════ HISTORIA ══════════ -->
+  <section class="section" id="historia">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <div class="section-label-wrap">
+          <span class="section-label">Historia</span>
+          <div class="section-line"></div>
+        </div>
+      </div>
+      <div class="historia-grid">
+        <div class="historia-texto">
+          <h2 class="section-title" id="historiaTitle">Historia</h2>
+          <div id="historiaParrafos"></div>
+        </div>
+        <div class="historia-fotos">
+          <div class="historia-img-principal">
+            <img id="historiaImg" src="" alt="Historia"/>
+            <div class="historia-img-label" id="historiaCaption"></div>
+          </div>
+          <div class="historia-img-secundaria" id="historiaImg2Wrap">
+            <img id="historiaImg2" src="" alt="Historia 2"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CATEGORÍAS ══════════ -->
+  <section class="section section-dark" id="categorias">
+    <div class="container">
+      <div class="categorias-header-center">
+        <span class="cat-explore-tag">EXPLORAR</span>
+        <h2 class="cat-main-title">Qué encontrarás aquí</h2>
+        <p class="cat-subtitle">Descubre cada rincón del Valle Chicama</p>
+      </div>
+      <div class="categorias-grid" id="categoriasGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ VIDEO ══════════ -->
+  <section class="section-video" id="secVideo">
+    <div class="video-tag">Conoce el lugar</div>
+    <video id="destVideo" controls muted loop playsinline>
+      Tu navegador no soporta video.
+    </video>
+    <div class="video-titulo" id="videoTitulo"></div>
+  </section>
+
+  <!-- ══════════ UBICACIÓN ══════════ -->
+  <section class="section section-dark" id="ubicacion">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <div class="section-label-wrap">
+          <span class="section-label">Cómo llegar</span>
+          <div class="section-line"></div>
+        </div>
+      </div>
+      <h2 class="section-title">Ubicación</h2>
+      <div class="mapa-grid">
+        <div class="mapa-info">
+          <div class="mapa-dato">
+            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" class="mapa-ico-img" alt="dir"/>
+            <div><strong>DIRECCIÓN</strong><p id="mapaDireccion"></p></div>
+          </div>
+          <div class="mapa-dato">
+            <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" class="mapa-ico-img" alt="auto"/>
+            <div><strong>DESDE TRUJILLO</strong><p id="mapaDistancia"></p></div>
+          </div>
+          <div class="mapa-dato">
+            <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" class="mapa-ico-img" alt="hora"/>
+            <div><strong>HORARIO</strong><p id="mapaHorario"></p></div>
+          </div>
+          <div class="mapa-dato">
+            <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" class="mapa-ico-img" alt="bus"/>
+            <div><strong>TRANSPORTE</strong><p id="mapaTransporte"></p></div>
+          </div>
+          <a class="btn-maps" id="btnMaps" href="#" target="_blank">Abrir en Google Maps →</a>
+        </div>
+        <div class="mapa-embed">
+          <iframe id="mapaEmbed" src="" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="img//location/logo.png" alt="logo"/>
+        <span>Valle Chicama</span>
+      </div>
+      <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+      <button onclick="window.location.href='index.html'">← Volver al inicio</button>
+    </div>
+  </footer>
+
+  <script src="destino.js"></script>
+</body>
+</html>

@@ -1,0 +1,606 @@
+/* ============================================================
+   CHICAMA – Sistema Turístico Inteligente
+   styles.css
+   ============================================================ */
+
+/* ── Variables ── */
+:root {
+  --bg: #0a0c10;
+  --surface: rgba(255,255,255,0.04);
+  --surface-hover: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.10);
+  --accent: #00e5a0;
+  --accent2: #00b8d9;
+  --text: #f0f4f8;
+  --text-muted: rgba(240,244,248,0.55);
+  --danger: #ff4d6d;
+  --card-w: 190px;
+  --card-h: 115px;
+  --radius: 14px;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --transition: 0.35s cubic-bezier(0.19,1,0.22,1);
+}
+
+/* Light mode */
+body.light {
+  --bg: #eef2f7;
+  --surface: rgba(0,0,0,0.05);
+  --surface-hover: rgba(0,0,0,0.09);
+  --border: rgba(0,0,0,0.12);
+  --text: #0d1117;
+  --text-muted: rgba(13,17,23,0.55);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2.5rem;
+  height: 64px;
+  background: rgba(10,12,16,0.55);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.logo-icon {
+  font-size: 1.4rem;
+  color: var(--accent);
+  animation: futuristicLogo 4s ease-in-out infinite;
+}
+
+@keyframes futuristicLogo {
+
+  0%{
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 5px rgba(186, 231, 218, 0.3));
+  }
+
+  50%{
+    transform: translateY(-6px) scale(1.04);
+    filter: drop-shadow(0 0 18px rgba(176, 238, 219, 0.8));
+  }
+
+  100%{
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 5px rgba(207, 247, 235, 0.3));
+  }
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.2rem;
+  list-style: none;
+  margin-left: 1rem;
+}
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+.nav-links a.active { color: var(--accent); }
+
+.nav-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-theme {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.btn-theme:hover { background: var(--surface-hover); }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 7px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-solid {
+  background: var(--accent);
+  border: none;
+  color: #000;
+  padding: 7px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.btn-solid:hover { filter: brightness(1.15); }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  width: 100%; height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 60px;
+  
+}
+
+/* Fondo dinámico */
+.hero-bg {
+ position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  background-image: url('img/chicama.jpg');
+  transition: transform 1.2s ease;}
+
+.hero-bg.changing {
+     animation: softFade 0.8s ease;
+}
+
+@keyframes softFade {
+
+  from{
+    opacity: 0.7;
+  }
+
+  to{
+    opacity: 1;
+  }
+  }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;  
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.45) 50%,
+    rgba(0,0,0,0.20) 100%
+  );
+  pointer-events: none;
+}
+
+/* Scan lines effect */
+.scan-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 3; 
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 2px,
+    rgba(255, 255, 255, 0.015) 4px
+  );
+}
+.hero-video-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+/* ── SEARCH BAR ── */
+.search-bar {
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(10,12,16,0.65);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 10px 16px 10px 20px;
+  width: min(540px, 90vw);
+  z-index: 10;
+  transition: border-color var(--transition);
+}
+.search-bar:focus-within { border-color: var(--accent); }
+
+.search-icon { font-size: 1.2rem; color: var(--text-muted); }
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+.search-bar input::placeholder { color: var(--text-muted); }
+
+.search-btn {
+  background: var(--accent);
+  border: none;
+  color: #000;
+  padding: 7px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.83rem;
+  transition: var(--transition);
+}
+.search-btn:hover { filter: brightness(1.15); }
+
+/* ── HERO CONTENT ── */
+.hero-content {
+  position: absolute;
+  bottom: 100px;
+  left: 60px;
+  z-index: 10;
+  max-width: 480px;
+}
+
+.location-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.pin { font-size: 0.9rem; }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 6vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 0 60px rgba(255, 255, 255, 0.2);
+  margin-bottom: 18px;
+  /* Animación de entrada */
+  animation: slideUp 0.7s cubic-bezier(0.19,1,0.22,1) both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  animation: slideUp 0.7s 0.1s cubic-bezier(0.19,1,0.22,1) both;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideUp 0.7s 0.2s cubic-bezier(0.19,1,0.22,1) both;
+}
+
+.btn-explore {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 36px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+}
+.btn-explore:hover {
+  background: var(--accent);
+  transform: scale(1.04);
+}
+
+.btn-bookmark, .btn-qr {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 11px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+.btn-bookmark:hover, .btn-qr:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+
+/* ── TARJETAS DE DESTINOS ── */
+.destination-cards {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  bottom: 100px;
+
+  z-index: 15;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  overflow-y: auto;
+    padding: 20px;
+}
+.destination-cards::-webkit-scrollbar{
+  width: 4px;
+}
+
+
+.destination-cards::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
+}
+
+.destination-cards::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.dest-card{
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+  transition: all 0.45s cubic-bezier(0.19,1,0.22,1);
+}
+
+.dest-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.45s cubic-bezier(0.19,1,0.22,1);
+  filter: brightness(0.82);
+}
+
+.dest-card:hover{
+  transform: translateX(-6px);
+}
+
+.dest-card.active{
+  transform: translateX(-12px);
+  border-color: var(--accent);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.45),
+    0 0 18px rgba(0,229,160,0.20);
+}
+
+.dest-card.active img{
+  filter: brightness(1);
+}
+.dest-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 10px;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.78)
+  );
+}
+.dest-card-location {
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.dest-card-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+/* ── DOTS DE NAVEGACIÓN ── */
+.hero-dots {
+  position: absolute;
+  bottom: 34px;
+  left: 60px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.dot {
+  width: 28px; height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.dot.active {
+  background: var(--accent);
+  width: 48px;
+}
+
+/* ── Texto cambia con animación ── */
+.hero-content.transitioning .hero-title,
+.hero-content.transitioning .hero-desc,
+.hero-content.transitioning .location-tag {
+  animation: contentExit 0.25s forwards;
+}
+.hero-content.entering .hero-title,
+.hero-content.entering .hero-desc,
+.hero-content.entering .location-tag {
+  
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+@keyframes contentExit {
+  to { opacity: 0; transform: translateX(-30px) skewX(3deg); }
+}
+@keyframes contentEnter {
+  from { opacity: 0; transform: translateX(30px) skewX(-3deg); }
+  to   { opacity: 1; transform: translateX(0) skewX(0); }
+}
+
+/* ── QR MODAL ── */
+.qr-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+}
+.qr-modal.open { display: flex; }
+
+.qr-modal-content {
+  background: #12151c;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  min-width: 280px;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.4s cubic-bezier(0.19,1,0.22,1);
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.qr-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: none; border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.qr-close:hover { color: var(--danger); }
+
+.qr-modal-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.qr-placeholder {
+  border: 2px dashed var(--accent);
+  border-radius: 12px;
+  padding: 30px 20px;
+  color: var(--text-muted);
+}
+.qr-placeholder p:first-child { font-size: 3rem; }
+.qr-placeholder #qrUrl {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin: 10px 0 6px;
+  word-break: break-all;
+}
+.qr-placeholder small { font-size: 0.78rem; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/*Imagen de la ubicación*/
+.pin img{
+  width: 50px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+
+  animation: locationPulse 4s ease-in-out infinite;
+}
+
+@keyframes locationPulse{
+
+  0%{
+    transform: translateY(0) scale(1);
+  }
+
+  25%{
+    transform: translateY(-3px) scale(1.08);
+  }
+
+  50%{
+    transform: translateY(0) scale(1);
+  }
+
+  75%{
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  100%{
+    transform: translateY(0) scale(1);
+  }
+}

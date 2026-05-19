@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valle Chicama– Sistema Turístico Inteligente</title>
+  <link rel="stylesheet" href="estilos1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon"><img src="img/location/logo.png" alt="logo"></span>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Inicio</a></li>
+      <li><a href="#">Destinos</a></li>
+      <li><a href="#">Cultura</a></li>
+      <li><a href="#">Códigos QR</a></li>
+      <li><a href="#">Nosotros</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-theme" id="themeBtn" title="Cambiar tema">☽</button>
+      <button class="btn-outline">Registrarse</button>
+      <button class="btn-solid">Ingresar</button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+
+    <!-- Imagen de fondo dinámica -->
+    <div class="hero-bg" id="heroBg">
+      <div class="hero-overlay"></div>
+      <!-- Efecto glitch/scan lines tecnológico -->
+      <div class="scan-lines"></div>
+    </div>
+     
+    
+
+    <!-- Buscador -->
+    <div class="search-bar">
+      <span class="search-icon">⌕</span>
+      <input type="text" placeholder="Buscar atractivos turísticos..." id="searchInput"/>
+      <button class="search-btn">Buscar</button>
+    </div>
+
+    <!-- Información principal del destino -->
+    <div class="hero-content" id="heroContent">
+      <div class="location-tag">
+        <span class="pin"><img src="img/location/blanco.png  " alt="location"></span>
+        <span id="heroLocation">Valle Chicama, La Libertad</span>
+      </div>
+      <h1 class="hero-title" id="heroTitle">PLAYA<br/>CHICAMA</h1>
+      <p class="hero-desc" id="heroDesc">
+        La ola izquierda más larga del mundo, con más de 2 km de recorrido. 
+        Destino icónico para el surf internacional y orgullo del norte peruano.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-explore" onclick="handleExplore()">Explorar</button>
+        <button class="btn-bookmark" title="Guardar destino">🔖</button>
+        <button class="btn-qr" title="Ver código QR">⬛ QR</button>
+      </div>
+    </div>
+
+    <!-- TARJETAS DE DESTINOS (esquina inferior derecha) -->
+    <div class="destination-cards" id="destCards">
+      <!-- Las tarjetas se generan con JS -->
+    </div>
+
+    <!-- Indicadores de navegación -->
+    <div class="hero-dots" id="heroDots"></div>
+
+  </section>
+
+  <!-- MODAL QR -->
+  <div class="qr-modal" id="qrModal">
+    <div class="qr-modal-content">
+      <button class="qr-close" onclick="closeQR()">✕</button>
+      <h3 id="qrTitle">Código QR</h3>
+      <div class="qr-code" id="qrCode">
+        <!-- QR generado con CSS art -->
+        <div class="qr-placeholder">
+          <p>📱</p>
+          <p id="qrUrl">chicama.pe/lugar/1</p>
+          <small>Escanea para ver más información</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="funciones.js"></script>
+</body>
+</html>
