@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Costumbres y Tradiciones – Chiclín</title>
+  <link rel="stylesheet" href="estilos-destino.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══════════ FESTIVIDAD SEÑOR DE LA CAÑA ══════════ */
+    .festividad-section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .festividad-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .festividad-titulo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .festividad-subtitulo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .novenas-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid #c9a84c;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 50px;
+      color: #ccc;
+      font-family: 'Outfit', sans-serif;
+    }
+    .novenas-banner strong {
+      display: block;
+      color: #c9a84c;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .novenas-banner p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .novenas-icono {
+      font-size: 2rem;
+      margin-top: 2px;
+    }
+    .dias-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .dia-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      height: 320px;
+    }
+    .dia-card-img {
+      width: 100%;
+      height: 100%;
+    }
+    .dia-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .dia-card:hover .dia-card-img img {
+      transform: scale(1.05);
+    }
+    .dia-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+    }
+    .dia-fecha {
+      font-size: 0.75rem;
+      color: #c9a84c;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .dia-card-label h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .dia-card-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.97);
+      color: #222;
+      padding: 24px 20px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      overflow-y: auto;
+    }
+    .dia-card:hover .dia-card-hover {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .dia-card-hover h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: #7b3fa0;
+      margin: 0 0 14px 0;
+      letter-spacing: 1px;
+    }
+    .dia-card-hover ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .dia-card-hover ul li {
+      font-size: 0.85rem;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+      line-height: 1.4;
+      color: #333;
+    }
+    .dia-card-hover ul li:last-child {
+      border-bottom: none;
+    }
+    @media (max-width: 768px) {
+      .dias-grid { grid-template-columns: 1fr; }
+      .festividad-titulo { font-size: 2rem; }
+      .festividad-section { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img/location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="destino.html?id=chiclin">Chiclín</a></li>
+      <li><a href="#danzas">Danzas</a></li>
+      <li><a href="#fiesta">Fiesta Patronal</a></li>
+      <li><a href="#ugarte">Alfonso Ugarte</a></li>
+    </ul>
+    <button class="btn-volver" onclick="window.location.href='destino.html?id=chiclin'">← Volver a Chiclín</button>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" id="hero">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="videos/CHICLIN/danzas.mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="scan-lines"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Chiclín · Valle Chicama · La Libertad</div>
+      <h1 class="hero-title">COSTUMBRES<br/>Y TRADICIONES</h1>
+      <p class="hero-ubicacion">Chiclin, Distrito de Chicama, Provincia de Ascope</p>
+      <p class="hero-desc">Descubre las expresiones culturales, danzas folklóricas, festividades religiosas y tradiciones deportivas que definen la identidad del pueblo de Chiclín.</p>
+      <div class="hero-badges">
+        <span class="badge">Danzas</span>
+        <span class="badge">Festividades</span>
+        <span class="badge">Deporte</span>
+        <span class="badge">Tradición</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ DANZAS FOLKLÓRICAS ══════════ -->
+  <section class="section" id="danzas">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <div class="section-label-wrap">
+          <span class="section-label">Costumbres y Tradiciones</span>
+          <div class="section-line"></div>
+        </div>
+      </div>
+      <h2 class="section-title">Tradiciones vivas de Chiclín</h2>
+
+      <div class="ct-bloque">
+        <div class="ct-bloque-header">
+          <span class="ct-icono">🎭</span>
+          <div>
+            <h3 class="ct-titulo">Danzas Folklóricas</h3>
+            <p class="ct-subtitulo">5 agrupaciones activas que mantienen viva la identidad del pueblo</p>
+          </div>
+        </div>
+
+        <!-- DANZA 1: HUANQUILLAS -->
+        <div class="danza-row">
+          <div class="danza-fotos">
+            <div class="danza-foto-grid">
+              <div class="danza-foto danza-foto--tall">
+                <img src="img/CHICLIN/festividades/R2.jpg" alt="Huanquillas 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+              </div>
+              <div class="danza-foto-col">
+                <div class="danza-foto"><img src="img/CHICLIN/festividades/R6.jpg" alt="Huanquillas 2" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/festividades/R4.jpg" alt="Huanquillas 3" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/festividades/R5.jpg" alt="Huanquillas 4" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="danza-info">
+            <span class="danza-num">01</span>
+            <h4 class="danza-nombre">Huanquillas de Chiclín</h4>
+            <p class="danza-desc">Las Huanquillas de Chiclín son una de las danzas más representativas y antiguas del distrito de Chiclín, ubicado en el valle Chicama, región La Libertad – Perú. Esta danza tradicional refleja la identidad cultural del pueblo y se presenta principalmente durante fiestas patronales, celebraciones religiosas y actividades culturales.</p>
+            <p class="danza-desc">Danza tradicional que representa la fuerza, la fe y la identidad cultural del pueblo chiclinero. Sus coloridos trajes y movimientos vigorosos mantienen viva una de las expresiones folclóricas más importantes de la región.</p>
+            <div class="danza-meta">
+              <div class="danza-meta-item"><span class="danza-meta-label">Fundación</span><span class="danza-meta-val">1932</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Tipo</span><span class="danza-meta-val">Autóctona</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Origen</span><span class="danza-meta-val">Chiclín</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DANZA 2: DIABLADA -->
+        <div class="danza-row danza-row--reverse">
+          <div class="danza-fotos">
+            <div class="danza-foto-grid">
+              <div class="danza-foto danza-foto--tall">
+                <img src="img/CHICLIN/Costumbres_Tradiciones/di1.jpg" alt="Diablada 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+              </div>
+              <div class="danza-foto-col">
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/di2.jpg" alt="Diablada 2" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/di4.jpg" alt="Diablada 3" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/d3.jpg" alt="Diablada 4" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="danza-info">
+            <span class="danza-num">02</span>
+            <h4 class="danza-nombre">Diablada de Chiclín</h4>
+            <p class="danza-desc">Danza de máscaras y colorido espectacular que representa la lucha eterna entre el bien y el mal. Sus trajes elaborados y coreografía dinámica la convierten en una de las más vistosas del Valle.</p>
+            <div class="danza-meta">
+              <div class="danza-meta-item"><span class="danza-meta-label">Fundación</span><span class="danza-meta-val">—</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Tipo</span><span class="danza-meta-val">Mestiza</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Origen</span><span class="danza-meta-val">Altiplano</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DANZA 3: ANCASHINOS -->
+        <div class="danza-row">
+          <div class="danza-fotos">
+            <div class="danza-foto-grid">
+              <div class="danza-foto danza-foto--tall">
+                <img src="img/CHICLIN/Costumbres_Tradiciones/a4.jpeg" alt="Ancashinos 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+              </div>
+              <div class="danza-foto-col">
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/a2.jpeg" alt="Ancashinos 2" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/a1.jpeg" alt="Ancashinos 3" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/a7.jpeg" alt="Ancashinos 4" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="danza-info">
+            <span class="danza-num">03</span>
+            <h4 class="danza-nombre">Los Ancashinos de Chiclín</h4>
+            <p class="danza-desc">Los Ancashinos de Chiclín es una danza folclórica tradicional que destaca por sus movimientos enérgicos, música festiva y gran valor cultural dentro del Valle Chicama.</p>
+            <p class="danza-desc">Sus danzantes representan la alegría, unión y costumbres del pueblo chiclinero mediante coloridos vestuarios y expresiones artísticas que mantienen viva la tradición regional.</p>
+            <div class="danza-meta">
+              <div class="danza-meta-item"><span class="danza-meta-label">Fundación</span><span class="danza-meta-val">1968</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Tipo</span><span class="danza-meta-val">Andina</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Origen</span><span class="danza-meta-val">Áncash</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DANZA 4: SALAVERRY -->
+        <div class="danza-row danza-row--reverse">
+          <div class="danza-fotos">
+            <div class="danza-foto-grid">
+              <div class="danza-foto danza-foto--tall">
+                <img src="img/CHICLIN/Costumbres_Tradiciones/s1.jpg" alt="Salaverry 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+              </div>
+              <div class="danza-foto-col">
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/s2.jpg" alt="Salaverry 2" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/s3.jpg" alt="Salaverry 3" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/s5.jpg" alt="Salaverry 4" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="danza-info">
+            <span class="danza-num">04</span>
+            <h4 class="danza-nombre">Los Salaverry de Chiclín</h4>
+            <p class="danza-desc">Los Diablos de Salaverry es una reconocida agrupación tradicional festiva originaria del puerto de Salaverry que, con el paso de los años, también ha establecido una sede y participación cultural en Chiclín.</p>
+            <p class="danza-desc">Participa en pasacalles, procesiones y celebraciones patronales como las festividades del Señor de la Caña, manteniendo viva la tradición folclórica y religiosa.</p>
+            <div class="danza-meta">
+              <div class="danza-meta-item"><span class="danza-meta-label">Fundación</span><span class="danza-meta-val">1987</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Tipo</span><span class="danza-meta-val">Danza festiva costeña</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Origen</span><span class="danza-meta-val">Trujillo</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Sede</span><span class="danza-meta-val">Chiclín</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DANZA 5: DIABLOS DE CHICLÍN -->
+        <div class="danza-row">
+          <div class="danza-fotos">
+            <div class="danza-foto-grid">
+              <div class="danza-foto danza-foto--tall">
+                <img src="img/CHICLIN/Costumbres_Tradiciones/b6.jpg" alt="Diablos 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+              </div>
+              <div class="danza-foto-col">
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/b4.jpg" alt="Diablos 2" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/b5.jpg" alt="Diablos 3" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+                <div class="danza-foto"><img src="img/CHICLIN/Costumbres_Tradiciones/b3.jpg" alt="Diablos 4" onerror="this.parentElement.style.background='#1a1d24'"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="danza-info">
+            <span class="danza-num">05</span>
+            <h4 class="danza-nombre">Los Diablos de Chiclín</h4>
+            <p class="danza-desc">Los Diablos de Chiclín es una banda tradicional originada el 6 de junio de 1936 por ex trabajadores de la antigua hacienda Chiclín. Su principal objetivo fue mantener el orden durante las festividades en honor al Señor de la Caña.</p>
+            <p class="danza-desc">Esta representación cultural simboliza al diablo caído y vencido ante el poder de Dios. Actualmente participan en fiestas patronales, pasacalles, novenas y eventos culturales.</p>
+            <div class="danza-meta">
+              <div class="danza-meta-item"><span class="danza-meta-label">Fundación</span><span class="danza-meta-val">1936</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Tipo</span><span class="danza-meta-val">Banda tradicional festiva</span></div>
+              <div class="danza-meta-item"><span class="danza-meta-label">Origen</span><span class="danza-meta-val">Chiclín</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- fin ct-bloque danzas -->
+
+      <!-- ══════════ FIESTA PATRONAL ══════════ -->
+      <div class="ct-bloque" id="fiesta">
+        <div class="ct-bloque-header">
+          <span class="ct-icono">⛪</span>
+          <div>
+            <h3 class="ct-titulo">Fiesta Regional del Señor de la Caña</h3>
+            <p class="ct-subtitulo">Organizada por la Hermandad del Señor de la Caña — celebración el 28 de junio</p>
+            <p></p>
+            <p></p>
+
+            <!-- INFO PREVIA: imagen + texto -->
+<div class="festividad-intro">
+  <div class="festividad-intro-img">
+    <img src="img/CHICLIN/Costumbres_Tradiciones/f1.jpeg" alt="Señor de la Caña" 
+         onerror="this.parentElement.style.background='#2a1a3e'"/>
+  </div>
+  <div class="festividad-intro-texto">
+    <h3 class="festividad-intro-titulo">Fiesta Regional del Señor de la Caña</h3>
+    <p>Una de las celebraciones religiosas más importantes del norte del Perú. Cada año, durante el mes de junio, el pueblo de Chiclín se viste de fe, color y tradición para honrar a su santo patrón — el Señor de la Caña — una devoción que nació entre los trabajadores cañaveleros de la antigua hacienda y que hoy convoca a miles de peregrinos de toda La Libertad.</p>
+    <p>La festividad incluye novenario, misas, paseo de la cera, procesión solemne, danzas folklóricas, bandas en vivo, feria gastronómica y quema de fuegos artificiales. Una experiencia de fe y cultura que se celebra ininterrumpidamente desde 1932.</p>
+    <div class="festividad-intro-datos">
+      <div class="festividad-dato"><span class="dato-num">1932</span><span class="dato-label">Desde el año</span></div>
+      <div class="festividad-dato"><span class="dato-num">90+</span><span class="dato-label">Ediciones realizadas</span></div>
+      <div class="festividad-dato"><span class="dato-num">28 Jun</span><span class="dato-label">Día central</span></div>
+    </div>
+  </div>
+</div>  
+          
+      <!-- ══════════ 3 DÍAS DE LA FESTIVIDAD ══════════ -->
+      <section class="festividad-section">
+
+        <div class="festividad-header">
+          <h2 class="festividad-titulo">Los 3 Días de la Gran Festividad</h2>
+          <p class="festividad-subtitulo">
+            Desde el novenario que inicia en junio hasta los días centrales de celebración,
+            el pueblo de Chiclín vive su fe y tradición con una devoción de más de 90 años.
+          </p>
+        </div>
+
+        <!-- NOVENARIO -->
+        <div class="novenas-banner">
+          <span class="novenas-icono">🕯️</span>
+          <div>
+            <strong>Novenario — Primera quincena de junio</strong>
+            <p>Misas diarias a las 8:00 am ofrecidas por familias devotas, instituciones educativas y moradores de cada calle de Chiclín. La antesala espiritual de la gran fiesta — cada familia o institución tiene su día asignado para ofrecer la misa.</p>
+          </div>
+        </div>
+
+        <!-- TARJETAS 3 DÍAS -->
+        <div class="dias-grid">
+
+          <!-- DÍA 1: VÍSPERAS -->
+          <div class="dia-card">
+            <div class="dia-card-img">
+              <img src="img/CHICLIN/festividades/R2.jpg" alt="Día de Vísperas" onerror="this.parentElement.style.background='#2a1a3e'"/>
+            </div>
+            <div class="dia-card-label">
+              <span class="dia-fecha">26 de Junio</span>
+              <h3>Día de Vísperas</h3>
+            </div>
+            <div class="dia-card-hover">
+              <h4>Día de Vísperas</h4>
+              <ul>
+                <li>🕔 3:00 pm — Quema de cameratazos anunciando la víspera</li>
+                <li>💐 4:00 pm — Arreglo floral del anda del Señor de la Caña</li>
+                <li>📿 5:00 pm — Rosario ofrecido por los devotos</li>
+                <li>🎭 5:30 pm — Mini paseo de Ceras y procesión con danzas típicas invitadas</li>
+                <li>🎶 9:00 pm — Gran baile popular con orquestas en vivo</li>
+                <li>🍲 11:00 pm — Gran caldo para todos los asistentes y fieles devotos</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DÍA 2: PASEO DE CERAS -->
+          <div class="dia-card">
+            <div class="dia-card-img">
+              <img src="img/CHICLIN/Costumbres_Tradiciones/di1.jpg" alt="Paseo de Ceras" onerror="this.parentElement.style.background='#2a1a3e'"/>
+            </div>
+            <div class="dia-card-label">
+              <span class="dia-fecha">27 de Junio</span>
+              <h3>Paseo de Ceras</h3>
+            </div>
+            <div class="dia-card-hover">
+              <h4>Paseo de Ceras</h4>
+              <ul>
+                <li>🎭 Gran pasacalle de grupos de danza por las calles de Chiclín</li>
+                <li>🥁 Bandas de músicos en vivo acompañando el recorrido</li>
+                <li>👼 Angelitos y sahumadoras en procesión</li>
+                <li>🏛️ Delegaciones de autoridades locales y regionales</li>
+                <li>🎆 Fuegos artificiales nocturnos</li>
+                <li>💃 Verbena cultural y baile popular</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DÍA 3: DÍA CENTRAL -->
+          <div class="dia-card">
+            <div class="dia-card-img">
+              <img src="img/CHICLIN/Costumbres_Tradiciones/a4.jpeg" alt="Día Central" onerror="this.parentElement.style.background='#2a1a3e'"/>
+            </div>
+            <div class="dia-card-label">
+              <span class="dia-fecha">28 de Junio</span>
+              <h3>Día Central</h3>
+            </div>
+            <div class="dia-card-hover">
+              <h4>Día Central</h4>
+              <ul>
+                <li>⛪ 10:00 am — Traslado de la Sagrada Imagen del Inter</li>
+                <li>🙏 11:00 am — Solemne Misa Central en el templo Cristo Rey de Chiclín</li>
+                <li>🚶 12:00 pm — Gran Procesión por las calles con bandas y danzas folclóricas</li>
+                <li>🍽️ 1:30 pm — Almuerzo de confraternidad para todos los asistentes</li>
+                <li>💃 2:00 pm — Gran baile social</li>
+                <li>🎆 Noche — Quema de castillos y fuegos artificiales</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      
+
+<!-- ══════════ ALFONSO UGARTE ══════════ -->
+<div class="ct-bloque" id="ugarte">
+  <div class="ct-bloque-header">
+    <span class="ct-icono">⚽</span>
+    <div>
+      <h3 class="ct-titulo">Club Sport Alfonso Ugarte de Chiclín</h3>
+      <p class="ct-subtitulo">Tradición deportiva del pueblo — fundado en 1917</p>
+    </div>
+  </div>
+
+  <!-- FOTO DE FONDO CON TEXTO ENCIMA -->
+  <div class="ugarte-hero">
+    <img src="img/CHICLIN/alfonsoUgarte.jpg" alt="Alfonso Ugarte"
+         onerror="this.style.background='#1a1d24'"/>
+    <div class="ugarte-hero-overlay"></div>
+    <div class="ugarte-hero-content">
+      <span class="ugarte-tag">LOS DIABLOS ROJOS · CHICLÍN</span>
+      <h2 class="ugarte-nombre">ALFONSO<br/>UGARTE</h2>
+      <p class="ugarte-desc">Fundado el 1 de agosto de 1917 por trabajadores de la Hacienda Chiclín, es el equipo más querido del Valle Chicama y el <strong>primer campeón de la Copa Perú</strong> en la historia del fútbol peruano.</p>
+    </div>
+  </div>
+
+  <!-- STATS ABAJO -->
+  <div class="ugarte-stats">
+    <div class="ugarte-stat-item">
+      <span class="ugarte-stat-num">1917</span>
+      <span class="ugarte-stat-label">Año de fundación</span>
+    </div>
+    <div class="ugarte-stat-sep"></div>
+    <div class="ugarte-stat-item">
+      <span class="ugarte-stat-num">1°</span>
+      <span class="ugarte-stat-label">Campeón Copa Perú 1967</span>
+    </div>
+    <div class="ugarte-stat-sep"></div>
+    <div class="ugarte-stat-item">
+      <span class="ugarte-stat-num">32+</span>
+      <span class="ugarte-stat-label">Títulos de liga</span>
+    </div>
+    <div class="ugarte-stat-sep"></div>
+    <div class="ugarte-stat-item">
+      <span class="ugarte-stat-num">108</span>
+      <span class="ugarte-stat-label">Años de historia</span>
+    </div>
+  </div>
+
+</div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="img/location/logo.png" alt="logo"/>
+        <span>Valle Chicama</span>
+      </div>
+      <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+      <button onclick="window.location.href='destino.html?id=chiclin'">← Volver a Chiclín</button>
+    </div>
+  </footer>
+
+  <script>
+    // ── NAVBAR SCROLL ──
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ── ANIMACIONES SCROLL ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.danza-row, .ct-bloque, .festividad-section').forEach(el => {
+      el.classList.add('anim');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

@@ -37,6 +37,7 @@ const destinos = {
       {
         icono: "🎭",
         titulo: "Costumbres y tradiciones",
+        enlace: "constumbres.html?id=chiclin",
         video: "videos/CHICLIN/danzas.mp4",
         items: [
           {
@@ -59,6 +60,7 @@ const destinos = {
       {
         icono: "🏛️",
         titulo: "Culturales",
+        enlace: "culturales.html?id=chiclin",
         video: "videos/CHICLIN/constumbres1.mp4",
         items: [
           {
@@ -76,6 +78,7 @@ const destinos = {
       {
         icono: "🏺",
         titulo: "Arqueológicos turísticos",
+        enlace: "arqueologicos.html?id=chiclin",
         video: "videos/CHICLIN/arqueologicos.mp4",
         items: [
           {
@@ -231,8 +234,12 @@ d.categorias.forEach((cat) => {
 
   const card = document.createElement('div');
   card.className = 'cat-big-card anim';
+ card.style.cursor = 'pointer';
+card.addEventListener('click', () => {
+  if (cat.enlace) window.location.href = cat.enlace;
+});
 
-  // ✅ mediaHTML ahora SÍ se pone dentro del innerHTML
+  
   card.innerHTML = `
     ${mediaHTML}
     <div class="cat-big-card-overlay"></div>
