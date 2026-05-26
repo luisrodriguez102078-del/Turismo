@@ -66,7 +66,7 @@ const destinos = [
   },
   {
     id: "chiclin",
-    nombre: "PUEBLO\nDE CHICLÍN",
+    nombre: "CENTRO POBLADO\nCHICLÍN",
     ubicacion: "Chiclin,La Libertad",
     desc: "Pueblo tradicional del Valle de Chicama, reconocido por su historia, tranquilidad y conexión con la cultura cañavelera del norte peruano.",
     img: "img/CHICLIN/Chiclin1.jpg",       

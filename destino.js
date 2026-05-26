@@ -4,7 +4,7 @@
 const destinos = {
 
   chiclin: {
-    nombre: "PUEBLO DE\nCHICLÍN",
+    nombre: "CENTRO POBLADO\nCHICLÍN",
     tag: "Valle Chicama · La Libertad · Perú",
     ubicacion: "Chiclin, Distrito de Chicama, Provincia de Ascope, La Libertad",
     desc: "Pueblo tradicional del Valle de Chicama, reconocido por su historia, tranquilidad y conexión con la cultura cañavelera del norte peruano.",

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Culturales – Chiclín</title>
+  <link rel="stylesheet" href="estilos-destino.css"/>
+  <link rel="stylesheet" href="estilos-culturales.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img/location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="destino.html?id=chiclin">Chiclín</a></li>
+      <li><a href="#monumentos">Monumentos</a></li>
+      <li><a href="#museo">Museo</a></li>
+      <li><a href="#plaza">Plaza de Armas</a></li>
+    </ul>
+    <button class="btn-volver" onclick="window.location.href='destino.html?id=chiclin'">← Volver a Chiclín</button>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" id="hero">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="videos/CHICLIN/constumbres1.mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="scan-lines"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Chiclín · Valle Chicama · La Libertad</div>
+      <h1 class="hero-title">CULTURALES</h1>
+      <p class="hero-ubicacion">Chiclin, Distrito de Chicama, Provincia de Ascope</p>
+      <p class="hero-desc">Descubre el patrimonio cultural de Chiclín — monumentos históricos, esculturas centenarias, el museo que guarda la memoria del pueblo y la Plaza Mayor que lo une todo.</p>
+      <div class="hero-badges">
+        <span class="badge">Monumentos</span>
+        <span class="badge">Museo</span>
+        <span class="badge">Patrimonio</span>
+        <span class="badge">Historia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MONUMENTOS ══════════ -->
+  <section class="section" id="monumentos">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <div class="section-label-wrap">
+          <span class="section-label">Culturales</span>
+          <div class="section-line"></div>
+        </div>
+      </div>
+      <h2 class="section-title">Patrimonio Cultural de Chiclín</h2>
+
+      <!-- ══ MONUMENTO 1: CRISTO REY ══ -->
+      <div class="cul-bloque">
+        <div class="cul-bloque-header">
+          <span class="cul-num">01</span>
+          <div>
+            <h3 class="cul-titulo">Cristo Rey de Chiclín</h3>
+            <p class="cul-subtitulo">Símbolo de la fe y la identidad del pueblo chiclinero</p>
+          </div>
+        </div>
+        <div class="cul-row">
+
+          <!-- MEDIA: video grande + 3 fotos -->
+          <div class="cul-media">
+            <div class="cul-media-grid">
+              <div class="cul-media-main">
+                <video autoplay muted loop playsinline>
+                  <source src="videos/Chiclin.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div class="cul-media-fotos">
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/Culturales/cris1.jpg" alt="Cristo Rey 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/Culturales/museo22.jpeg" alt="Cristo Rey 2" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/Culturales/cris4.jpg" alt="Cristo Rey 3" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INFO -->
+          <div class="cul-info">
+            <p class="cul-desc">El Cristo Rey de Chiclín es el símbolo más reconocible e icónico del pueblo. Con sus brazos abiertos, domina la Plaza Mayor y representa la fe profunda de los chiclineros, siendo el centro espiritual de todas las celebraciones religiosas del valle.</p>
+            <p class="cul-desc">Esta escultura venerada ha sido testigo de generaciones de devotos y es el punto de encuentro para la Misa de Campaña de la Fiesta Patronal del Señor de la Caña. Su importancia cultural es indiscutible como símbolo de la cristiandad en esta tierra.</p>
+            <div class="cul-dato-bar">
+              <div class="cul-dato">
+                <span class="cul-dato-label">Ubicación</span>
+                <span class="cul-dato-val">Plaza Mayor de Chiclín</span>
+              </div>
+              <div class="cul-dato">
+                <span class="cul-dato-label">Tipo</span>
+                <span class="cul-dato-val">Monumento religioso</span>
+              </div>
+              <div class="cul-dato">
+                <span class="cul-dato-label">Visita</span>
+                <span class="cul-dato-val">Libre — Todo el día</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ MONUMENTO 2: MONUMENTO AL TRABAJO ══ -->
+      <div class="cul-bloque cul-bloque--reverse">
+        <div class="cul-bloque-header">
+          <span class="cul-num">02</span>
+          <div>
+            <h3 class="cul-titulo">Monumento al Trabajo</h3>
+            <p class="cul-subtitulo">1926 – 2026 · Un siglo de belleza escultórica</p>
+          </div>
+        </div>
+        <div class="cul-row cul-row--reverse">
+
+          <!-- MEDIA: video grande + 3 fotos -->
+          <div class="cul-media">
+            <div class="cul-media-grid">
+              <div class="cul-media-main">
+                <video autoplay muted loop playsinline>
+                  <source src="videos/Chiclin.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div class="cul-media-fotos">
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/javier1.jpg" alt="Monumento al Trabajo 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/javier2.jpg" alt="Monumento al Trabajo 2" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/javier3.jpg" alt="Monumento al Trabajo 3" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INFO -->
+          <div class="cul-info">
+            <div class="cul-badge-centenario">🏛️ Centenario 1926 – 2026</div>
+            <p class="cul-desc">Asentado sobre una base cúbica de mármol de Carrara, mide 4.20 m de altura y un ancho de 2 m. Representa un cuadro de desnudos de la anatomía humana, trabajada de manera clásica por el artista romano Ernesto Gazzeri, con clara influencia florentina.</p>
+            <p class="cul-desc">La figura central representa al trabajo en actitud serena, sentado sobre un yunque con un martillo en la mano. A sus pies, una madre besando a su hijo — símbolo de la vida y el progreso. Fue inaugurado en agosto de 1926 con el nombre de "Trabajo, Progreso y Vida", erigido por la familia Larco para reconocer la lealtad de los trabajadores de la hacienda.</p>
+            <div class="cul-cita">
+              <p>"Cuando los hombres se agrupan en torno a un ideal, si no inscriben en su bandera el respeto a la verdad y el culto a la justicia... la solidaridad que los liga se convierte en factor de crimen."</p>
+              <span>— Lema grabado en la base del monumento</span>
+            </div>
+            <div class="cul-dato-bar">
+              <div class="cul-dato">
+                <span class="cul-dato-label">Inauguración</span>
+                <span class="cul-dato-val">Agosto 1926</span>
+              </div>
+              <div class="cul-dato">
+                <span class="cul-dato-label">Material</span>
+                <span class="cul-dato-val">Mármol de Carrara</span>
+              </div>
+              <div class="cul-dato">
+                <span class="cul-dato-label">Artista</span>
+                <span class="cul-dato-val">Ernesto Gazzeri</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ MONUMENTO 3: JAVIER LARCO HOYLE ══ -->
+      <div class="cul-bloque">
+        <div class="cul-bloque-header">
+          <span class="cul-num">03</span>
+          <div>
+            <h3 class="cul-titulo">Monumento a Javier Larco Hoyle</h3>
+            <p class="cul-subtitulo">1948 · Bronce que guarda la memoria de un hombre ejemplar</p>
+          </div>
+        </div>
+        <div class="cul-row">
+
+          <!-- MEDIA: video grande + 3 fotos -->
+          <div class="cul-media">
+            <div class="cul-media-grid">
+              <div class="cul-media-main">
+                <video autoplay muted loop playsinline>
+                  <source src="videos/Chiclin.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div class="cul-media-fotos">
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/Culturales/javierlarco.jpg" alt="Javier Larco 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/Culturales/javierlarco1.jpg" alt="Javier Larco 2" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+                <div class="cul-foto">
+                  <img src="img/CHICLIN/Culturales/javierlarco2.jpg" alt="Javier Larco 3" onerror="this.parentElement.style.background='#1a1d24'"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INFO -->
+          <div class="cul-info">
+            <p class="cul-desc">Erigido en 1948 en la Plaza Mayor de Chiclín, este monumento de bronce honra la memoria de Javier Larco Hoyle, hijo de la familia que fundó y transformó la Hacienda Chiclín. Las escuelas chiclinenses le rendían culto anualmente con ceremonias cívicas y desfiles escolares.</p>
+            <p class="cul-desc">La escultura representa a un hombre joven y atlético, forjado en bronce, inclinado y llorando sobre una capa de torero — la misma capa que luciera don Javier aquel día triste. Simboliza su recuerdo justo y cariñoso. Siempre trabajó para hacer de Chiclín una colectividad ejemplar, unida, virtuosa y patriota.</p>
+            <div class="cul-dato-bar">
+              <div class="cul-dato">
+                <span class="cul-dato-label">Año</span>
+                <span class="cul-dato-val">1948</span>
+              </div>
+              <div class="cul-dato">
+                <span class="cul-dato-label">Material</span>
+                <span class="cul-dato-val">Bronce</span>
+              </div>
+              <div class="cul-dato">
+                <span class="cul-dato-label">Ubicación</span>
+                <span class="cul-dato-val">Plaza Mayor de Chiclín</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+ <div class="iglesias-container">
+  
+  <div class="iglesia-card">
+    <div class="iglesia-media-grid">
+      <div class="iglesia-foto-wrapper">
+        <img src="img/CHICLIN/Culturales/cris1.jpg" alt="Capilla de Chiclín fachada" onerror="this.parentElement.style.background='#1a1d24'"/>
+      </div>
+      <div class="iglesia-foto-wrapper">
+        <img src="img/CHICLIN/Culturales/cris2.jpg" alt="Capilla de Chiclín detalle" onerror="this.parentElement.style.background='#1a1d24'"/>
+      </div>
+    </div>
+    
+    <div class="iglesia-content">
+      <div class="iglesia-badge">Patrimonio</div>
+      <h3 class="iglesia-titulo">Capilla de Chiclín</h3>
+      <p class="iglesia-sub">Patrimonio arquitectónico de la época de la Hacienda Chiclín</p>
+      <p class="iglesia-desc">Construida bajo la administración de la familia Larco. Su fachada blanca con dos torres gemelas la distingue como el símbolo religioso más icónico del pueblo, testigo del nacimiento y despedida de generaciones enteras de trabajadores.</p>
+      
+      <div class="iglesia-datos">
+        <div class="iglesia-dato-item"><strong>Época:</strong> Hacienda Larco</div>
+        <div class="iglesia-dato-item"><strong>Estilo:</strong> Arquitectura colonial</div>
+        <div class="iglesia-dato-item"><strong>Visita:</strong> Libre</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="iglesia-card">
+    <div class="iglesia-media-grid">
+      <div class="iglesia-foto-wrapper">
+        <img src="img/CHICLIN/Culturales/museo2.jpg" alt="Parroquia Jesús Nazareno exterior" onerror="this.parentElement.style.background='#1a1d24'"/>
+      </div>
+      <div class="iglesia-foto-wrapper">
+        <img src="img/CHICLIN/Culturales/museo3.jpg" alt="Parroquia Jesús Nazareno altar" onerror="this.parentElement.style.background='#1a1d24'"/>
+      </div>
+    </div>
+    
+    <div class="iglesia-content">
+      <div class="iglesia-badge">Santuario</div>
+      <h3 class="iglesia-titulo">Parroquia Jesús Nazareno</h3>
+      <p class="iglesia-sub">Centro espiritual de la festividad del Señor de la Caña</p>
+      <p class="iglesia-desc">La Hermandad del Señor de la Caña, fundada en 1937, tiene aquí su centro espiritual. Su característica fachada amarilla la hace inconfundible en el paisaje urbano y es el punto de encuentro en las fechas más importantes del calendario religioso.</p>
+      
+      <div class="iglesia-datos">
+        <div class="iglesia-dato-item"><strong>Hermandad:</strong> Desde 1937</div>
+        <div class="iglesia-dato-item"><strong>Festividad:</strong> Junio — Señor de la Caña</div>
+        <div class="iglesia-dato-item"><strong>Visita:</strong> Libre</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <!-- ══════════ MUSEO DE CHICLÍN ══════════ -->
+  <section class="section section-dark" id="museo">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <div class="section-label-wrap">
+          <span class="section-label">Museo</span>
+          <div class="section-line"></div>
+        </div>
+      </div>
+      <h2 class="section-title">Ex Museo de Chiclín</h2>
+
+      <!-- INTRO MUSEO -->
+      <div class="museo-intro">
+        <div class="museo-intro-texto">
+          <div class="museo-badge">🏛️ Centenario 1926 – 2026</div>
+          <h3 class="museo-intro-titulo">La memoria arqueológica del Valle Chicama</h3>
+          <p>El Ex Museo de Chiclín fue fundado por Rafael Larco Herrera en 1926 como parte del complejo cultural de la Hacienda Chiclín. Durante décadas albergó una de las colecciones arqueológicas más importantes del norte del Perú, con piezas de las culturas Moche, Chimú y Virú encontradas en el Valle Chicama.</p>
+          <p>Su edificio histórico, que cumple 100 años en 2026, es en sí mismo un patrimonio arquitectónico del pueblo. El frontis del museo está decorado con iconografía mochica — los famosos "sapos" de cemento natural que representan sacerdotes con tocados ceremoniales, tal como los describió Rafael Larco Hoyle, padre de la arqueología peruana.</p>
+        </div>
+        <div class="museo-intro-img">
+          <img src="img/CHICLIN/fotos/d6.jpg" alt="Museo de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-intro-tag">Fundado en 1926 · 100 años de historia</div>
+        </div>
+      </div>
+
+      <!-- GALERÍA MUSEO -->
+      <div class="museo-galeria-header">
+        <span class="museo-gal-label">Galería</span>
+        <h4 class="museo-gal-titulo">Álbum de fotos — Ex Museo de Chiclín</h4>
+      </div>
+      <div class="museo-gal-grid">
+        <div class="museo-gal-item museo-gal-item--large">
+          <img src="img/CHICLIN/Culturales/museo1.jpg" alt="Museo 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Ex Museo de Chiclín</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo2.jpg" alt="Museo 2" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Colección arqueológica</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo3.jpg" alt="Museo 3" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Iconografía Moche</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo4.jpg" alt="Museo 4" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Piezas del Valle Chicama</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo5.jpg" alt="Museo 5" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Cultura Chimú</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo6.jpg" alt="Museo 6" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Patrimonio histórico</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo7.jpg" alt="Museo 7" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Arquitectura del museo</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo8.jpg" alt="Museo 8" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Frontis histórico</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo9.jpg" alt="Museo 9" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Detalles arqueológicos</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo10.jpg" alt="Museo 10" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Valle Chicama antiguo</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo11.jpg" alt="Museo 11" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Colección Larco</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo12.jpg" alt="Museo 12" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Historia del museo</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo13.jpg" alt="Museo 13" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Piezas precolombinas</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo14.jpg" alt="Museo 14" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Legado cultural</span></div>
+        </div>
+        <div class="museo-gal-item">
+          <img src="img/CHICLIN/Culturales/museo15.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="img/location/logo.png" alt="logo"/>
+        <span>Valle Chicama</span>
+      </div>
+      <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+      <button onclick="window.location.href='destino.html?id=chiclin'">← Volver a Chiclín</button>
+    </div>
+  </footer>
+
+  <script src="culturales.js"></script>
+</body>
+</html>

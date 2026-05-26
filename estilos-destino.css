@@ -1055,3 +1055,508 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   .ugarte-stat-sep { display: none; }
   .ugarte-stat-item { flex: 0 0 45%; }
 }
+
+ /* ══════════ FESTIVIDAD SEÑOR DE LA CAÑA ══════════ */
+    .festividad-section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .festividad-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .festividad-titulo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .festividad-subtitulo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .novenas-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid #c9a84c;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 50px;
+      color: #ccc;
+      font-family: 'Outfit', sans-serif;
+    }
+    .novenas-banner strong {
+      display: block;
+      color: #c9a84c;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .novenas-banner p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .novenas-icono {
+      font-size: 2rem;
+      margin-top: 2px;
+    }
+    .dias-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .dia-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      height: 320px;
+    }
+    .dia-card-img {
+      width: 100%;
+      height: 100%;
+    }
+    .dia-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .dia-card:hover .dia-card-img img {
+      transform: scale(1.05);
+    }
+    .dia-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+    }
+    .dia-fecha {
+      font-size: 0.75rem;
+      color: #c9a84c;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .dia-card-label h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .dia-card-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.97);
+      color: #222;
+      padding: 24px 20px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      overflow-y: auto;
+    }
+    .dia-card:hover .dia-card-hover {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .dia-card-hover h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: #7b3fa0;
+      margin: 0 0 14px 0;
+      letter-spacing: 1px;
+    }
+    .dia-card-hover ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .dia-card-hover ul li {
+      font-size: 0.85rem;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+      line-height: 1.4;
+      color: #333;
+    }
+    .dia-card-hover ul li:last-child {
+      border-bottom: none;
+    }
+    @media (max-width: 768px) {
+      .dias-grid { grid-template-columns: 1fr; }
+      .festividad-titulo { font-size: 2rem; }
+      .festividad-section { padding: 50px 20px; }
+    }
+
+    /* ══════════ ALFONSO UGARTE CARDS ══════════ */
+.ugarte-intro {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  color: #aaa;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+
+/* CONTENEDOR ABANICO */
+.ugarte-fan-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 420px;
+  margin-bottom: 50px;
+}
+
+/* CARD NEOBRUTALIST */
+.ugarte-fan-card {
+  position: relative;
+  width: 320px;
+  min-height: 360px;
+  background: #dc2626;
+  border: 3px solid #000;
+  box-shadow: 10px 10px 0 #000;
+  margin: 0 -55px;
+  transform: rotate(calc(var(--r) * 1deg));
+  transition: all 0.4s cubic-bezier(0.19,1,0.22,1);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ugarte-fan-container:hover .ugarte-fan-card {
+  transform: rotate(0deg);
+  margin: 0 12px;
+}
+
+.ugarte-fan-card:hover {
+  translate: -4px -4px;
+  box-shadow: 14px 14px 0 #000;
+  z-index: 10;
+}
+
+/* HEAD DE LA CARD */
+.ufc-head {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  width: 100%;
+  background: #fff;
+  padding: 10px 14px;
+  color: #000;
+  border-bottom: 3px solid #000;
+  letter-spacing: 0.5px;
+}
+
+/* CONTENIDO */
+.ufc-content {
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ufc-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.ufc-año {
+  flex: 0 0 38px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background: #000;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.ufc-icon {
+  flex: 0 0 24px;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.ufc-item p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  color: #fff;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ufc-item p strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* STATS BAR */
+.ugarte-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(220,38,38,0.08);
+  border: 1px solid rgba(220,38,38,0.25);
+  border-radius: 12px;
+  padding: 24px 40px;
+  gap: 0;
+  margin-top: 20px;
+}
+
+.ugarte-sb-item {
+  flex: 1;
+  text-align: center;
+}
+
+.ugarte-sb-sep {
+  width: 1px;
+  height: 36px;
+  background: rgba(220,38,38,0.25);
+}
+
+.ugarte-sb-num {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: #dc2626;
+  letter-spacing: 2px;
+}
+
+.ugarte-sb-label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .ugarte-fan-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .ugarte-fan-card {
+    margin: 0;
+    transform: none !important;
+    width: 90%;
+  }
+  .ugarte-stats-bar {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  .ugarte-sb-sep { display: none; }
+}
+
+.ufc-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* ══════════ GALERÍA ALFONSO UGARTE ══════════ */
+.ugarte-galeria {
+  margin-top: 60px;
+}
+
+.ugarte-gal-header {
+  margin-bottom: 28px;
+}
+
+.ugarte-gal-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #dc2626;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ugarte-gal-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.ugarte-gal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.ugarte-gal-item {
+  position: relative;
+  height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ugarte-gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ugarte-gal-item:hover img {
+  transform: scale(1.06);
+}
+
+.ugarte-gal-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(220, 38, 38, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ugarte-gal-item:hover .ugarte-gal-overlay {
+  opacity: 1;
+}
+
+.ugarte-gal-texto {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.ugarte-gal-item:hover .ugarte-gal-texto {
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .ugarte-gal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ugarte-gal-item {
+    height: 180px;
+  }
+}
+
+.ct-icono-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* INTRO ALFONSO UGARTE */
+.ugarte-intro-section {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.ugarte-intro-text {
+  flex: 1;
+}
+
+.ugarte-intro-h {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: #dc2626;
+  letter-spacing: 2px;
+  margin: 0 0 16px 0;
+}
+
+.ugarte-intro-text p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: #aaa;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.ugarte-intro-text p strong {
+  color: #fff;
+}
+
+.ugarte-intro-img {
+  flex: 0 0 380px;
+  position: relative;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(220,38,38,0.3);
+}
+
+.ugarte-intro-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: filter 0.3s ease;
+}
+
+.ugarte-intro-img:hover img {
+  filter: brightness(1);
+}
+
+.ugarte-intro-img-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(220,38,38,0.9);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 100px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .ugarte-intro-section {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .ugarte-intro-img {
+    flex: none;
+    width: 100%;
+    height: 220px;
+  }
+}
