@@ -61,7 +61,7 @@
       <h2 class="section-title">Patrimonio Cultural de Chiclín</h2>
 
       <!-- ══ MONUMENTO 1: CRISTO REY ══ -->
-      <div class="cul-bloque">
+      <div class="cul-bloque" id="cristo-rey">
         <div class="cul-bloque-header">
           <span class="cul-num">01</span>
           <div>
@@ -111,12 +111,15 @@
                 <span class="cul-dato-val">Libre — Todo el día</span>
               </div>
             </div>
+            <button class="qr-btn" onclick="abrirQR('cristo-rey', 'Cristo Rey de Chiclín')">
+              <span class="qr-btn-icon">⬛</span> Ver código QR
+            </button>
           </div>
         </div>
       </div>
 
       <!-- ══ MONUMENTO 2: MONUMENTO AL TRABAJO ══ -->
-      <div class="cul-bloque cul-bloque--reverse">
+      <div class="cul-bloque cul-bloque--reverse" id="monumento-trabajo">
         <div class="cul-bloque-header">
           <span class="cul-num">02</span>
           <div>
@@ -171,12 +174,15 @@
                 <span class="cul-dato-val">Ernesto Gazzeri</span>
               </div>
             </div>
+            <button class="qr-btn" onclick="abrirQR('monumento-trabajo', 'Monumento al Trabajo')">
+              <span class="qr-btn-icon">⬛</span> Ver código QR
+            </button>
           </div>
         </div>
       </div>
 
       <!-- ══ MONUMENTO 3: JAVIER LARCO HOYLE ══ -->
-      <div class="cul-bloque">
+      <div class="cul-bloque" id="javier-larco">
         <div class="cul-bloque-header">
           <span class="cul-num">03</span>
           <div>
@@ -226,6 +232,9 @@
                 <span class="cul-dato-val">Plaza Mayor de Chiclín</span>
               </div>
             </div>
+            <button class="qr-btn" onclick="abrirQR('javier-larco', 'Monumento a Javier Larco Hoyle')">
+              <span class="qr-btn-icon">⬛</span> Ver código QR
+            </button>
           </div>
         </div>
       </div>
@@ -394,6 +403,18 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="culturales.js"></script>
+
+  <!-- ══════════ MODAL QR ══════════ -->
+  <div id="qr-modal" class="qr-modal-overlay" onclick="cerrarQR(event)">
+    <div class="qr-modal-box">
+      <button class="qr-modal-close" onclick="document.getElementById('qr-modal').classList.remove('active')">✕</button>
+      <p class="qr-modal-label">Escanea para ver este monumento</p>
+      <div id="qr-modal-code"></div>
+      <p class="qr-modal-url" id="qr-modal-url"></p>
+    </div>
+  </div>
+
 </body>
 </html>
