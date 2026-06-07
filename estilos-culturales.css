@@ -916,3 +916,41 @@
   .museo-gal-item--large { grid-column: span 1; }
 }
  
+/* ══ FIXES MÓVIL REAL ══ */
+@media screen and (max-width: 900px) {
+  /* Ocultar fotos secundarias en celular real */
+  .cul-media-fotos {
+    display: none !important;
+  }
+
+  .cul-media-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+
+  .cul-media-main {
+    height: 230px !important;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Centrar texto del hero */
+  .hero-content {
+    text-align: center !important;
+    padding: 0 24px !important;
+  }
+
+  .hero-tag,
+  .hero-ubicacion,
+  .hero-desc {
+    text-align: center !important;
+  }
+
+  .hero-badges {
+    justify-content: center !important;
+  }
+
+  .hero-title {
+    text-align: center !important;
+  }
+}
