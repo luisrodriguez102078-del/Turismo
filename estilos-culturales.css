@@ -971,3 +971,28 @@
     order: 1 !important;
   }
 }
+
+.cul-frase {
+  margin: 0;
+  padding: 18px 22px;
+  border-left: 3px solid rgba(0,229,160,0.4);
+  background: rgba(0,229,160,0.05);
+  border-radius: 0 10px 10px 0;
+}
+
+.cul-frase p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 8px 0;
+}
+
+.cul-frase cite {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-style: normal;
+}

@@ -62,7 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Monumentos y museo: solo párrafos <p>, NUNCA .cul-cita
   document.querySelectorAll('.cul-info, .museo-intro-texto').forEach(contenedor => {
-    const parrafos = contenedor.querySelectorAll('p.cul-desc, ');
+    const parrafos = Array.from(contenedor.querySelectorAll('p.cul-desc, p')).filter(
+    p => !p.closest('blockquote')
+);
     if (parrafos.length >= 2) {
       aplicarVerMasGrupo(Array.from(parrafos));
     }
