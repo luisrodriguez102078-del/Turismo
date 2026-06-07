@@ -16,14 +16,18 @@
       <img src="img/location/logo.png" alt="logo" class="logo-img"/>
       <span class="logo-text">Valle Chicama</span>
     </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="destino.html?id=chiclin">Chiclín</a></li>
-      <li><a href="#monumentos">Monumentos</a></li>
-      <li><a href="#museo">Museo</a></li>
-      <li><a href="#plaza">Plaza de Armas</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="cerrarMenu()">Inicio</a></li>
+      <li><a href="destino.html?id=chiclin" onclick="cerrarMenu()">Chiclín</a></li>
+      <li><a href="#monumentos" onclick="cerrarMenu()">Monumentos</a></li>
+      <li><a href="#museo" onclick="cerrarMenu()">Museo</a></li>
+      <li><a href="#plaza" onclick="cerrarMenu()">Plaza de Armas</a></li>
+      <li class="nav-volver-mobile"><a href="destino.html?id=chiclin">← Volver a Chiclín</a></li>
     </ul>
-    <button class="btn-volver" onclick="window.location.href='constumbres.html?id=chiclin'">← Volver a Chiclín</button>
+    <button class="btn-volver btn-volver-desktop" onclick="window.location.href='destino.html?id=chiclin'">← Volver a Chiclín</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- ══════════ HERO ══════════ -->
@@ -232,7 +236,7 @@
                 <span class="cul-dato-val">Plaza Mayor de Chiclín</span>
               </div>
             </div>
-            <button class="qr-btn" onclick="abrirQR('javier-larco', 'Monumento a Javier Larco Hoyle')">
+            <button class="qr-btn" onclick="abrirQR('javier-larco','Monumento a Javier Larco Hoyle')">
               <span class="qr-btn-icon">⬛</span> Ver código QR
             </button>
           </div>
@@ -399,10 +403,10 @@
         <span>Valle Chicama</span>
       </div>
       <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+      <button onclick="window.location.href='destino.html?id=chiclin'">← Volver a Chiclín</button>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="culturales.js"></script>
 
   <!-- ══════════ MODAL QR ══════════ -->
@@ -410,6 +414,7 @@
     <div class="qr-modal-box">
       <button class="qr-modal-close" onclick="document.getElementById('qr-modal').classList.remove('active')">✕</button>
       <p class="qr-modal-label">Escanea para ver este monumento</p>
+       <h3 id="qr-modal-name"></h3>
       <div id="qr-modal-code"></div>
       <p class="qr-modal-url" id="qr-modal-url"></p>
     </div>

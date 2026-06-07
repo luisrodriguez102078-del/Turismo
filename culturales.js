@@ -17,40 +17,33 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.cul-bloque, .museo-intro, .museo-gal-grid').forEach(el => {
   observer.observe(el);
 });
+
 // ══════════ QR MODAL ══════════
 function abrirQR(ancla, nombre) {
-  const base = window.location.href.split('#')[0].split('?')[0];
+  const base = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')
+  ? 'https://luisrodriguez102078-del.github.io/Turismo/culturales.html'
+  : window.location.href.split('#')[0].split('?')[0];
   const url  = base + '#' + ancla;
 
   const modal   = document.getElementById('qr-modal');
   const qrBox   = document.getElementById('qr-modal-code');
   const urlText = document.getElementById('qr-modal-url');
+  const nameEl  = document.getElementById('qr-modal-name');
 
-  // Limpiar QR anterior
-  qrBox.innerHTML = '';
-
-  // Actualizar texto
-  urlText.textContent = url;
-
-  // Insertar nombre si no existe ya
-  let nameEl = document.getElementById('qr-modal-name');
-  if (!nameEl) {
-    nameEl = document.createElement('p');
-    nameEl.id = 'qr-modal-name';
-    nameEl.className = 'qr-modal-name';
-    qrBox.parentNode.insertBefore(nameEl, qrBox);
-  }
+  // Nombre del monumento
   nameEl.textContent = nombre;
 
-  // Generar QR
-  new QRCode(qrBox, {
-    text: url,
-    width: 200,
-    height: 200,
-    colorDark: '#000000',
-    colorLight: '#ffffff',
-    correctLevel: QRCode.CorrectLevel.H
-  });
+  // URL visible
+  urlText.textContent = url;
+
+  // Generar QR usando API pública (no necesita librería)
+  const encoded = encodeURIComponent(url);
+  qrBox.innerHTML = `<img 
+    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encoded}&color=000000&bgcolor=ffffff&margin=10" 
+    alt="Código QR de ${nombre}"
+    width="200" height="200"
+    style="border-radius:8px; display:block;"
+  />`;
 
   modal.classList.add('active');
 }
@@ -61,7 +54,6 @@ function cerrarQR(e) {
   }
 }
 
-// Cerrar con Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('qr-modal').classList.remove('active');
 });
@@ -69,53 +61,50 @@ document.addEventListener('keydown', e => {
 // ══════════ VER MÁS / VER MENOS ══════════
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Selectores donde aplicar "Ver más"
-  // Agrupa párrafos dentro de .cul-info, .iglesia-content, .museo-intro-texto
-  const contenedores = document.querySelectorAll(
-    '.cul-info, .iglesia-content .iglesia-desc, .museo-intro-texto'
-  );
+  // Iglesias: párrafo directo
+  document.querySelectorAll('.iglesia-desc').forEach(el => {
+    aplicarVerMas(el);
+  });
 
-  contenedores.forEach(contenedor => {
-    // Para iglesia-desc aplicamos directo al párrafo
-    if (contenedor.classList.contains('iglesia-desc')) {
-      aplicarVerMas(contenedor, true);
-      return;
-    }
-
-    // Para .cul-info y .museo-intro-texto: agrupar todos los párrafos .cul-desc / p
-    const parrafos = contenedor.querySelectorAll('p.cul-desc, .museo-intro-texto > p');
+  // Monumentos y museo: agrupar párrafos
+  document.querySelectorAll('.cul-info, .museo-intro-texto').forEach(contenedor => {
+    const parrafos = contenedor.querySelectorAll('p.cul-desc, p');
     if (parrafos.length >= 2) {
-      aplicarVerMasGrupo(parrafos);
+      aplicarVerMasGrupo(Array.from(parrafos));
     }
   });
 });
 
-function aplicarVerMas(el, esSolo) {
-  const textoCompleto = el.textContent.trim();
-  if (textoCompleto.length < 180) return; // No aplica si es corto
+function aplicarVerMas(el) {
+  if (el.textContent.trim().length < 150) return;
+  const htmlCompleto = el.innerHTML;
+  const textoCorto = el.textContent.trim().substring(0, 130).replace(/\s\S+$/, '') + '…';
 
-  // Mostrar solo los primeros ~120 caracteres cortando en palabra
-  const preview = textoCompleto.substring(0, 120).replace(/\s\S+$/, '') + '…';
-
-  el.setAttribute('data-completo', el.innerHTML);
-  el.innerHTML = preview;
-  el.classList.add('ver-mas-activo');
+  el.innerHTML = textoCorto;
+  el.dataset.completo = htmlCompleto;
+  el.dataset.expandido = 'no';
 
   const btn = crearBoton();
   el.insertAdjacentElement('afterend', btn);
 
-  btn.addEventListener('click', () => toggleTexto(el, btn));
+  btn.addEventListener('click', () => {
+    if (el.dataset.expandido === 'no') {
+      el.innerHTML = el.dataset.completo;
+      el.dataset.expandido = 'si';
+      btn.innerHTML = '▴ Ver menos';
+    } else {
+      el.innerHTML = textoCorto;
+      el.dataset.expandido = 'no';
+      btn.innerHTML = '▾ Ver más';
+    }
+  });
 }
 
 function aplicarVerMasGrupo(parrafos) {
-  // Mostrar solo el primer párrafo, ocultar el resto
-  const wrapper = document.createElement('div');
-  wrapper.className = 'ver-mas-wrapper';
-
+  if (parrafos.length < 2) return;
   const primero = parrafos[0];
-  const ocultos = Array.from(parrafos).slice(1);
+  const ocultos = parrafos.slice(1);
 
-  // Crear contenedor colapsable
   const colapsable = document.createElement('div');
   colapsable.className = 'ver-mas-colapsable';
   colapsable.style.display = 'none';
@@ -133,27 +122,34 @@ function aplicarVerMasGrupo(parrafos) {
   btn.addEventListener('click', () => {
     const abierto = colapsable.style.display !== 'none';
     colapsable.style.display = abierto ? 'none' : 'block';
-    btn.textContent = abierto ? '▾ Ver más' : '▴ Ver menos';
+    btn.innerHTML = abierto ? '▾ Ver más' : '▴ Ver menos';
   });
 }
 
 function crearBoton() {
   const btn = document.createElement('button');
   btn.className = 'ver-mas-btn';
-  btn.textContent = '▾ Ver más';
+  btn.innerHTML = '▾ Ver más';
   return btn;
 }
 
-function toggleTexto(el, btn) {
-  const abierto = el.classList.contains('expandido');
-  if (abierto) {
-    el.innerHTML = el.getAttribute('data-preview');
-    el.classList.remove('expandido');
-    btn.textContent = '▾ Ver más';
-  } else {
-    el.setAttribute('data-preview', el.innerHTML);
-    el.innerHTML = el.getAttribute('data-completo');
-    el.classList.add('expandido');
-    btn.textContent = '▴ Ver menos';
-  }
+// ══════════ HAMBURGER MENU ══════════
+function toggleMenu() {
+  const nav = document.getElementById('nav-links');
+  const btn = document.getElementById('hamburger');
+  const abierto = nav.classList.toggle('menu-abierto');
+  btn.classList.toggle('abierto', abierto);
+  document.body.style.overflow = abierto ? 'hidden' : '';
 }
+
+function cerrarMenu() {
+  document.getElementById('nav-links').classList.remove('menu-abierto');
+  document.getElementById('hamburger').classList.remove('abierto');
+  document.body.style.overflow = '';
+}
+
+window.addEventListener('scroll', () => {
+  if (document.getElementById('nav-links').classList.contains('menu-abierto')) {
+    cerrarMenu();
+  }
+}, { passive: true });
