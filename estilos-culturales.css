@@ -954,3 +954,20 @@
     text-align: center !important;
   }
 }
+
+/* ══ FIX MONUMENTO AL TRABAJO EN MÓVIL ══ */
+@media screen and (max-width: 900px) {
+  .cul-row--reverse {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    direction: ltr !important;
+  }
+
+  .cul-row--reverse .cul-media {
+    order: 0 !important;
+  }
+
+  .cul-row--reverse .cul-info {
+    order: 1 !important;
+  }
+}

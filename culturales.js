@@ -20,23 +20,17 @@ document.querySelectorAll('.cul-bloque, .museo-intro, .museo-gal-grid').forEach(
 
 // ══════════ QR MODAL ══════════
 function abrirQR(ancla, nombre) {
-  const base = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')
-  ? 'https://luisrodriguez102078-del.github.io/Turismo/culturales.html'
-  : window.location.href.split('#')[0].split('?')[0];
-  const url  = base + '#' + ancla;
+  // URL siempre apunta a GitHub Pages — sin detección de hostname
+  const url = 'https://luisrodriguez102078-del.github.io/Turismo/culturales.html#' + ancla;
 
   const modal   = document.getElementById('qr-modal');
   const qrBox   = document.getElementById('qr-modal-code');
   const urlText = document.getElementById('qr-modal-url');
   const nameEl  = document.getElementById('qr-modal-name');
 
-  // Nombre del monumento
   nameEl.textContent = nombre;
-
-  // URL visible
   urlText.textContent = url;
 
-  // Generar QR usando API pública (no necesita librería)
   const encoded = encodeURIComponent(url);
   qrBox.innerHTML = `<img 
     src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encoded}&color=000000&bgcolor=ffffff&margin=10" 
@@ -66,9 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
     aplicarVerMas(el);
   });
 
-  // Monumentos y museo: agrupar párrafos
+  // Monumentos y museo: solo párrafos <p>, NUNCA .cul-cita
   document.querySelectorAll('.cul-info, .museo-intro-texto').forEach(contenedor => {
-    const parrafos = contenedor.querySelectorAll('p.cul-desc, p');
+    const parrafos = contenedor.querySelectorAll('p.cul-desc, ');
     if (parrafos.length >= 2) {
       aplicarVerMasGrupo(Array.from(parrafos));
     }
