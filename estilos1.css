@@ -645,3 +645,58 @@ body {
     transform: translateX(-50%);
   }
 }
+/* ══════════════════════════════════════════
+   NAVBAR RESPONSIVE MÓVIL
+   ══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+    gap: 0.5rem;
+    height: 56px;
+  }
+
+  /* Ocultar logo-text en móvil, solo mostrar ícono */
+  .logo-text {
+    display: none;
+  }
+
+  .logo-icon {
+    font-size: 1.6rem;
+  }
+
+  /* Links más compactos */
+  .nav-links {
+    margin-left: 0;
+    gap: 0;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+    letter-spacing: 0;
+  }
+
+  /* Acciones más pequeñas */
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .btn-theme {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .btn-outline {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-links a {
+    font-size: 0.7rem;
+    padding: 4px 6px;
+  }
+}

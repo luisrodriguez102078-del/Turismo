@@ -717,3 +717,215 @@
   text-align: center;
   max-width: 240px;
 }
+
+/* ══════════════════════════════════════════
+   CULTURALES – MEJORAS MÓVIL
+   ══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* Hero section */
+  .cul-hero {
+    min-height: 100svh;
+    padding-top: 56px;
+  }
+
+  /* Bloques */
+  .cul-bloque {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+  }
+
+  /* Header del bloque: número + título */
+  .cul-bloque-header {
+    gap: 12px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+
+  .cul-num {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+
+  .cul-titulo {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    line-height: 1.15;
+  }
+
+  .cul-subtitulo {
+    font-size: 0.82rem;
+  }
+
+  /* Grid media: una columna */
+  .cul-row,
+  .cul-row--reverse {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    direction: ltr;
+  }
+
+  /* Galería de fotos en horizontal scroll en móvil */
+  .cul-media-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 8px;
+  }
+
+  .cul-media-main {
+    height: 220px;
+  }
+
+  .cul-media-fotos {
+    flex-direction: row;
+    height: 110px;
+    gap: 6px;
+    overflow-x: auto;
+  }
+
+  .cul-media-fotos img,
+  .cul-media-fotos video {
+    width: 160px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  /* Datos bar: scroll horizontal */
+  .cul-dato-bar {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cul-dato-bar::-webkit-scrollbar { display: none; }
+
+  .cul-dato {
+    flex-shrink: 0;
+    min-width: 120px;
+  }
+
+  /* Párrafos con mejor legibilidad */
+  .cul-texto p,
+  .cul-texto {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  /* Botón QR */
+  .qr-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 16px;
+    padding: 12px;
+  }
+
+  /* Iglesias cards: una columna */
+  .iglesias-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 0;
+  }
+
+  /* Sección museo */
+  .museo-intro {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .museo-intro-img {
+    width: 100%;
+    height: 200px;
+    flex: none;
+  }
+
+  /* Galería museo */
+  .museo-gal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .museo-gal-item--large {
+    grid-column: span 2;
+  }
+
+  /* Modal QR más pequeño */
+  .qr-modal-box {
+    padding: 24px 20px 20px;
+    min-width: 220px;
+    max-width: 90vw;
+  }
+
+  #qr-modal-code canvas,
+  #qr-modal-code img {
+    width: 170px !important;
+    height: 170px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .cul-titulo {
+    font-size: 1.3rem;
+  }
+
+  .cul-num {
+    font-size: 2rem;
+  }
+
+  .museo-gal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .museo-gal-item--large {
+    grid-column: span 1;
+  }
+}
+
+/* ══════════ VER MÁS ══════════ */
+.ver-mas-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 7px 16px;
+  background: transparent;
+  border: 1px solid rgba(0, 229, 160, 0.35);
+  border-radius: 20px;
+  color: var(--accent, #00e5a0);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ver-mas-btn:hover {
+  background: rgba(0, 229, 160, 0.08);
+  border-color: rgba(0, 229, 160, 0.6);
+  transform: translateY(-1px);
+}
+
+.ver-mas-colapsable {
+  animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ver-mas-activo {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ver-mas-activo.expandido {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
