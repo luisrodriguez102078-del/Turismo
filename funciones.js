@@ -59,7 +59,7 @@ const destinos = [
     ubicacion: "Sausal, Distrito \n de Chicama  Provincia de Ascope, La Libertad",
     desc: "Pueblo fundado en 1750 como 'Santo Domingo de Sausal', ubicado donde el Valle Chicama se abre hacia los llanos costeros. Tierra cañavelera rodeada de paisajes impresionantes y rica tradición artesanal.",
     img: "img/SAUSAL/imsausal3.jpg",
-    video: "https://res.cloudinary.com/dmtzm0btl/video/upload/v1781187926/Sausal2_mmflwp.mp4",
+    video: "https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/v1781187926/Sausal2_mmflwp.mp4",
     cardLabel: "SAUSAL",
     cardSub: "VALLE CHICAMA",
     qrUrl: "chicama.pe/lugar/4",
