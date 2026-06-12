@@ -61,7 +61,7 @@ const destinos = {
         icono: "🏛️",
         titulo: "Culturales",
         enlace: "culturales.html?id=chiclin",
-        video: "videos/CHICLIN/constumbres1.mp4",
+        video: "https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/v1781254759/constumbres1_wpuyts.mp4",
         items: [
           {
             nombre: "Museo",
