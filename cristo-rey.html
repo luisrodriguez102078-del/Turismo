@@ -10,7 +10,29 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-body); }
+    /* ===== MÓVILES ===== */
+@media (max-width: 768px){
 
+  /* Evita que el navbar tape el hero */
+  .cr-hero{
+    padding-top:120px;
+    min-height:700px;
+  }
+
+  .cr-hero-content{
+    padding:0 20px 30px;
+  }
+
+  .cr-hero-tag{
+    font-size:0.65rem;
+    letter-spacing:2px;
+  }
+
+  .cr-hero-title{
+    font-size:3rem;
+    line-height:0.95;
+  }
+}
     .btn-regresar {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 9px 18px;
@@ -387,7 +409,7 @@
       <span class="logo-text">Valle Chicama</span>
     </div>
     <a href="culturales.html#cristo-rey" class="btn-regresar">
-      <i class="fa-solid fa-arrow-left"></i> Volver a Monumentos
+      <i class="fa-solid fa-arrow-left"></i> Volver Monumentos
     </a>
   </nav>
 
