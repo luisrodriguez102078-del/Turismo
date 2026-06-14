@@ -5,723 +5,521 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cristo Rey de Chiclín — Historia Completa</title>
   <link rel="stylesheet" href="estilos-destino.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    /* ══════════════════════════════════════════
-       PÁGINA CRISTO REY — ESTILOS
-    ══════════════════════════════════════════ */
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
+    .btn-regresar {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: rgba(255,255,255,0.8);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease; white-space: nowrap;
     }
+    .btn-regresar:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.08); }
 
-    /* ── HERO ── */
     .cr-hero {
-      position: relative;
-      height: 70vh;
-      min-height: 480px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
+      position: relative; height: 70vh; min-height: 480px;
+      display: flex; align-items: flex-end; overflow: hidden;
     }
-
     .cr-hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.35);
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 110%; min-height: 110%;
+      width: auto; height: auto;
+      object-fit: cover; filter: brightness(0.35); z-index: 0;
     }
-
     .cr-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top,
-        rgba(0,0,0,0.95) 0%,
-        rgba(0,0,0,0.4) 60%,
-        rgba(0,0,0,0.1) 100%);
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
       z-index: 1;
     }
-
     .cr-hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 40px 60px;
+      position: relative; z-index: 2;
+      width: 100%; max-width: 900px;
+      margin: 0 auto; padding: 0 40px 60px;
     }
-
     .cr-hero-tag {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
     }
-
-    .cr-hero-tag::before {
-      content: '';
-      display: block;
-      width: 30px;
-      height: 1px;
-      background: var(--accent);
-    }
-
+    .cr-hero-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
     .cr-hero-title {
       font-family: var(--font-display);
       font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 0.95;
-      letter-spacing: 2px;
-      color: var(--text);
-      margin-bottom: 16px;
+      line-height: 0.95; letter-spacing: 2px;
+      color: var(--text); margin-bottom: 16px;
     }
-
-    .cr-hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-      max-width: 500px;
-    }
-
-    .cr-hero-badges {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
+    .cr-hero-sub { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 560px; }
+    .cr-hero-badges { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
     .cr-badge {
-      background: rgba(0,229,160,0.1);
-      border: 1px solid rgba(0,229,160,0.3);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 50px;
+      background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3);
+      color: var(--accent); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 50px;
     }
 
-    /* ── VOLVER ── */
-    .cr-volver {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      color: rgba(255,255,255,0.7);
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      margin-bottom: 24px;
-    }
+    .cr-main { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
 
-    .cr-volver:hover {
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-    }
-
-    /* ── CONTENIDO PRINCIPAL ── */
-    .cr-main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 40px;
-    }
-
-    /* ── SECCIÓN TÍTULO ── */
     .cr-seccion-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
     }
-
-    .cr-seccion-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
+    .cr-seccion-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .cr-seccion-titulo {
       font-family: var(--font-display);
       font-size: clamp(1.8rem, 4vw, 2.8rem);
-      letter-spacing: 1px;
-      color: var(--text);
-      margin-bottom: 40px;
-      line-height: 1.1;
+      letter-spacing: 1px; color: var(--text);
+      margin-bottom: 30px; line-height: 1.1;
     }
 
-    /* ── DESCRIPCIÓN PRINCIPAL ── */
-    .cr-descripcion {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 60px;
+    .cr-cita-apertura {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,229,160,0.02));
+      border: 1px solid rgba(0,229,160,0.2);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 16px 16px 0;
+      padding: 28px 32px; margin-bottom: 36px;
+    }
+    .cr-cita-apertura p {
+      font-size: 1.1rem; font-style: italic;
+      color: var(--text); line-height: 1.8; margin-bottom: 12px;
+    }
+    .cr-cita-apertura cite {
+      font-size: 0.75rem; color: var(--accent);
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; font-style: normal;
     }
 
+    .cr-descripcion { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 50px; }
     .cr-desc-p {
-      font-size: 0.97rem;
-      color: var(--text-muted);
-      line-height: 1.85;
-      border-left: 3px solid var(--accent);
-      padding-left: 18px;
+      font-size: 0.97rem; color: rgba(255,255,255,0.82);
+      line-height: 1.85; border-left: 3px solid var(--accent); padding-left: 18px;
     }
 
-    /* ── DATOS RÁPIDOS ── */
     .cr-datos {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 60px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; margin-bottom: 60px;
     }
-
     .cr-dato {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border-right: 1px solid var(--border);
-      transition: background 0.3s ease;
+      padding: 20px; display: flex; flex-direction: column; gap: 6px;
+      border-right: 1px solid var(--border); transition: background 0.3s ease;
     }
-
     .cr-dato:last-child { border-right: none; }
     .cr-dato:hover { background: var(--surface); }
+    .cr-dato-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
+    .cr-dato-val { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 1px; color: #ffffff; line-height: 1.3; }
 
-    .cr-dato-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .cr-dato-val {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    /* ── TARJETAS DE HISTORIA ── */
-    .cr-historia-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 60px;
-    }
+    .cr-historia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 60px; }
 
     .cr-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 16px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      transition: border-color 0.3s ease, transform 0.3s ease;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .cr-card:hover {
-      border-color: rgba(0,229,160,0.3);
-      transform: translateY(-4px);
-    }
-
+    .cr-card:hover { border-color: rgba(0,229,160,0.4); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
     .cr-card--full { grid-column: span 2; }
 
     .cr-card-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 22px;
+      background: rgba(0,229,160,0.07);
+      border-bottom: 1px solid rgba(0,229,160,0.15);
     }
-
-    .cr-card-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(0,229,160,0.1);
-      border: 1px solid rgba(0,229,160,0.2);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-
-    .cr-card-titulo {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-      color: var(--text);
-    }
-
-    .cr-card-items {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .cr-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cr-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .cr-item-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .cr-item-valor {
-      font-size: 0.93rem;
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    .cr-item-valor.pendiente {
-      color: rgba(255,255,255,0.25);
-      font-style: italic;
-    }
-
-    /* ── CURIOSIDAD DESTACADA ── */
-    .cr-curiosidad {
-      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,229,160,0.03));
+    .cr-card-icon-wrap {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(0,229,160,0.12);
       border: 1px solid rgba(0,229,160,0.25);
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 60px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
     }
+    .cr-card-icon-wrap i { font-size: 1.05rem; color: var(--accent); }
+    .cr-card-titulo { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 1px; color: #ffffff; }
 
-    .cr-curiosidad-icono {
-      font-size: 2.5rem;
-      flex-shrink: 0;
+    .cr-card-body { padding: 8px 0; }
+
+    .cr-fila {
+      display: flex; align-items: flex-start;
+      padding: 14px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
     }
+    .cr-fila:last-child { border-bottom: none; }
+    .cr-fila:hover { background: rgba(255,255,255,0.04); }
 
-    .cr-curiosidad-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
+    .cr-fila-label {
+      flex: 0 0 38%;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5; padding-top: 2px;
     }
-
-    .cr-curiosidad-titulo {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--text);
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-
-    .cr-curiosidad-texto {
+    .cr-fila-valor {
+      flex: 1;
       font-size: 0.93rem;
-      color: var(--text-muted);
-      line-height: 1.8;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.65;
     }
 
-    /* ── LEYENDA ── */
-    .cr-leyenda {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px;
+    .cr-historia-narrativa {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 36px; margin-bottom: 60px;
+    }
+    .cr-historia-narrativa p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.8);
+      line-height: 1.9; margin-bottom: 18px;
+    }
+    .cr-historia-narrativa p:last-child { margin-bottom: 0; }
+
+    .cr-cita-final {
+      background: linear-gradient(135deg, rgba(0,229,160,0.06), transparent);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: 16px; padding: 32px 36px; margin-bottom: 60px;
+      text-align: center;
+    }
+    .cr-cita-final p {
+      font-size: 1.05rem; font-style: italic;
+      color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 14px;
+    }
+    .cr-cita-final cite {
+      font-size: 0.72rem; color: var(--accent);
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; font-style: normal;
+    }
+
+   .cr-historiador {
+  display: flex; align-items: center; gap: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 60px;
+}
+.cr-historiador-foto-wrap {
+  flex-shrink: 0; width: 90px; height: 90px; border-radius: 50%;
+  overflow: hidden; border: 3px solid var(--accent);
+  background: rgba(0,229,160,0.08);
+  display: flex; align-items: center; justify-content: center;
+}
+.cr-historiador-foto { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cr-historiador-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center;
+  justify-content: center; color: var(--accent); font-size: 2.2rem;
+}
+.cr-historiador-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.cr-historiador-nombre { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 1px; color: #fff; }
+.cr-historiador-cargo { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
+.cr-historiador-fuente { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin-top: 8px; display: flex; align-items: flex-start; gap: 8px; }
+.cr-historiador-fuente i { color: var(--accent); font-size: 0.85rem; margin-top: 2px; flex-shrink: 0; }
+.cr-historiador-fuente strong { color: rgba(255,255,255,0.85); }
+
+    /* ── GALERÍA CORREGIDA ── */
+    .cr-galeria {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
       margin-bottom: 60px;
     }
-
-    .cr-leyenda-texto {
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.9;
-      font-style: italic;
-      border-left: 3px solid rgba(0,229,160,0.4);
-      padding-left: 20px;
+    .cr-foto {
+      border-radius: 12px; overflow: hidden; height: 220px;
+      background: #1a1d24; border: 1px solid var(--border);
+      cursor: pointer; position: relative;
+      display: block;
     }
-    /* ── GALERÍA MEJORADA ── */
-.cr-galeria {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 60px;
-}
+    .cr-foto-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,229,160,0.35);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .cr-foto-overlay i { font-size: 1.8rem; color: #fff; }
+    .cr-foto:hover .cr-foto-overlay { opacity: 1; }
+    .cr-foto img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.85); transition: transform 0.5s ease, filter 0.4s ease;
+      display: block;
+    }
+    .cr-foto:hover img { transform: scale(1.06); filter: brightness(1); }
 
-.cr-foto {
-  border-radius: 12px;
-  overflow: hidden;
-  height: 220px;
-  background: #1a1d24;
-  border: 1px solid var(--border);
-  cursor: pointer;
-  position: relative;
-}
+    .img-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+      z-index: 9999; align-items: center; justify-content: center; padding: 20px;
+    }
+    .img-modal-overlay.active { display: flex; }
+    .img-modal-box {
+      position: relative; max-width: 90vw; max-height: 90vh;
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .img-modal-box img { width: 100%; max-height: 90vh; object-fit: contain; display: block; }
+    .img-modal-close {
+      position: absolute; top: 12px; right: 14px;
+      background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%; width: 36px; height: 36px;
+      color: #fff; font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .img-modal-close:hover { background: rgba(0,229,160,0.3); border-color: var(--accent); }
 
-.cr-foto::after {
-  content: '🔍';
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,229,160,0.4);
-  font-size: 2rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+    .cr-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 60px 0; }
 
-.cr-foto:hover::after { opacity: 1; }
+    .cr-footer-nav { display: flex; justify-content: center; padding: 0 0 60px; }
+    .cr-footer-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.2); border-radius: 10px;
+      color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: all 0.25s ease;
+    }
+    .cr-footer-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.cr-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.85);
-  transition: transform 0.5s ease, filter 0.4s ease;
-}
+    .cr-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .cr-fade.visible { opacity: 1; transform: translateY(0); }
 
-.cr-foto:hover img {
-  transform: scale(1.06);
-  filter: brightness(1);
-}
-
-/* ── MODAL IMAGEN ── */
-.img-modal-overlay {
-  display: none;
+    .cr-whatsapp-float {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(8px);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.img-modal-overlay.active { display: flex; }
-
-.img-modal-box {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-}
-
-.img-modal-box img {
-  width: 100%;
-  height: 100%;
-  max-height: 90vh;
-  object-fit: contain;
-  display: block;
-}
-
-.img-modal-close {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.2);
+  bottom: 24px; right: 24px;
+  width: 60px; height: 60px;
+  background: #25D366;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  z-index: 1000;
+  text-decoration: none;
+  transition: transform 0.2s ease;
 }
-
-.img-modal-close:hover {
-  background: rgba(0,229,160,0.3);
-  border-color: var(--accent);
+.cr-whatsapp-float:hover { transform: scale(1.08); }
+.cr-whatsapp-float i { color: #fff; font-size: 2rem; }
+.cr-whatsapp-cta {
+  max-width: 900px; margin: 0 auto 60px; padding: 0 40px;
 }
+.cr-whatsapp-cta-box {
+  display: flex; align-items: center; gap: 20px;
+  background: rgba(37,211,102,0.08);
+  border: 1px solid rgba(37,211,102,0.25);
+  border-radius: 16px; padding: 24px 28px;
+}
+.cr-whatsapp-cta-icono {
+  flex-shrink: 0; width: 56px; height: 56px;
+  background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.cr-whatsapp-cta-icono i { color: #fff; font-size: 1.8rem; }
+.cr-whatsapp-cta-texto { flex: 1; }
+.cr-whatsapp-cta-texto strong {
+  display: block; font-family: var(--font-display);
+  font-size: 1.1rem; letter-spacing: 1px; color: #fff; margin-bottom: 4px;
+}
+.cr-whatsapp-cta-texto p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.cr-whatsapp-cta-btn {
+  flex-shrink: 0; background: #25D366; color: #fff; text-decoration: none;
+  padding: 12px 24px; border-radius: 50px; font-weight: 700;
+  font-size: 0.85rem; letter-spacing: 0.5px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: transform 0.2s ease;
+}
+.cr-whatsapp-cta-btn:hover { transform: scale(1.05); }
 
-@media (max-width: 768px) {
-  .cr-galeria { grid-template-columns: repeat(2, 1fr); }
-  .cr-foto { height: 160px; }
+@media (max-width: 480px) {
+  .cr-whatsapp-cta { padding: 0 20px; }
+  .cr-whatsapp-cta-box { flex-direction: column; text-align: center; padding: 24px 20px; }
+  .cr-whatsapp-cta-btn { width: 100%; justify-content: center; }
 }
 
 @media (max-width: 480px) {
-  .cr-galeria { grid-template-columns: 1fr; }
-  .cr-foto { height: 200px; }
+  
+  .cr-whatsapp-float { width: 52px; height: 52px; }
+  .cr-whatsapp-float i { font-size: 1.7rem; }
+  
 }
 
-    /* ── DIVIDER ── */
-    .cr-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 0 60px 0;
-    }
 
-    /* ── FOOTER VOLVER ── */
-    .cr-footer-nav {
-      display: flex;
-      justify-content: center;
-      padding: 0 0 60px;
-    }
-
-    .cr-footer-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.2);
-      border-radius: 10px;
-      color: rgba(255,255,255,0.7);
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-
-    .cr-footer-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── ANIMACIONES ── */
-    .cr-fade {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .cr-fade.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .btn-regresar {
-  display: inline-flex;
-  align-items: center;
-  padding: 9px 18px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  color: rgba(255,255,255,0.8);
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-
-.btn-regresar:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(0,229,160,0.08);
-}
-
-/* Móvil */
-@media (max-width: 768px) {
-  .btn-regresar {
-    font-size: 0.78rem;
-    padding: 7px 14px;
-  }
-}
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .cr-hero-content { padding: 0 20px 40px; }
       .cr-main { padding: 40px 20px; }
+      .cr-cita-apertura {
+        border-left: none; border-top: 4px solid var(--accent);
+        border-radius: 16px; text-align: center; padding: 24px 20px;
+      }
       .cr-descripcion { grid-template-columns: 1fr; }
       .cr-datos { grid-template-columns: repeat(2, 1fr); }
       .cr-dato:nth-child(2) { border-right: none; }
-      .cr-dato:nth-child(3) { border-top: 1px solid var(--border); }
+      .cr-dato:nth-child(3) { border-top: 1px solid var(--border); border-right: none; }
       .cr-historia-grid { grid-template-columns: 1fr; }
       .cr-card--full { grid-column: span 1; }
+      /* GALERÍA: 2 columnas en tablet */
       .cr-galeria { grid-template-columns: repeat(2, 1fr); }
-      .cr-curiosidad { flex-direction: column; gap: 14px; }
+      .cr-historia-narrativa { padding: 24px; }
+      .cr-cita-final { padding: 24px 20px; }
+      .cr-fila { flex-direction: column; gap: 4px; }
+      .cr-fila-label { flex: none; }
     }
+    .cr-historiador { flex-direction: column; text-align: center; padding: 24px 20px; }
+    .cr-historiador-fuente { justify-content: center; text-align: left; }
 
     @media (max-width: 480px) {
       .cr-datos { grid-template-columns: 1fr; }
       .cr-dato { border-right: none !important; border-bottom: 1px solid var(--border); }
       .cr-dato:last-child { border-bottom: none; }
+      /* GALERÍA: 1 columna en móvil pequeño */
       .cr-galeria { grid-template-columns: 1fr; }
+      .cr-foto { height: 240px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-  <div class="logo" onclick="window.location.href='index.html'">
-    <img src="img/location/logo.png" alt="logo" class="logo-img"/>
-    <span class="logo-text">Valle Chicama</span>
-  </div>
-  <a href="culturales.html#cristo-rey" class="btn-regresar">← Regresar a Culturales</a>
-</nav>
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img/location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <a href="culturales.html#cristo-rey" class="btn-regresar">
+      <i class="fa-solid fa-arrow-left"></i> Volver a Monumentos
+    </a>
+  </nav>
 
-  <!-- ══════════ HERO ══════════ -->
   <section class="cr-hero">
     <video class="cr-hero-bg" autoplay muted loop playsinline>
       <source src="https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/v1781252952/Cristo-rey_hssg3m.mp4" type="video/mp4"/>
     </video>
     <div class="cr-hero-overlay"></div>
     <div class="cr-hero-content">
-      <div class="cr-hero-tag">Chiclín · Monumento Religioso</div>
+      <div class="cr-hero-tag">Chiclín · Monumento Religioso · 1943</div>
       <h1 class="cr-hero-title">CRISTO REY<br>DE CHICLÍN</h1>
-      <p class="cr-hero-sub">Símbolo de la fe y la identidad del pueblo chiclinero — con sus brazos abiertos, guarda la historia de un pueblo entero.</p>
+      <p class="cr-hero-sub">El único Cristo de esta magnitud en toda la región La Libertad. Con siete metros de altura y sus brazos abiertos en señal de paz, ha sido testigo fiel de la fe y la historia de Chiclín.</p>
       <div class="cr-hero-badges">
         <span class="cr-badge">Monumento Religioso</span>
         <span class="cr-badge">Plaza Mayor</span>
-        <span class="cr-badge">Patrimonio Cultural</span>
+        <span class="cr-badge">Cristo de la Paz</span>
+        <span class="cr-badge">Desde 1943</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ CONTENIDO PRINCIPAL ══════════ -->
   <main class="cr-main">
 
+    <div class="cr-fade">
+      <div class="cr-cita-apertura">
+        <p>"Cualquiera que lo mire hallará la paz, en el dulzor de su mirada, en su simetría y en su reposo."</p>
+        <cite>— Daniel Terrones Valverde · Historiador de Chiclín</cite>
+      </div>
+    </div>
 
-    <!-- DESCRIPCIÓN -->
     <div class="cr-fade">
       <p class="cr-seccion-label">Descripción</p>
       <h2 class="cr-seccion-titulo">El símbolo más icónico de Chiclín</h2>
       <div class="cr-descripcion">
-        <p class="cr-desc-p">El Cristo Rey de Chiclín es el símbolo más reconocible e icónico del pueblo. Con sus brazos abiertos, domina la Plaza Mayor y representa la fe profunda de los chiclineros, siendo el centro espiritual de todas las celebraciones religiosas del valle.</p>
-        <p class="cr-desc-p">Esta escultura venerada ha sido testigo de generaciones de devotos y es el punto de encuentro para la Misa de Campaña de la Fiesta Patronal del Señor de la Caña. Su importancia cultural es indiscutible como símbolo de la cristiandad en esta tierra.</p>
+        <p class="cr-desc-p">Con siete metros de altura y cuatro metros de ancho en sus brazos extendidos, el Cristo Rey domina la Plaza Mayor de Chiclín en señal de paz y bienvenida. No existen precedentes de una escultura igual o mayor en toda la región La Libertad. También se le conoce como el <strong>"Cristo de la Paz"</strong>.</p>
+        <p class="cr-desc-p">Reposa sobre una plataforma de piedras con graderías frontales y pertenece a la etapa republicana del patrimonio de Chiclín. Fue edificado por el artista ancashino <strong>Filomeno Melgarejo</strong> en 1943, utilizando el sistema de vaciado de concreto armado sobre un armazón metálico.</p>
       </div>
     </div>
 
-    <!-- DATOS RÁPIDOS -->
     <div class="cr-datos cr-fade">
       <div class="cr-dato">
-        <span class="cr-dato-label">Ubicación</span>
-        <span class="cr-dato-val">Plaza Mayor de Chiclín</span>
+        <span class="cr-dato-label">Escultor</span>
+        <span class="cr-dato-val">Filomeno Melgarejo</span>
       </div>
       <div class="cr-dato">
-        <span class="cr-dato-label">Tipo</span>
-        <span class="cr-dato-val">Monumento Religioso</span>
+        <span class="cr-dato-label">Altura</span>
+        <span class="cr-dato-val">7 metros</span>
       </div>
       <div class="cr-dato">
-        <span class="cr-dato-label">Inaugurado en</span>
-        <span class="cr-dato-val">1943</span>
-      </div>
-      <div class="cr-dato">
-        <span class="cr-dato-label">Material</span>
-        <span class="cr-dato-val">[ PENDIENTE ]</span>
+        <span class="cr-dato-label">Técnica</span>
+        <span class="cr-dato-val">Concreto armado</span>
       </div>
     </div>
 
     <hr class="cr-divider"/>
 
-    <!-- HISTORIA COMPLETA -->
     <div class="cr-fade">
       <p class="cr-seccion-label">Historia</p>
       <h2 class="cr-seccion-titulo">Realización e Historia</h2>
-
       <div class="cr-historia-grid">
 
-        <!-- TARJETA REALIZACIÓN -->
         <div class="cr-card cr-fade">
           <div class="cr-card-header">
-            <div class="cr-card-icon">🏗️</div>
+            <div class="cr-card-icon-wrap"><i class="fa-solid fa-hammer"></i></div>
             <h3 class="cr-card-titulo">Realización</h3>
           </div>
-          <div class="cr-card-items">
-            <div class="cr-item">
-              <span class="cr-item-label">Año de elaboración</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+          <div class="cr-card-body">
+            <div class="cr-fila">
+              <span class="cr-fila-label">Año</span>
+              <span class="cr-fila-valor">1943</span>
             </div>
-            <div class="cr-item">
-              <span class="cr-item-label">Autor / Escultor</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Escultor</span>
+              <span class="cr-fila-valor">Filomeno Melgarejo — artista ancashino</span>
             </div>
-            <div class="cr-item">
-              <span class="cr-item-label">Material de construcción</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Técnica</span>
+              <span class="cr-fila-valor">Vaciado de concreto armado sobre armazón metálico</span>
             </div>
-            <div class="cr-item">
-              <span class="cr-item-label">Año de inauguración oficial</span>
-              <span class="cr-item-valor">1943</span>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Padrinos</span>
+              <span class="cr-fila-valor">Sr. Rafael Larco Hoyle y Sra. María Larco Herrera</span>
+            </div>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Ceremonia</span>
+              <span class="cr-fila-valor">El Arzobispo de Trujillo y los Padres Carmelitas de Chocope</span>
             </div>
           </div>
         </div>
 
-        <!-- TARJETA CARACTERÍSTICAS -->
         <div class="cr-card cr-fade">
           <div class="cr-card-header">
-            <div class="cr-card-icon">📏</div>
+            <div class="cr-card-icon-wrap"><i class="fa-solid fa-ruler-combined"></i></div>
             <h3 class="cr-card-titulo">Características</h3>
           </div>
-          <div class="cr-card-items">
-            <div class="cr-item">
-              <span class="cr-item-label">Altura aproximada</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+          <div class="cr-card-body">
+            <div class="cr-fila">
+              <span class="cr-fila-label">Altura total</span>
+              <span class="cr-fila-valor">7 metros</span>
             </div>
-            <div class="cr-item">
-              <span class="cr-item-label">Importancia regional</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Ancho</span>
+              <span class="cr-fila-valor">Aproximadamente 4 metros (brazos extendidos)</span>
             </div>
-            <div class="cr-item">
-              <span class="cr-item-label">¿Ha sido restaurado?</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Tipología</span>
+              <span class="cr-fila-valor">Monumento conmemorativo — etapa republicana</span>
             </div>
-            <div class="cr-item">
-              <span class="cr-item-label">Ceremonia especial</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Importancia</span>
+              <span class="cr-fila-valor">Sin precedentes iguales o mayores en la región La Libertad</span>
+            </div>
+            <div class="cr-fila">
+              <span class="cr-fila-label">También llamado</span>
+              <span class="cr-fila-valor">"Cristo de la Paz"</span>
             </div>
           </div>
         </div>
 
-        <!-- TARJETA SIGNIFICADO -->
         <div class="cr-card cr-card--full cr-fade">
           <div class="cr-card-header">
-            <div class="cr-card-icon">✝️</div>
+            <div class="cr-card-icon-wrap"><i class="fa-solid fa-cross"></i></div>
             <h3 class="cr-card-titulo">Significado de los Brazos Abiertos</h3>
           </div>
-          <div class="cr-card-items">
-            <div class="cr-item">
-              <span class="cr-item-label">¿Por qué los brazos están abiertos?</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+          <div class="cr-card-body">
+            <div class="cr-fila">
+              <span class="cr-fila-label">¿Qué representan?</span>
+              <span class="cr-fila-valor">Representa a Cristo en señal de paz y bienvenida hacia todos los fieles y visitantes que llegan a Chiclín. Sus brazos abiertos abrazan simbólicamente a toda la colectividad chiclinera.</span>
             </div>
-            <div class="cr-item">
-              <span class="cr-item-label">Simbolismo para el pueblo chiclinero</span>
-              <span class="cr-item-valor pendiente">Pendiente de información</span>
+            <div class="cr-fila">
+              <span class="cr-fila-label">Propósito</span>
+              <span class="cr-fila-valor">La pequeña iglesia del pueblo no podía albergar a los miles de fieles de la Fiesta del Señor de la Caña. La familia Larco mandó construir esta colosal efigie para celebrar la Misa de Campaña al aire libre, a los pies del monumento.</span>
             </div>
           </div>
         </div>
@@ -731,50 +529,114 @@
 
     <hr class="cr-divider"/>
 
-    <!-- CURIOSIDAD DESTACADA: LA CAJITA -->
-    <div class="cr-curiosidad cr-fade">
-      <div class="cr-curiosidad-icono"></div>
-      <div>
-        <p class="cr-curiosidad-label">Dato único — Solo en Chiclín</p>
-        <h3 class="cr-curiosidad-titulo">¿Qué hay dentro de la cajita en el pecho?</h3>
-        <p class="cr-curiosidad-texto pendiente">Este es uno de los secretos más fascinantes del Cristo Rey de Chiclín. En el pecho de la escultura existe una pequeña cajita cuyo contenido es conocido solo por los pobladores más antiguos del pueblo. <em>Información pendiente de los historiadores locales.</em></p>
+    <div class="cr-fade">
+      <p class="cr-seccion-label">Contexto histórico</p>
+      <h2 class="cr-seccion-titulo">El origen de su construcción</h2>
+      <div class="cr-historia-narrativa">
+        <p>La Fiesta del Señor de la Caña, desde 1932, es un acontecimiento de fe legado por la familia Larco para su colectividad, como complemento de sus labores agrícolas. Es un culto con antecedentes coloniales, cuya data se extiende hasta fines del siglo XIX. A lo largo del tiempo tomó contornos multitudinarios y se convirtió en una de las mayores concentraciones costumbristas, folclóricas, de música y danza en la costa peruana.</p>
+        <p>Siendo el aspecto religioso una de sus mayores motivaciones, se comprobó que la pequeña iglesia del pueblo no podía albergar a los miles de fieles que cada año asistían a su celebración. Fue entonces que la familia Larco decidió construir una colosal efigie de Cristo Rey, con la finalidad de celebrar una Misa de Campaña al aire libre, para que los asistentes pudiesen converger en un rito popular a los pies del monumento.</p>
+        <p>Fue tanto el fervor que despertó que la Hermandad del Señor de la Caña, en su programa de celebración, incluía el día sábado central como noche de adoración, antes de la procesión; y así se dispuso por años.</p>
       </div>
     </div>
+      <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
+        <img src="img/CHICLIN/Culturales/Cristo1.png" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
     <hr class="cr-divider"/>
 
-    <!-- GALERÍA -->
+    <!-- GALERÍA CORREGIDA — 5 fotos, divs bien cerrados -->
     <div class="cr-fade">
       <p class="cr-seccion-label">Galería</p>
       <h2 class="cr-seccion-titulo">Fotografías</h2>
       <div class="cr-galeria">
+
         <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHDrgQjbz1QawX4QQod0422Yvyim0cqZPcelzUmGAfdSrP-6BGfl6DZE3EcNCPWVdfGrh-4_cVJIixfqRTmKuyXduMjmO-yX36vQk1BoLmEcCu1DgzOBON-C3kC0aBE-3Rpp38t3Q=s680-w680-h510-rw" alt="Cristo Rey"/>
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH7LrjQqJDkcIPjQujre4q899QZxe22WFTEPiYDvPtnp580OA1YG67CANvL0KtMnT-f9W68cTfGi6kQ76dDajxYZLPJ2sgHSGgw3Ta50SAM_VpHV8S8ZxMdYpYwKtwma-gt1x6_XN0GYFOX=w408-h291-k-no" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
-      <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZ0Mu-f8rOP-_o_yr-rUMpCQS9S6hx1ajxN9XQo0H6PNJyPWZC6Y8po5OCf4V9Y7xYg-ZdRngHRb-bZwI-GlonYMQGtjGDm8julE4XXs_tkv-ryNITMUpOmTPo8AiLNCD5qeQ5=s680-w680-h510-rw" alt="Cristo Rey"/>
-        </div>
+
         <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHT5YueCSAdbCkHJe94SeFpE8T-UyGkweRU1OCmHRj6hjrTpvfF42i1BiPx8380YNBjkPJ5DZT-ailPJUkW_o-DN8aS5MzN7kv6zkCBQoNuUe2cIN9Du8hbxgXlCCGley8kf79k=s680-w680-h510-rw" alt="Cristo Rey"/>
+          <img src="https://images.hive.blog/DQmTTEU593zyKpmHb4wfFFaQPjXD7HB4xUsB7VfQLex15cP/jesus1.jpg" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
+
+        <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxfY7hXzUvK1pKjXzSgqxuwtoGde2oIlNJBw&s" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+
+        <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://lh5.googleusercontent.com/p/AF1QipMK7EqFg1IseTg3XGkRgUdfnl12QbVS2aRpIOC_=w375-h500-k-no" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+
+        <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://images.hive.blog/DQmNZb4g5W83RZPMNBskd8rKzM1wYJgNYS4B9sjRXjrYzwm/jesus2.jpg" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+
       </div>
     </div>
 
     <hr class="cr-divider"/>
 
-    <!-- LEYENDA -->
     <div class="cr-fade">
-      <p class="cr-seccion-label">Historia y Leyenda</p>
-      <h2 class="cr-seccion-titulo">Lo que cuenta el pueblo</h2>
-      <div class="cr-leyenda">
-        <p class="cr-leyenda-texto pendiente">Pendiente — Aquí irá la historia o leyenda que los pobladores de Chiclín cuentan sobre el Cristo Rey. Este espacio está reservado para las palabras de los historiadores y pobladores locales que guardan la memoria viva del monumento.</p>
+      <p class="cr-seccion-label">Palabras del historiador</p>
+      <h2 class="cr-seccion-titulo">Un testimonio de fe y patrimonio</h2>
+      <div class="cr-cita-final">
+              <p>"Cualquiera que lo mire hallará la paz, en el dulzor de su mirada, en su simetría y en su reposo."</p>
+          <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/cXhZpTDB/Captura-de-pantalla-2026-06-14-035211.png" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div> <br>
+        <cite>Daniel Terrones Valverde · "Semblanzas históricas de Chiclín", 2009</cite>
       </div>
     </div>
 
+    <div class="cr-historiador cr-fade">
+  <div class="cr-historiador-foto-wrap">
+    <img
+      src="https://scontent.flim12-1.fna.fbcdn.net/v/t1.6435-9/125121443_3647816681943472_3852287644045594815_n.jpg?stp=dst-jpg_tt6&cstp=mx1584x1875&ctp=s1584x1875&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeESWlrZsWEkf_oJ17fRpP2b7KaZaSuVpNnspplpK5Wk2dHCwNjFS0zQf8XnadZHpk0TvvrqySBy0ev6AcH8o2NR&_nc_ohc=pX8f0S-afNQQ7kNvwEnqnmT&_nc_oc=AdoRaX9DYEjjRzryPp67J16UGxJmMGkf9TbGSeiiCOYv5IRGV8OP61byDeH-C4atZPc&_nc_zt=23&_nc_ht=scontent.flim12-1.fna&_nc_gid=gxf9jAFaBip9Zckf3Cvzaw&_nc_ss=7b2a8&oh=00_Af_tOclGwkthqmTH_ANualhmco_NnNsh5QPwkTuETAaRJQ&oe=6A55ECD3"
+      alt="Daniel Terrones Valverde"
+      class="cr-historiador-foto"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <div class="cr-historiador-placeholder" style="display:none;">
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </div>
+  <div class="cr-historiador-info">
+    <p class="cr-historiador-nombre">Daniel Terrones Valverde</p>
+    <p class="cr-historiador-cargo">Historiador de Chiclín</p>
+    <p class="cr-historiador-fuente">
+      <i class="fa-solid fa-book-open"></i>
+      <span><strong>Fuente:</strong> "Semblanzas históricas de Chiclín", 2009 · Archivo fotográfico Larco.</span>
+    </p>
+  </div>
+</div>
   </main>
 
+  <div class="cr-whatsapp-cta cr-fade">
+  <div class="cr-whatsapp-cta-box">
+    <div class="cr-whatsapp-cta-icono">
+      <i class="fa-brands fa-whatsapp"></i>
+    </div>
+    <div class="cr-whatsapp-cta-texto">
+      <strong>¿Recomendaciones, apoyo o donaciones?</strong>
+      <p>Escríbenos por WhatsApp, estaremos felices de atenderte.</p>
+    </div>
+    <a href="https://wa.me/51936674120" target="_blank" class="cr-whatsapp-cta-btn">
+      <i class="fa-brands fa-whatsapp"></i> Escribir
+    </a>
+  </div>
+</div>
+  <div class="cr-footer-nav">
+    <a href="culturales.html#cristo-rey" class="cr-footer-btn">
+      <i class="fa-solid fa-arrow-left"></i> Volver a Monumentos
+    </a>
+  </div>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">
@@ -785,50 +647,43 @@
     </div>
   </footer>
 
+  <div id="img-modal" class="img-modal-overlay" onclick="cerrarImagen(event)">
+    <div class="img-modal-box">
+      <button class="img-modal-close" onclick="document.getElementById('img-modal').classList.remove('active')">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="img-modal-src" src="" alt="Foto Cristo Rey"/>
+    </div>
+  </div>
+
   <script>
-    // NAVBAR SCROLL
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // ANIMACIONES SCROLL
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.cr-fade').forEach(el => observer.observe(el));
 
-    // HAMBURGER
-    function toggleMenu() {
-      const nav = document.getElementById('nav-links');
-      const btn = document.getElementById('hamburger');
-      const abierto = nav.classList.toggle('menu-abierto');
-      btn.classList.toggle('abierto', abierto);
-      document.body.style.overflow = abierto ? 'hidden' : '';
-    }
     function abrirImagen(src) {
-  document.getElementById('img-modal-src').src = src;
-  document.getElementById('img-modal').classList.add('active');
-}
+      document.getElementById('img-modal-src').src = src;
+      document.getElementById('img-modal').classList.add('active');
+    }
 
-function cerrarImagen(e) {
-  if (e.target === document.getElementById('img-modal')) {
-    document.getElementById('img-modal').classList.remove('active');
-  }
-}
+    function cerrarImagen(e) {
+      if (e.target === document.getElementById('img-modal')) {
+        document.getElementById('img-modal').classList.remove('active');
+      }
+    }
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('img-modal').classList.remove('active');
-});
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.getElementById('img-modal').classList.remove('active');
+    });
+    
   </script>
-<!-- MODAL IMAGEN -->
-<div id="img-modal" class="img-modal-overlay" onclick="cerrarImagen(event)">
-  <div class="img-modal-box">
-    <button class="img-modal-close" onclick="document.getElementById('img-modal').classList.remove('active')">✕</button>
-    <img id="img-modal-src" src="" alt=""/>
-  </div>
-</div>
+  <a href="https://wa.me/51936674120" target="_blank" class="cr-whatsapp-float" aria-label="Contactar por WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 </body>
 </html>
