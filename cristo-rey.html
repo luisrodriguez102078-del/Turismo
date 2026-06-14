@@ -20,7 +20,7 @@
   }
 
   .cr-hero-content{
-    padding: 80px 40px 60px;
+    padding:0 20px 30px;
   }
 
   .cr-hero-tag{
@@ -399,6 +399,107 @@
       .cr-galeria { grid-template-columns: 1fr; }
       .cr-foto { height: 240px; }
     }
+
+  /* ── FOTO HISTÓRICA ── */
+.cr-foto-historica {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.cr-foto-historica-img {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.cr-foto-historica-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9) grayscale(0.3);
+  transition: filter 0.4s ease;
+}
+
+.cr-foto-historica-img:hover img {
+  filter: brightness(1) grayscale(0);
+}
+
+.cr-foto-historica-tag {
+  position: absolute;
+  bottom: 12px; left: 12px;
+  background: rgba(0,229,160,0.9);
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cr-foto-historica-texto {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cr-foto-historica-cita {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.8;
+  border-left: 3px solid rgba(0,229,160,0.4);
+  padding-left: 16px;
+}
+
+.cr-foto-historica-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.cr-foto-historica-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cr-foto-historica-meta span {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cr-foto-historica-fuente {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .cr-foto-historica {
+    grid-template-columns: 1fr;
+  }
+  .cr-foto-historica-img { height: 220px; }
+  .cr-foto-historica-texto { padding: 20px; }
+}
   </style>
 </head>
 <body>
@@ -436,7 +537,6 @@
     <div class="cr-fade">
       <div class="cr-cita-apertura">
         <p>"Cualquiera que lo mire hallará la paz, en el dulzor de su mirada, en su simetría y en su reposo."</p>
-        <cite>— Daniel Terrones Valverde · Historiador de Chiclín</cite>
       </div>
     </div>
 
@@ -565,7 +665,34 @@
         <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
 
+
     <hr class="cr-divider"/>
+    <!-- FOTO HISTÓRICA -->
+<div class="cr-fade">
+  <p class="cr-seccion-label">Fotografía Histórica</p>
+  <h2 class="cr-seccion-titulo">Chiclín, 1957</h2>
+  <div class="cr-foto-historica">
+    <div class="cr-foto-historica-img">
+      <img src="https://scontent.flim12-1.fna.fbcdn.net/v/t39.30808-6/474790453_122208011534034415_6554020279533021606_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1331&ctp=s2048x1331&_nc_cat=100&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEjyPA-h2EHtgCkJRvGHVkOkMVculF9OIaQxVy6UX04hr4iz1wlzTYpgeQz4ySe_b0ygVQI_o1YYC7-3a6D18lu&_nc_ohc=ilnfo2LJYz8Q7kNvwGfg3pw&_nc_oc=Adp3MWFxamLIVzo85SJkFssHtZnWVPK1X63lPhrA5S4cGz5xsld8sRp2ZDGDRJLJe6k&_nc_zt=23&_nc_ht=scontent.flim12-1.fna&_nc_gid=z2iFDWcWxp_Tk_oNtZSKPg&_nc_ss=7b2a8&oh=00_Af8F18lEH4s52Wm52F18BNSOluAOFtOSOuuLXJMZ7Jfy8A&oe=6A34C30B" alt="Cristo Rey 1957" onerror="this.parentElement.style.background='#1a1d24'"/>
+      <div class="cr-foto-historica-tag">
+        <i class="fa-solid fa-clock-rotate-left"></i> 1957 — Hacienda Chiclín
+      </div>
+    </div>
+    <div class="cr-foto-historica-texto">
+      <p class="cr-foto-historica-cita">"La foto nos permite volver a vivir nuestra niñez escolar. Fué la etapa más linda de nuestras vidas el pasar por las aulas del Kindergarten, por la Fanning, por la Aguirre, la Fajardo — escuelitas que forjaron nuestro carácter, con maestros forjadores de espíritus."</p>
+      <p class="cr-foto-historica-desc">Inolvidables fueron las reuniones cívicas de todo el alumnado en la Plaza Mayor del Cristo Rey.</p>
+      <div class="cr-foto-historica-meta">
+        <span><i class="fa-solid fa-calendar"></i> Año: 1957</span>
+        <span><i class="fa-solid fa-location-dot"></i> Hacienda Chiclín</span>
+      </div>
+      <p class="cr-foto-historica-fuente">
+        <i class="fa-solid fa-book-open"></i> Patronato de Cultura de Chiclín · Archivo Palma Alfaro · Texto: Daniel Terrones
+      </p>
+    </div>
+  </div>
+</div>
+
+<hr class="cr-divider"/>
 
     <!-- GALERÍA CORREGIDA — 5 fotos, divs bien cerrados -->
     <div class="cr-fade">
@@ -590,6 +717,11 @@
 
         <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
           <img src="https://lh5.googleusercontent.com/p/AF1QipMK7EqFg1IseTg3XGkRgUdfnl12QbVS2aRpIOC_=w375-h500-k-no" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+
+         <div class="cr-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://scontent.flim12-1.fna.fbcdn.net/v/t39.30808-6/494424018_9899222816802796_7447725342147577932_n.jpg?stp=dst-jpg_tt6&cstp=mx401x705&ctp=s401x705&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHlbqXVzT6IYH1WfJBXTbeMuBVAsi97YQa4FUCyL3thBovdf_ZoBSEzPzDSekP0VAgutRnlq5vhdrGDuiUmKIHS&_nc_ohc=QNHBzTnGXfgQ7kNvwEMdW8a&_nc_oc=Adq6lIDEKlMmt3v2OvL2YXmTmK4B_YDF80G8H3i35eg4TLyWrbQiavUmobHAH_iCVVs&_nc_zt=23&_nc_ht=scontent.flim12-1.fna&_nc_gid=_d_gsSb1KgmUJdOXZGUN4Q&_nc_ss=7b2a8&oh=00_Af8XqAcFuTu3_4s3jg6MPokWaLcll3ZJOrpYh9Q9X5GRwQ&oe=6A3495FA" alt="Cristo Rey de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="cr-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
 
