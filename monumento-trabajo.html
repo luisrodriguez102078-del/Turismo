@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monumento al Trabajo — Historia Completa</title>
+  <link rel="stylesheet" href="estilos-destino.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); }
+
+    /* ── NAVBAR ── */
+    .btn-regresar {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+      color: rgba(255,255,255,0.8); font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      transition: all 0.25s ease; white-space: nowrap;
+    }
+    .btn-regresar:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.08); }
+
+    /* ── HERO ── */
+    .mt-hero {
+      position: relative; height: 70vh; min-height: 480px;
+      display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .mt-hero-bg {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 110%; min-height: 110%;
+      width: auto; height: auto;
+      object-fit: cover; filter: brightness(0.3); z-index: 0;
+    }
+    .mt-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%);
+      z-index: 1;
+    }
+    .mt-hero-content {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 900px;
+      margin: 0 auto; padding: 0 40px 60px;
+    }
+    .mt-hero-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .mt-hero-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
+    .mt-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.95; letter-spacing: 2px;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .mt-hero-sub { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 560px; }
+    .mt-hero-badges { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .mt-badge {
+      background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3);
+      color: var(--accent); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 50px;
+    }
+    .mt-badge--gold {
+      background: rgba(255,200,50,0.12); border: 1px solid rgba(255,200,50,0.4);
+      color: #ffc832;
+    }
+
+    /* ── MAIN ── */
+    .mt-main { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+    .mt-volver {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+      color: rgba(255,255,255,0.7); font-size: 0.85rem;
+      text-decoration: none; transition: all 0.25s ease; margin-bottom: 40px;
+    }
+    .mt-volver:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    .mt-seccion-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+    }
+    .mt-seccion-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .mt-seccion-titulo {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: 1px; color: var(--text);
+      margin-bottom: 30px; line-height: 1.1;
+    }
+
+    /* ── BANNER CENTENARIO ── */
+    .mt-centenario {
+      background: linear-gradient(135deg, rgba(255,200,50,0.12), rgba(255,200,50,0.04));
+      border: 1px solid rgba(255,200,50,0.35);
+      border-radius: 16px; padding: 24px 28px; margin-bottom: 36px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .mt-centenario-icono { font-size: 2.5rem; flex-shrink: 0; }
+    .mt-centenario-texto strong {
+      display: block; font-family: var(--font-display);
+      font-size: 1.3rem; letter-spacing: 2px; color: #ffc832; margin-bottom: 4px;
+    }
+    .mt-centenario-texto p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+    /* ── CITA APERTURA ── */
+    .mt-cita-apertura {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,229,160,0.02));
+      border: 1px solid rgba(0,229,160,0.2); border-left: 4px solid var(--accent);
+      border-radius: 0 16px 16px 0; padding: 28px 32px; margin-bottom: 36px;
+    }
+    .mt-cita-apertura p {
+      font-size: 1.05rem; font-style: italic;
+      color: var(--text); line-height: 1.8; margin-bottom: 12px;
+    }
+    .mt-cita-apertura cite {
+      font-size: 0.75rem; color: var(--accent);
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-style: normal;
+    }
+
+    /* ── DESCRIPCIÓN ── */
+    .mt-descripcion { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 50px; }
+    .mt-desc-p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.82);
+      line-height: 1.85; border-left: 3px solid var(--accent); padding-left: 18px;
+    }
+
+    /* ── DATOS RÁPIDOS ── */
+    .mt-datos {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; margin-bottom: 60px;
+    }
+    .mt-dato {
+      padding: 20px; display: flex; flex-direction: column; gap: 6px;
+      border-right: 1px solid var(--border); transition: background 0.3s ease;
+    }
+    .mt-dato:last-child { border-right: none; }
+    .mt-dato:hover { background: var(--surface); }
+    .mt-dato-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
+    .mt-dato-val { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 1px; color: #fff; line-height: 1.3; }
+
+    /* ── LAS 3 FIGURAS ── */
+    .mt-figuras {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-bottom: 60px;
+    }
+    .mt-figura {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 24px;
+      text-align: center;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .mt-figura:hover { border-color: rgba(0,229,160,0.35); transform: translateY(-4px); }
+    .mt-figura-num {
+      font-family: var(--font-display);
+      font-size: 3rem; color: rgba(0,229,160,0.2);
+      letter-spacing: 4px; line-height: 1; margin-bottom: 12px;
+    }
+    .mt-figura-titulo {
+      font-family: var(--font-display);
+      font-size: 1.1rem; letter-spacing: 1px; color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .mt-figura-desc { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+    /* ── TARJETAS ── */
+    .mt-historia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 60px; }
+    .mt-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px; overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .mt-card:hover { border-color: rgba(0,229,160,0.4); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .mt-card--full { grid-column: span 2; }
+    .mt-card-header {
+      display: flex; align-items: center; gap: 14px; padding: 18px 22px;
+      background: rgba(0,229,160,0.07); border-bottom: 1px solid rgba(0,229,160,0.15);
+    }
+    .mt-card-icon-wrap {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(0,229,160,0.12); border: 1px solid rgba(0,229,160,0.25);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    }
+    .mt-card-icon-wrap i { font-size: 1.05rem; color: var(--accent); }
+    .mt-card-titulo { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 1px; color: #fff; }
+    .mt-card-body { padding: 8px 0; }
+    .mt-fila {
+      display: flex; align-items: flex-start; padding: 14px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.06); gap: 16px;
+    }
+    .mt-fila:last-child { border-bottom: none; }
+    .mt-fila:hover { background: rgba(255,255,255,0.04); }
+    .mt-fila-label {
+      flex: 0 0 38%; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); line-height: 1.5; padding-top: 2px;
+    }
+    .mt-fila-valor { flex: 1; font-size: 0.93rem; color: rgba(255,255,255,0.92); line-height: 1.65; }
+
+    /* ── HISTORIA NARRATIVA ── */
+    .mt-historia-narrativa {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 36px; margin-bottom: 60px;
+    }
+    .mt-historia-narrativa p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.8);
+      line-height: 1.9; margin-bottom: 18px;
+    }
+    .mt-historia-narrativa p:last-child { margin-bottom: 0; }
+
+    /* ── LEMA ── */
+    .mt-lema {
+      background: linear-gradient(135deg, rgba(0,229,160,0.06), transparent);
+      border: 1px solid rgba(0,229,160,0.2); border-left: 4px solid var(--accent);
+      border-radius: 0 16px 16px 0; padding: 32px 36px; margin-bottom: 60px;
+    }
+    .mt-lema-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .mt-lema p {
+      font-size: 1rem; font-style: italic;
+      color: rgba(255,255,255,0.9); line-height: 1.9; margin-bottom: 16px;
+    }
+    .mt-lema cite {
+      font-size: 0.75rem; color: rgba(255,255,255,0.5);
+      font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; font-style: normal;
+    }
+
+    /* ── GALERÍA ── */
+    .mt-galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 60px; }
+    .mt-foto {
+      border-radius: 12px; overflow: hidden; height: 220px;
+      background: #1a1d24; border: 1px solid var(--border);
+      cursor: pointer; position: relative; display: block;
+    }
+    .mt-foto-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,229,160,0.35); opacity: 0; transition: opacity 0.3s ease;
+    }
+    .mt-foto-overlay i { font-size: 1.8rem; color: #fff; }
+    .mt-foto:hover .mt-foto-overlay { opacity: 1; }
+    .mt-foto img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.85); transition: transform 0.5s ease, filter 0.4s ease; display: block;
+    }
+    .mt-foto:hover img { transform: scale(1.06); filter: brightness(1); }
+
+    /* ── HISTORIADOR ── */
+    .mt-historiador {
+      display: flex; align-items: center; gap: 24px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px; padding: 24px 28px; margin-bottom: 60px;
+    }
+    .mt-historiador-foto-wrap {
+      flex-shrink: 0; width: 90px; height: 90px; border-radius: 50%;
+      overflow: hidden; border: 3px solid var(--accent);
+      background: rgba(0,229,160,0.08);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mt-historiador-foto { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mt-historiador-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 2.2rem; }
+    .mt-historiador-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .mt-historiador-nombre { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 1px; color: #fff; }
+    .mt-historiador-cargo { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
+    .mt-historiador-fuente { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin-top: 8px; display: flex; align-items: flex-start; gap: 8px; }
+    .mt-historiador-fuente i { color: var(--accent); font-size: 0.85rem; margin-top: 2px; flex-shrink: 0; }
+    .mt-historiador-fuente strong { color: rgba(255,255,255,0.85); }
+
+    /* ── MODAL IMAGEN ── */
+    .img-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+      z-index: 9999; align-items: center; justify-content: center; padding: 20px;
+    }
+    .img-modal-overlay.active { display: flex; }
+    .img-modal-box {
+      position: relative; max-width: 90vw; max-height: 90vh;
+      border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .img-modal-box img { width: 100%; max-height: 90vh; object-fit: contain; display: block; }
+    .img-modal-close {
+      position: absolute; top: 12px; right: 14px;
+      background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%; width: 36px; height: 36px; color: #fff; font-size: 1rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+    }
+    .img-modal-close:hover { background: rgba(0,229,160,0.3); border-color: var(--accent); }
+
+    /* ── WHATSAPP ── */
+    .mt-whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px;
+      width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35); z-index: 1000;
+      text-decoration: none; transition: transform 0.2s ease;
+    }
+    .mt-whatsapp-float:hover { transform: scale(1.08); }
+    .mt-whatsapp-float i { color: #fff; font-size: 2rem; }
+
+    .mt-whatsapp-cta { max-width: 900px; margin: 0 auto 60px; padding: 0 40px; }
+    .mt-whatsapp-cta-box {
+      display: flex; align-items: center; gap: 20px;
+      background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.25);
+      border-radius: 16px; padding: 24px 28px;
+    }
+    .mt-whatsapp-cta-icono {
+      flex-shrink: 0; width: 56px; height: 56px; background: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .mt-whatsapp-cta-icono i { color: #fff; font-size: 1.8rem; }
+    .mt-whatsapp-cta-texto { flex: 1; }
+    .mt-whatsapp-cta-texto strong {
+      display: block; font-family: var(--font-display);
+      font-size: 1.1rem; letter-spacing: 1px; color: #fff; margin-bottom: 4px;
+    }
+    .mt-whatsapp-cta-texto p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .mt-whatsapp-cta-btn {
+      flex-shrink: 0; background: #25D366; color: #fff; text-decoration: none;
+      padding: 12px 24px; border-radius: 50px; font-weight: 700; font-size: 0.85rem;
+      display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s ease;
+    }
+    .mt-whatsapp-cta-btn:hover { transform: scale(1.05); }
+
+    /* ── DIVIDER ── */
+    .mt-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 60px 0; }
+
+    /* ── FOOTER NAV ── */
+    .mt-footer-nav { display: flex; justify-content: center; padding: 0 0 60px; }
+    .mt-footer-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.2); border-radius: 10px;
+      color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: all 0.25s ease;
+    }
+    .mt-footer-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── ANIMACIONES ── */
+    .mt-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .mt-fade.visible { opacity: 1; transform: translateY(0); }
+
+    .mt-figura-foto {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 12px;
+}
+.mt-figura-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: brightness(0.85);
+  transition: transform 0.4s ease, filter 0.3s ease;
+  display: block;
+}
+.mt-figura-foto:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+.mt-figura-foto-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,229,160,0.35);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.mt-figura-foto-overlay i { font-size: 1.5rem; color: #fff; }
+.mt-figura-foto:hover .mt-figura-foto-overlay { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .mt-hero { padding-top: 120px; min-height: 700px; }
+      .mt-hero-content { padding: 0 20px 30px; }
+      .mt-main { padding: 40px 20px; }
+      .mt-cita-apertura { border-left: none; border-top: 4px solid var(--accent); border-radius: 16px; text-align: center; padding: 24px 20px; }
+      .mt-descripcion { grid-template-columns: 1fr; }
+      .mt-datos { grid-template-columns: repeat(2, 1fr); }
+      .mt-dato:nth-child(2) { border-right: none; }
+      .mt-dato:nth-child(3) { border-top: 1px solid var(--border); border-right: none; }
+      .mt-dato:nth-child(4) { border-top: 1px solid var(--border); }
+      .mt-historia-grid { grid-template-columns: 1fr; }
+      .mt-card--full { grid-column: span 1; }
+      .mt-figuras { grid-template-columns: 1fr; }
+      .mt-galeria { grid-template-columns: repeat(2, 1fr); }
+      .mt-fila { flex-direction: column; gap: 4px; }
+      .mt-fila-label { flex: none; }
+      .mt-historiador { flex-direction: column; text-align: center; padding: 24px 20px; }
+      .mt-historiador-fuente { justify-content: center; }
+      .mt-centenario { flex-direction: column; text-align: center; }
+      .mt-lema { padding: 24px 20px; }
+      .mt-whatsapp-cta { padding: 0 20px; }
+      .mt-whatsapp-cta-box { flex-direction: column; text-align: center; }
+      .mt-whatsapp-cta-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .mt-datos { grid-template-columns: 1fr; }
+      .mt-dato { border-right: none !important; border-bottom: 1px solid var(--border); }
+      .mt-dato:last-child { border-bottom: none; }
+      .mt-galeria { grid-template-columns: 1fr; }
+      .mt-foto { height: 240px; }
+      .mt-whatsapp-float { width: 52px; height: 52px; }
+      .mt-whatsapp-float i { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img/location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <a href="culturales.html#monumento-trabajo" class="btn-regresar">
+      <i class="fa-solid fa-arrow-left"></i> Volver Monumentos
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="mt-hero">
+    <video class="mt-hero-bg" autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/v1781304261/Monumento_al_trabajo_nnjkdb.mp4" type="video/mp4"/>
+    </video>
+    <div class="mt-hero-overlay"></div>
+    <div class="mt-hero-content">
+      <div class="mt-hero-tag">Chiclín · Mármol de Carrara · 1926</div>
+      <h1 class="mt-hero-title">MONUMENTO<br>AL TRABAJO</h1>
+      <p class="mt-hero-sub">En 1921, quinientos trabajadores salvaron a Chiclín. Su lealtad quedó inmortalizada en mármol italiano para siempre. Hoy, cien años después, su historia sigue viva.</p>
+      <div class="mt-hero-badges">
+        <span class="mt-badge">Mármol de Carrara</span>
+        <span class="mt-badge">Plaza Mayor</span>
+        <span class="mt-badge">Ernesto Gazzeri</span>
+        <span class="mt-badge mt-badge--gold">🏛️ Centenario 1926–2026</span>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- CONTENIDO -->
+  <main class="mt-main">
+    <!-- BANNER CENTENARIO -->
+     <p class="mt-hero-sub">Toca las imágenes para verlas completas</p><br>
+    <div class="mt-centenario mt-fade">
+          <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/QFgj5HCL/Captura-de-pantalla-2026-06-14-194933.png" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      <div class="mt-centenario-texto">
+        <strong>CENTENARIO 1926 — 2026</strong>
+        <p>Este año el Monumento al Trabajo cumple 100 años desde su inauguración el 15 de agosto de 1926. Un siglo de historia, lealtad y belleza escultórica en la Plaza Mayor de Chiclín.</p>
+      </div>
+    </div>
+
+    <!-- CITA APERTURA -->
+    <div class="mt-fade">
+      <div class="mt-cita-apertura">
+        <p>"En 1921, quinientos trabajadores de Chiclín empuñaron sus herramientas para salvar a su empresa. Ese gesto de lealtad quedó inmortalizado para siempre en el mármol más noble del mundo: el mármol de Carrara."</p>
+        <cite>— Inspirado en las Memorias de Rafael Larco Herrera, 1947</cite>
+      </div>
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <div class="mt-fade">
+      <p class="mt-seccion-label">Descripción</p>
+      <h2 class="mt-seccion-titulo">Una obra maestra del arte italiano en Chiclín</h2>
+      <div class="mt-descripcion">
+        <p class="mt-desc-p">Ubicado en el extremo sur de la Plaza Mayor, este monumento de mármol de Carrara mide 4.20 metros de altura y 2 metros de ancho. Fue elaborado por el artista romano <strong>Ernesto Gazzeri</strong> con clara influencia florentina y un boceto masónico, inaugurado el <strong>15 de agosto de 1926</strong> con el nombre de <em>"Trabajo, Progreso y Vida"</em>.</p>
+        <p class="mt-desc-p">Representa un cuadro de desnudos de la anatomía humana trabajada de manera clásica: tres figuras que simbolizan el <strong>Trabajo</strong>, el <strong>Progreso</strong> y la <strong>Vida</strong>. Asentado sobre una base cúbica de mármol, es uno de los monumentos más hermosos y singulares del norte del Perú.</p>
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/1fnQbR0Q/Monumento3.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    </div>
+
+    <!-- DATOS RÁPIDOS -->
+    <div class="mt-datos mt-fade">
+      <div class="mt-dato">
+        <span class="mt-dato-label">Inauguración</span>
+        <span class="mt-dato-val">15 Agosto 1926</span>
+      </div>
+      <div class="mt-dato">
+        <span class="mt-dato-label">Escultor</span>
+        <span class="mt-dato-val">Ernesto Gazzeri</span>
+      </div>
+      <div class="mt-dato">
+        <span class="mt-dato-label">Material</span>
+        <span class="mt-dato-val">Mármol de Carrara</span>
+      </div>
+      <div class="mt-dato">
+        <span class="mt-dato-label">Altura</span>
+        <span class="mt-dato-val">4.20 metros</span>
+      </div>
+    </div>
+
+    <hr class="mt-divider"/>
+
+    <!-- LAS 3 FIGURAS -->
+    <div class="mt-fade">
+      <p class="mt-seccion-label">Las tres figuras</p>
+      <h2 class="mt-seccion-titulo">Trabajo · Progreso · Vida</h2>
+      <p class="mt-hero-sub">Toca las imágenes para verlas completas</p><br>
+      <p class="mt-desc-p"></p>
+      <div class="mt-figuras">
+        <div class="mt-figura mt-fade">
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+        <img src="https://i.ibb.co/wNShDwDq/Trabajo.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div> <br>
+          <div class="mt-figura-num">01</div>
+          <h3 class="mt-figura-titulo"><i class="fa-solid fa-hammer"></i> El Trabajo</h3>
+          <p class="mt-figura-desc">La figura central — sentado sobre un yunque, con un martillo en la mano izquierda y la mano derecha apoyada sobre el hombro de un adolescente. Representa la serenidad y dignidad del trabajador.</p>
+        </div>
+        <div class="mt-figura mt-fade">
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+        <img src="https://i.ibb.co/4g1G9bw3/Progreso.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div><br>
+          <div class="mt-figura-num">02</div>
+          <h3 class="mt-figura-titulo"><i class="fa-solid fa-bolt"></i> El Progreso</h3>
+          <p class="mt-figura-desc">El adolescente — porta en su mano derecha una antorcha y en la izquierda una rueda. Símbolo del avance, la tecnología y el futuro que se construye con esfuerzo y visión.</p>
+        </div>
+        <div class="mt-figura mt-fade">
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+        <img src="https://i.ibb.co/TMdyP5Z5/Vida.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div><br>
+          <div class="mt-figura-num">03</div>
+          <h3 class="mt-figura-titulo"><i class="fa-solid fa-heart"></i> La Vida</h3>
+          <p class="mt-figura-desc">La madre — sobre un haz de trigo, besa tiernamente al niño en su regazo. Una guirnalda de flores y frutos decora el pedestal. Imagen de la ternura, la fertilidad y la continuidad.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mt-divider"/>
+
+    <!-- TARJETAS HISTORIA -->
+    <div class="mt-fade">
+      <p class="mt-seccion-label">Historia</p>
+      <h2 class="mt-seccion-titulo">Realización e Historia</h2>
+      <div class="mt-historia-grid">
+
+        <div class="mt-card mt-fade">
+          <div class="mt-card-header">
+            <div class="mt-card-icon-wrap"><i class="fa-solid fa-hammer"></i></div>
+            <h3 class="mt-card-titulo">Realización</h3>
+          </div>
+          <div class="mt-card-body">
+            <div class="mt-fila">
+              <span class="mt-fila-label">Nombre oficial</span>
+              <span class="mt-fila-valor">"Trabajo, Progreso y Vida"</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Inauguración</span>
+              <span class="mt-fila-valor">15 de agosto de 1926</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Escultor</span>
+              <span class="mt-fila-valor">Ernesto Ermete Gazzeri — Roma-Italia Creación del monumento 1923</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Material</span>
+              <span class="mt-fila-valor">Mármol de Carrara, Italia</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Encargado por</span>
+              <span class="mt-fila-valor">Rafael Larco Herrera</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Padrinos</span>
+              <span class="mt-fila-valor">Srta. Enriqueta Dogny Larco y Sr. Benjamín Gálvez</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-card mt-fade">
+          <div class="mt-card-header">
+            <div class="mt-card-icon-wrap"><i class="fa-solid fa-ruler-combined"></i></div>
+            <h3 class="mt-card-titulo">Características</h3>
+          </div>
+          <div class="mt-card-body">
+            <div class="mt-fila">
+              <span class="mt-fila-label">Altura</span>
+              <span class="mt-fila-valor">4.20 metros</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Ancho</span>
+              <span class="mt-fila-valor">2 metros</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Base</span>
+              <span class="mt-fila-valor">Cúbica de mármol de Carrara</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Estilo</span>
+              <span class="mt-fila-valor">Influencia florentina y boceto masónico</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">Ubicación</span>
+              <span class="mt-fila-valor">Extremo sur de la Plaza Mayor de Chiclín</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-card mt-card--full mt-fade">
+          <div class="mt-card-header">
+            <div class="mt-card-icon-wrap"><i class="fa-solid fa-users"></i></div>
+            <h3 class="mt-card-titulo">El origen — La lealtad de los 500</h3>
+          </div>
+          <div class="mt-card-body">
+            <div class="mt-fila">
+              <span class="mt-fila-label">El hecho histórico</span>
+              <span class="mt-fila-valor">En agosto de 1921 se decretó un paro en Chiclín, habiendo caña quemada que debía beneficiarse. En medio de ataques vandálicos, quinientos trabajadores — empleados, obreros y artesanos — formaron la "Sociedad Unión de Empleados y Obreros de Chiclín".</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">El gesto heroico</span>
+              <span class="mt-fila-valor">Por iniciativa de Benjamín Gálvez y Andrés Torres, todos los empleados y obreros leales marcharon al campo, empuñaron sus herramientas y salvaron a la empresa de un considerable daño.</span>
+            </div>
+            <div class="mt-fila">
+              <span class="mt-fila-label">El homenaje</span>
+              <span class="mt-fila-valor">Rafael Larco Herrera encargó este monumento para perennizar tan significativo episodio en la historia de Chiclín y honrar para siempre la lealtad de sus trabajadores.</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+        <img src="https://i.ibb.co/x87jGBRH/Captura-de-pantalla-2026-06-14-215143.png"  alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      </div>
+    </div>
+
+    <hr class="mt-divider"/>
+
+    <!-- HISTORIA NARRATIVA -->
+    <div class="mt-fade">
+      <p class="mt-seccion-label">Contexto histórico</p>
+      <h2 class="mt-seccion-titulo">El origen de su construcción</h2>
+      <div class="mt-historia-narrativa">
+        <p>A inicios del siglo XX, muchos trabajadores sucumbieron a la prédica violentista y a la propaganda sindicalista. El trabajador de Chiclín gozaba de una moral, un sentido del orden y respeto — producto del buen trato y beneficios — que lo diferenciaba de los demás braceros azucareros.</p>
+        <p>Sin embargo, el movimiento sindicalista en expansión subvirtió el orden público, quemó cañaverales e intensificó amenazas a obreros y empleados. En agosto de 1921, al decretarse un paro, con caña quemada que debía beneficiarse so pena de malograrse, quinientos trabajadores leales marcharon al campo y salvaron a la empresa.</p>
+        <p>Ese gesto fue el origen y motivo para edificar el Monumento al Trabajo. El 15 de agosto de 1926, con la concurrencia de empleados, artesanos y obreros de Chiclín, fue inaugurado con el nombre de <em>"Trabajo, Progreso y Vida"</em> — un homenaje eterno labrado en el mármol más noble del mundo.</p>
+      </div>
+    </div>
+
+    <hr class="mt-divider"/>
+
+    <!-- LEMA -->
+    <div class="mt-fade">
+      <p class="mt-seccion-label">Lema grabado en la base</p>
+      <h2 class="mt-seccion-titulo">Las palabras que guían a Chiclín</h2>
+      <div class="mt-lema">
+        <p class="mt-lema-label"><i class="fa-solid fa-quote-left"></i> Lema de la Sociedad Unión de Empleados y Obreros de Chiclín</p>
+        <p>"Cuando los hombres se agrupan en torno a un ideal, si no inscriben en su bandera, con caracteres imperativos, el respeto a la verdad, el culto a la justicia y la intangibilidad del derecho ajeno: entonces la solidaridad que los liga, lejos de ser factor de perfeccionamiento, es fuerza ciega que los sugestiona y les arrastra al crimen y a la desorganización de la sociedad."</p>
+        <cite>— Rafael Larco Herrera · Inspirado en "Las Fuerzas Morales" de José Ingenieros · Chiclín, 15 de agosto de 1926</cite>
+      </div>
+    </div>
+
+    <hr class="mt-divider"/>
+
+    <!-- GALERÍA -->
+    <div class="mt-fade">
+      <p class="mt-seccion-label">Galería</p>
+      <h2 class="mt-seccion-titulo">Fotografías</h2>
+      <p class="mt-hero-sub">Toca las imágenes para verlas completas</p><br>
+      <div class="mt-galeria">
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/fGP0JVq5/Monumento1.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://scontent.flim12-1.fna.fbcdn.net/v/t39.30808-6/334678599_928377168306085_8469616694558907006_n.jpg?stp=dst-jpg_tt6&cstp=mx957x960&ctp=s957x960&_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEBdRdJfRdkIrWGKmr4pI6FfRfLr5QnzJ59F8uvlCfMnrM2lH0rygowq4t_-aYyQ6DDpUSiR5EwB9dRqW4pLX3W&_nc_ohc=OYYEVbM7etAQ7kNvwGxjvsd&_nc_oc=Adq9YqWGe6QFT_qrYYnwwYsU06-A0SWgypSSzMHAIjq6XhE8D6M8l8awWeIL861XLcM&_nc_zt=23&_nc_ht=scontent.flim12-1.fna&_nc_gid=X4NA-RIwD9V-Dj21O5hERA&_nc_ss=7b2a8&oh=00_Af-d5Sir1d2nTJ8nzOGlkqydTlBOEQ1vApYiBzfl_iH6KQ&oe=6A354F5D" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://images.hive.blog/DQmPUT4mF25e1tpUeHE8UjA3e9DGLei7oLYyPyDctKN3TTd/chiclinmonumento.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mt-divider"/>
+
+    <!-- HISTORIADOR -->
+    <div class="mt-historiador mt-fade">
+      <div class="mt-historiador-foto-wrap">
+        <img src="https://scontent.flim12-1.fna.fbcdn.net/v/t1.6435-9/125121443_3647816681943472_3852287644045594815_n.jpg?stp=dst-jpg_tt6&cstp=mx1584x1875&ctp=s1584x1875&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeESWlrZsWEkf_oJ17fRpP2b7KaZaSuVpNnspplpK5Wk2dHCwNjFS0zQf8XnadZHpk0TvvrqySBy0ev6AcH8o2NR&_nc_ohc=pX8f0S-afNQQ7kNvwEnqnmT&_nc_oc=AdoRaX9DYEjjRzryPp67J16UGxJmMGkf9TbGSeiiCOYv5IRGV8OP61byDeH-C4atZPc&_nc_zt=23&_nc_ht=scontent.flim12-1.fna&_nc_gid=gxf9jAFaBip9Zckf3Cvzaw&_nc_ss=7b2a8&oh=00_Af_tOclGwkthqmTH_ANualhmco_NnNsh5QPwkTuETAaRJQ&oe=6A55ECD3" alt="Daniel Terrones Valverde" class="mt-historiador-foto"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+        <div class="mt-historiador-placeholder" style="display:none;"><i class="fa-solid fa-user"></i></div>
+      </div>
+      <div class="mt-historiador-info">
+        <p class="mt-historiador-nombre">Daniel Terrones Valverde</p>
+        <p class="mt-historiador-cargo">Historiador de Chiclín</p>
+        <p class="mt-historiador-fuente">
+          <i class="fa-solid fa-book-open"></i>
+          <span><strong>Fuente:</strong> "Memorias", R. Larco Herrera, 1947 · "Semblanzas históricas de Chiclín", Daniel Terrones Valverde, 2009.</span>
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- WHATSAPP CTA -->
+  <div class="mt-whatsapp-cta mt-fade">
+    <div class="mt-whatsapp-cta-box">
+      <div class="mt-whatsapp-cta-icono"><i class="fa-brands fa-whatsapp"></i></div>
+      <div class="mt-whatsapp-cta-texto">
+        <strong>¿Recomendaciones, apoyo o donaciones?</strong>
+        <p>Escríbenos por WhatsApp, estaremos felices de atenderte.</p>
+      </div>
+      <a href="https://wa.me/51936674120" target="_blank" class="mt-whatsapp-cta-btn">
+        <i class="fa-brands fa-whatsapp"></i> Escribir
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER NAV -->
+  <div class="mt-footer-nav">
+    <a href="culturales.html#monumento-trabajo" class="mt-footer-btn">
+      <i class="fa-solid fa-arrow-left"></i> Volver a Monumentos
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="img/location/logo.png" alt="logo"/>
+        <span>Valle Chicama</span>
+      </div>
+      <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+    </div>
+  </footer>
+
+  <!-- MODAL IMAGEN -->
+  <div id="img-modal" class="img-modal-overlay" onclick="cerrarImagen(event)">
+    <div class="img-modal-box">
+      <button class="img-modal-close" onclick="document.getElementById('img-modal').classList.remove('active')">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="img-modal-src" src="" alt="Foto Monumento al Trabajo"/>
+    </div>
+  </div>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/51936674120" target="_blank" class="mt-whatsapp-float" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.mt-fade').forEach(el => observer.observe(el));
+
+    function abrirImagen(src) {
+      document.getElementById('img-modal-src').src = src;
+      document.getElementById('img-modal').classList.add('active');
+    }
+    function cerrarImagen(e) {
+      if (e.target === document.getElementById('img-modal'))
+        document.getElementById('img-modal').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.getElementById('img-modal').classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
