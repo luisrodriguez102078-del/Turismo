@@ -248,7 +248,7 @@
     .mt-foto:hover .mt-foto-overlay { opacity: 1; }
     .mt-foto img {
       width: 100%; height: 100%; object-fit: cover;
-      filter: brightness(0.85); transition: transform 0.5s ease, filter 0.4s ease; display: block;
+      filter: brightness(0.85); transition: transform 0.5s ease, filter 0.3s ease; display: block;
     }
     .mt-foto:hover img { transform: scale(1.06); filter: brightness(1); }
 
@@ -469,7 +469,6 @@
         <cite>— Inspirado en las Memorias de Rafael Larco Herrera, 1947</cite>
       </div>
     </div>
-    </div>
 
     <!-- DESCRIPCIÓN -->
     <div class="mt-fade">
@@ -481,6 +480,7 @@
         <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
           <img src="https://i.ibb.co/1fnQbR0Q/Monumento3.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
       </div>
     </div>
 
