@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Javier Larco Hoyle — Historia Completa</title>
+  <link rel="stylesheet" href="estilos-destino.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); }
+
+    .btn-regresar {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+      color: rgba(255,255,255,0.8); font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      transition: all 0.25s ease; white-space: nowrap;
+    }
+    .btn-regresar:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.08); }
+
+    /* ── HERO ── */
+    .jl-hero {
+      position: relative; height: 70vh; min-height: 480px;
+      display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .jl-hero-bg {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 110%; min-height: 110%;
+      width: auto; height: auto;
+      object-fit: cover; filter: brightness(0.3); z-index: 0;
+    }
+    .jl-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%);
+      z-index: 1;
+    }
+    .jl-hero-content {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 900px;
+      margin: 0 auto; padding: 0 40px 60px;
+    }
+    .jl-hero-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .jl-hero-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
+    .jl-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      line-height: 0.95; letter-spacing: 2px;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .jl-hero-sub { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 560px; }
+    .jl-hero-badges { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .jl-badge {
+      background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3);
+      color: var(--accent); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 50px;
+    }
+
+    /* ── MAIN ── */
+    .jl-main { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+    .jl-volver {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+      color: rgba(255,255,255,0.7); font-size: 0.85rem;
+      text-decoration: none; transition: all 0.25s ease; margin-bottom: 40px;
+    }
+    .jl-volver:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    .jl-seccion-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+    }
+    .jl-seccion-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .jl-seccion-titulo {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: 1px; color: var(--text);
+      margin-bottom: 30px; line-height: 1.1;
+    }
+
+    /* ── CITA APERTURA ── */
+    .jl-cita-apertura {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,229,160,0.02));
+      border: 1px solid rgba(0,229,160,0.2); border-left: 4px solid var(--accent);
+      border-radius: 0 16px 16px 0; padding: 28px 32px; margin-bottom: 36px;
+    }
+    .jl-cita-apertura p {
+      font-size: 1.05rem; font-style: italic;
+      color: var(--text); line-height: 1.8; margin-bottom: 12px;
+    }
+    .jl-cita-apertura cite {
+      font-size: 0.75rem; color: var(--accent);
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-style: normal;
+    }
+
+    /* ── DESCRIPCIÓN ── */
+    .jl-descripcion { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 50px; }
+    .jl-desc-p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.82);
+      line-height: 1.85; border-left: 3px solid var(--accent); padding-left: 18px;
+    }
+
+    /* ── DATOS RÁPIDOS ── */
+    .jl-datos {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; margin-bottom: 60px;
+    }
+    .jl-dato {
+      padding: 20px; display: flex; flex-direction: column; gap: 6px;
+      border-right: 1px solid var(--border); transition: background 0.3s ease;
+    }
+    .jl-dato:last-child { border-right: none; }
+    .jl-dato:hover { background: var(--surface); }
+    .jl-dato-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
+    .jl-dato-val { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 1px; color: #fff; line-height: 1.3; }
+
+    /* ── LOGROS ── */
+    .jl-logros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 60px; }
+    .jl-logro {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 22px; display: flex; gap: 16px; align-items: flex-start;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .jl-logro:hover { border-color: rgba(0,229,160,0.35); transform: translateY(-3px); }
+    .jl-logro-icono {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.25);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    }
+    .jl-logro-icono i { color: var(--accent); font-size: 1.05rem; }
+    .jl-logro-titulo { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.5px; color: #fff; margin-bottom: 6px; }
+    .jl-logro-desc { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    /* ── TARJETAS ── */
+    .jl-historia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 60px; }
+    .jl-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px; overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .jl-card:hover { border-color: rgba(0,229,160,0.4); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .jl-card--full { grid-column: span 2; }
+    .jl-card-header {
+      display: flex; align-items: center; gap: 14px; padding: 18px 22px;
+      background: rgba(0,229,160,0.07); border-bottom: 1px solid rgba(0,229,160,0.15);
+    }
+    .jl-card-icon-wrap {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(0,229,160,0.12); border: 1px solid rgba(0,229,160,0.25);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    }
+    .jl-card-icon-wrap i { font-size: 1.05rem; color: var(--accent); }
+    .jl-card-titulo { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 1px; color: #fff; }
+    .jl-card-body { padding: 8px 0; }
+    .jl-fila {
+      display: flex; align-items: flex-start; padding: 14px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.06); gap: 16px;
+    }
+    .jl-fila:last-child { border-bottom: none; }
+    .jl-fila:hover { background: rgba(255,255,255,0.04); }
+    .jl-fila-label {
+      flex: 0 0 38%; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); line-height: 1.5; padding-top: 2px;
+    }
+    .jl-fila-valor { flex: 1; font-size: 0.93rem; color: rgba(255,255,255,0.92); line-height: 1.65; }
+
+    /* ── HISTORIA NARRATIVA ── */
+    .jl-historia-narrativa {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 36px; margin-bottom: 60px;
+    }
+    .jl-historia-narrativa p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.8);
+      line-height: 1.9; margin-bottom: 18px;
+    }
+    .jl-historia-narrativa p:last-child { margin-bottom: 0; }
+
+    /* ── SIMBOLISMO ── */
+    .jl-simbolismo {
+      background: linear-gradient(135deg, rgba(0,229,160,0.06), transparent);
+      border: 1px solid rgba(0,229,160,0.2); border-radius: 16px;
+      padding: 32px 36px; margin-bottom: 60px;
+    }
+    .jl-simbolismo-item {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding-bottom: 22px; margin-bottom: 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .jl-simbolismo-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .jl-simbolismo-icono {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(0,229,160,0.12); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .jl-simbolismo-icono i { color: var(--accent); font-size: 0.9rem; }
+    .jl-simbolismo-texto { font-size: 0.94rem; color: rgba(255,255,255,0.82); line-height: 1.8; font-style: italic; }
+
+    /* ── CITA FINAL ── */
+    .jl-cita-final {
+      background: linear-gradient(135deg, rgba(0,229,160,0.06), transparent);
+      border: 1px solid rgba(0,229,160,0.2); border-radius: 16px;
+      padding: 32px 36px; margin-bottom: 60px; text-align: center;
+    }
+    .jl-cita-final p {
+      font-size: 1.05rem; font-style: italic;
+      color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 14px;
+    }
+    .jl-cita-final cite {
+      font-size: 0.72rem; color: var(--accent);
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-style: normal;
+    }
+
+    /* ── GALERÍA ── */
+    .jl-galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 60px; }
+    .jl-foto {
+      border-radius: 12px; overflow: hidden; height: 220px;
+      background: #1a1d24; border: 1px solid var(--border);
+      cursor: pointer; position: relative; display: block;
+    }
+    .jl-foto-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,229,160,0.35); opacity: 0; transition: opacity 0.3s ease;
+    }
+    .jl-foto-overlay i { font-size: 1.8rem; color: #fff; }
+    .jl-foto:hover .jl-foto-overlay { opacity: 1; }
+    .jl-foto img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.85); transition: transform 0.5s ease, filter 0.4s ease; display: block;
+    }
+    .jl-foto:hover img { transform: scale(1.06); filter: brightness(1); }
+
+    /* ── HOMENAJE ESCOLAR ── */
+    .jl-homenaje {
+      display: flex; gap: 20px; align-items: center;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 28px; margin-bottom: 60px;
+    }
+    .jl-homenaje-icono {
+      width: 56px; height: 56px; flex-shrink: 0;
+      background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.25);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .jl-homenaje-icono i { font-size: 1.5rem; color: var(--accent); }
+    .jl-homenaje-texto p { font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+    /* ── HISTORIADOR ── */
+    .jl-historiador {
+      display: flex; align-items: center; gap: 24px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px; padding: 24px 28px; margin-bottom: 60px;
+    }
+    .jl-historiador-foto-wrap {
+      flex-shrink: 0; width: 90px; height: 90px; border-radius: 50%;
+      overflow: hidden; border: 3px solid var(--accent);
+      background: rgba(0,229,160,0.08);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .jl-historiador-foto { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .jl-historiador-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 2.2rem; }
+    .jl-historiador-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .jl-historiador-nombre { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 1px; color: #fff; }
+    .jl-historiador-cargo { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
+    .jl-historiador-fuente { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin-top: 8px; display: flex; align-items: flex-start; gap: 8px; }
+    .jl-historiador-fuente i { color: var(--accent); font-size: 0.85rem; margin-top: 2px; flex-shrink: 0; }
+    .jl-historiador-fuente strong { color: rgba(255,255,255,0.85); }
+
+    /* ── MODAL IMAGEN ── */
+    .img-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+      z-index: 9999; align-items: center; justify-content: center; padding: 20px;
+    }
+    .img-modal-overlay.active { display: flex; }
+    .img-modal-box {
+      position: relative; max-width: 90vw; max-height: 90vh;
+      border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .img-modal-box img { width: 100%; max-height: 90vh; object-fit: contain; display: block; }
+    .img-modal-close {
+      position: absolute; top: 12px; right: 14px;
+      background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%; width: 36px; height: 36px; color: #fff; font-size: 1rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+    }
+    .img-modal-close:hover { background: rgba(0,229,160,0.3); border-color: var(--accent); }
+
+    /* ── WHATSAPP ── */
+    .jl-whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px;
+      width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35); z-index: 1000;
+      text-decoration: none; transition: transform 0.2s ease;
+    }
+    .jl-whatsapp-float:hover { transform: scale(1.08); }
+    .jl-whatsapp-float i { color: #fff; font-size: 2rem; }
+
+    .jl-whatsapp-cta { max-width: 900px; margin: 0 auto 60px; padding: 0 40px; }
+    .jl-whatsapp-cta-box {
+      display: flex; align-items: center; gap: 20px;
+      background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.25);
+      border-radius: 16px; padding: 24px 28px;
+    }
+    .jl-whatsapp-cta-icono {
+      flex-shrink: 0; width: 56px; height: 56px; background: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .jl-whatsapp-cta-icono i { color: #fff; font-size: 1.8rem; }
+    .jl-whatsapp-cta-texto { flex: 1; }
+    .jl-whatsapp-cta-texto strong {
+      display: block; font-family: var(--font-display);
+      font-size: 1.1rem; letter-spacing: 1px; color: #fff; margin-bottom: 4px;
+    }
+    .jl-whatsapp-cta-texto p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .jl-whatsapp-cta-btn {
+      flex-shrink: 0; background: #25D366; color: #fff; text-decoration: none;
+      padding: 12px 24px; border-radius: 50px; font-weight: 700; font-size: 0.85rem;
+      display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s ease;
+    }
+    .jl-whatsapp-cta-btn:hover { transform: scale(1.05); }
+
+    /* ── DIVIDER ── */
+    .jl-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 60px 0; }
+
+    /* ── FOOTER NAV ── */
+    .jl-footer-nav { display: flex; justify-content: center; padding: 0 0 60px; }
+    .jl-footer-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.2); border-radius: 10px;
+      color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: all 0.25s ease;
+    }
+    .jl-footer-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── ANIMACIONES ── */
+    .jl-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .jl-fade.visible { opacity: 1; transform: translateY(0); }
+.jl-logro-img {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.jl-logro-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.jl-logro-img:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .jl-logro-img {
+    height: 140px;
+    width: 100%;
+    margin: 12px 0 0 0;
+  }
+}
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .jl-hero { padding-top: 120px; min-height: 700px; }
+      .jl-hero-content { padding: 0 20px 30px; }
+      .jl-main { padding: 40px 20px; }
+      .jl-cita-apertura { border-left: none; border-top: 4px solid var(--accent); border-radius: 16px; text-align: center; padding: 24px 20px; }
+      .jl-descripcion { grid-template-columns: 1fr; }
+      .jl-datos { grid-template-columns: repeat(2, 1fr); }
+      .jl-dato:nth-child(2) { border-right: none; }
+      .jl-dato:nth-child(3) { border-top: 1px solid var(--border); border-right: none; }
+      .jl-dato:nth-child(4) { border-top: 1px solid var(--border); }
+      .jl-logros { grid-template-columns: 1fr; }
+      .jl-historia-grid { grid-template-columns: 1fr; }
+      .jl-card--full { grid-column: span 1; }
+      .jl-galeria { grid-template-columns: repeat(2, 1fr); }
+      .jl-fila { flex-direction: column; gap: 4px; }
+      .jl-fila-label { flex: none; }
+      .jl-historiador { flex-direction: column; text-align: center; padding: 24px 20px; }
+      .jl-historiador-fuente { justify-content: center; }
+      .jl-simbolismo { padding: 24px 20px; }
+      .jl-homenaje { flex-direction: column; text-align: center; }
+      .jl-whatsapp-cta { padding: 0 20px; }
+      .jl-whatsapp-cta-box { flex-direction: column; text-align: center; }
+      .jl-whatsapp-cta-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .jl-datos { grid-template-columns: 1fr; }
+      .jl-dato { border-right: none !important; border-bottom: 1px solid var(--border); }
+      .jl-dato:last-child { border-bottom: none; }
+      .jl-galeria { grid-template-columns: 1fr; }
+      .jl-foto { height: 240px; }
+      .jl-whatsapp-float { width: 52px; height: 52px; }
+      .jl-whatsapp-float i { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img/location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <a href="culturales.html#javier-larco" class="btn-regresar">
+      <i class="fa-solid fa-arrow-left"></i> Volver Monumentos
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="jl-hero">
+    <video class="jl-hero-bg" autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/v1781255113/Javiervid_jwupc2.mp4" type="video/mp4"/>
+    </video>
+    <div class="jl-hero-overlay"></div>
+    <div class="jl-hero-content">
+      <div class="jl-hero-tag">Chiclín · Bronce · 1948</div>
+      <h1 class="jl-hero-title">JAVIER LARCO<br>HOYLE</h1>
+      <p class="jl-hero-sub">Un hombre joven llorando inconsolable sobre una capa de torero — así quedó inmortalizado en bronce uno de los hombres más importantes que conoció Chiclín.</p>
+      <div class="jl-hero-badges">
+        <span class="jl-badge">Bronce</span>
+        <span class="jl-badge">Plaza Mayor</span>
+        <span class="jl-badge">Filomeno Melgarejo</span>
+        <span class="jl-badge">Desde 1948</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <main class="jl-main">
+    <!-- CITA APERTURA -->
+    <div class="jl-fade">
+      <div class="jl-cita-apertura">
+        <p>"En diciembre de 1946, en medio del fragor de la fiesta brava, en una tarde soleada y de olés estruendosos en las tribunas, el destino le arrancó la existencia a uno de los hombres más importantes que conoció Chiclín."</p>
+        <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/xqDDLkKx/Captura-de-pantalla-2026-06-16-082358.png" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div> <br>
+        <cite>Daniel Terrones Valverde, "Semblanzas históricas de Chiclín", 2009</cite>
+      </div>
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <div class="jl-fade">
+      <p class="jl-seccion-label">Descripción</p>
+      <h2 class="jl-seccion-titulo">El hombre que amó a Chiclín</h2>
+      <div class="jl-descripcion">
+        <p class="jl-desc-p">Javier fue el menor de los hermanos Larco Hoyle (Rafael y Constante), forjado por el espíritu recto y delicado de su padre, Rafael Larco Herrera. Fue Gerente de la Negociación <strong>"Larco Herrera Hnos"</strong> de Chiclín y dejó una huella profunda con su desaparición.</p>
+        <p class="jl-desc-p">Como Subdirector del Museo Rafael Larco Herrera, fue el colaborador más decidido y científico de su hermano Rafael. Luchó por conservar la raza del caballo peruano y forjó el criadero de porcinos más grande de la costa peruana y Sudamérica, en la hacienda Salamanca.</p>
+      </div>
+      <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/7tzf70GJ/images.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div> <br>
+    </div>
+
+    <!-- DATOS RÁPIDOS -->
+    <div class="jl-datos jl-fade">
+      <div class="jl-dato">
+        <span class="jl-dato-label">Nacimiento</span>
+        <span class="jl-dato-val">22 Jun 1908</span>
+      </div>
+      <div class="jl-dato">
+        <span class="jl-dato-label">Escultor</span>
+        <span class="jl-dato-val">Filomeno Melgarejo</span>
+      </div>
+      <div class="jl-dato">
+        <span class="jl-dato-label">Su afición</span>
+        <span class="jl-dato-val">caballos y tauromaquia</span>
+      </div>
+      <div class="jl-dato">
+        <span class="jl-dato-label">Fallecimiento</span>
+        <span class="jl-dato-val">Diciembre 1946</span>
+      </div>
+    </div>
+
+    <hr class="jl-divider"/>
+
+<!-- LOGROS -->
+<div class="jl-fade">
+  <p class="jl-seccion-label">Su legado</p>
+  <h2 class="jl-seccion-titulo">Un hombre de muchos talentos</h2>
+  <div class="jl-logros">
+
+    <div class="jl-logro jl-fade">
+      <div class="jl-logro-icono"><i class="fa-solid fa-landmark"></i></div>
+      <div style="flex:1;">
+        <h4 class="jl-logro-titulo">Arqueología</h4>
+        <p class="jl-logro-desc">Como Subdirector del Museo Rafael Larco Herrera, colaboró estrechamente con su hermano Rafael Larco Hoyle en las primeras exploraciones arqueológicas de la costa norte del Perú. Participó en trabajos de campo, apoyo logístico y conservación de colecciones que contribuyeron al desarrollo de uno de los museos más importantes del país.</p>
+        <div class="jl-logro-img" onclick="abrirImagen(this.querySelector('img').src)" style="cursor:pointer; margin-top:14px;">
+          <img src="https://i.ibb.co/svcqNwQP/Captura-de-pantalla-2026-06-16-092111.png" alt="Arqueología" onerror="this.parentElement.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="jl-logro jl-fade">
+      <div class="jl-logro-icono"><i class="fa-solid fa-horse"></i></div>
+      <div style="flex:1;">
+        <h4 class="jl-logro-titulo">Zootecnia</h4>
+        <p class="jl-logro-desc">Dedicó importantes esfuerzos a la preservación del Caballo Peruano de Paso, promoviendo su crianza y perfeccionamiento en la Hacienda Chiclín. Su trabajo contribuyó a consolidar una de las expresiones más representativas de la tradición y cultura ecuestre del Perú.</p>
+        <div class="jl-logro-img" onclick="abrirImagen(this.querySelector('img').src)" style="cursor:pointer; margin-top:14px;">
+          <img src="https://i.ibb.co/Z1ScqkrB/Captura-de-pantalla-2026-06-16-091922.png" alt="Zootecnia" onerror="this.parentElement.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="jl-logro jl-fade">
+      <div class="jl-logro-icono"><i class="fa-solid fa-piggy-bank"></i></div>
+      <div style="flex:1;">
+        <h4 class="jl-logro-titulo">Ganadería</h4>
+        <p class="jl-logro-desc">Forjó el criadero de porcinos más grande de la costa peruana y Sudamérica (hacienda Salamanca). Crió toros bravos dignos de admiración nacional y fundó el Museo Colonial de Arreos, el más importante de su rama en su época.</p>
+        <div class="jl-logro-img" onclick="abrirImagen(this.querySelector('img').src)" style="cursor:pointer; margin-top:14px;">
+          <img src="https://i.ibb.co/LXkjgFPM/475544289-122209462136034415-3457240307872661869-n.jpg" alt="Ganadería" onerror="this.parentElement.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="jl-logro jl-fade">
+      <div class="jl-logro-icono"><i class="fa-solid fa-trophy"></i></div>
+      <div style="flex:1;">
+        <h4 class="jl-logro-titulo">Esgrima</h4>
+        <p class="jl-logro-desc">Campeonato nacional y bolivariano en Esgrima, luego de distinciones obtenidas en Estados Unidos.</p>
+        <div class="jl-logro-img" onclick="abrirImagen(this.querySelector('img').src)" style="cursor:pointer; margin-top:14px;">
+          <img src="https://i.ibb.co/CpYdDFjK/Captura-de-pantalla-2026-06-16-091848.png" alt="Esgrima" onerror="this.parentElement.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <hr class="jl-divider"/>
+
+    <!-- TARJETAS -->
+    <div class="jl-fade">
+      <p class="jl-seccion-label">Historia</p>
+      <h2 class="jl-seccion-titulo">El Monumento y su Historia</h2>
+      <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/4ZXcgBb9/714824071-4483123865276824-21627509841249359-n.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div><br>
+      <div class="jl-historia-grid">
+
+        <div class="jl-card jl-fade">
+          <div class="jl-card-header">
+            <div class="jl-card-icon-wrap"><i class="fa-solid fa-hammer"></i></div>
+            <h3 class="jl-card-titulo">Realización</h3>
+          </div>
+          <div class="jl-card-body">
+            <div class="jl-fila">
+              <span class="jl-fila-label">Año del monumento</span>
+              <span class="jl-fila-valor">1948</span>
+            </div>
+            <div class="jl-fila">
+              <span class="jl-fila-label">Escultor</span>
+              <span class="jl-fila-valor">Filomeno Melgarejo — artista ancashino</span>
+            </div>
+            <div class="jl-fila">
+              <span class="jl-fila-label">Material</span>
+              <span class="jl-fila-valor">Bronce</span>
+            </div>
+            <div class="jl-fila">
+              <span class="jl-fila-label">Ofrecido por</span>
+              <span class="jl-fila-valor">Sr. Rafael Larco Hoyle, en nombre de la colectividad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="jl-card jl-fade">
+          <div class="jl-card-header">
+            <div class="jl-card-icon-wrap"><i class="fa-solid fa-circle-info"></i></div>
+            <h3 class="jl-card-titulo">¿Cómo murió?</h3>
+          </div>
+          <div class="jl-card-body">
+            <div class="jl-fila">
+              <span class="jl-fila-label">Fecha</span>
+              <span class="jl-fila-valor">Diciembre de 1946</span>
+            </div>
+            <div class="jl-fila">
+              <span class="jl-fila-label">Circunstancia</span>
+              <span class="jl-fila-valor">En medio del fragor de la fiesta brava, luciendo su maestría taurina, en una tarde soleada de olés estruendosos</span>
+            </div>
+            <div class="jl-fila">
+              <span class="jl-fila-label">Causa</span>
+              <span class="jl-fila-valor">Neumonía fulminante</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="jl-card jl-card--full jl-fade">
+          <div class="jl-card-header">
+            <div class="jl-card-icon-wrap"><i class="fa-solid fa-school"></i></div>
+            <h3 class="jl-card-titulo">Homenaje Escolar Anual</h3>
+          </div>
+          <div class="jl-card-body">
+            <div class="jl-fila">
+              <span class="jl-fila-label">Tradición</span>
+              <span class="jl-fila-valor">Las escuelas chiclinenses solían programar, anualmente, como actividad cívica, rendirle respetuoso culto con ceremonias y desfiles escolares en la propia plaza donde murió, ante el monumento de bronce erigido en su honor en 1948.</span>
+            </div>
+            <div class="jl-fila">
+              <span class="jl-fila-label">Reubicación</span>
+              <span class="jl-fila-valor">El Sr. Alfredo León Ramírez, administrador de la hacienda, finalmente optó por reubicar las esculturas del Monumento al Trabajo y Javier Larco en las ubicaciones de la Plaza Mayor que ocupan hasta hoy.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="jl-divider"/>
+
+    <!-- SIMBOLISMO -->
+    <div class="jl-fade">
+      <p class="jl-seccion-label">Significado de la escultura</p>
+      <h2 class="jl-seccion-titulo">Un gran simbolismo en bronce</h2>
+      <div class="jl-simbolismo">
+        <div class="jl-simbolismo-item">
+          <div class="jl-simbolismo-icono"><i class="fa-solid fa-shirt"></i></div>
+          <p class="jl-simbolismo-texto">"Un hombre joven y atlético, forjado en bronce, llorando inconsolable sobre una capa de torero, esa misma capa que luciera don Javier aquel día triste, y que representa su recuerdo justo, cariñoso y patriótico."</p>
+        </div>
+        <div class="jl-simbolismo-item">
+          <div class="jl-simbolismo-icono"><i class="fa-solid fa-people-group"></i></div>
+          <p class="jl-simbolismo-texto">"Ese hombre joven y fuerte es la colectividad de Chiclín, que se desenvuelve en medio de un ambiente nuevo y seguro de triunfo, guiada por hombres nacidos para el trabajo y para el bien común."</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="jl-divider"/>
+
+    <!-- HOMENAJE ESCOLAR -->
+    <div class="jl-homenaje jl-fade">
+      <div class="jl-homenaje-icono"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="jl-homenaje-texto">
+        <p>Cada año, las escuelas de Chiclín honraban su memoria con desfiles cívicos en la Plaza Mayor, frente al monumento. Una tradición que mantuvo viva su huella de enseñanza durante generaciones de chiclineros.</p>
+      </div>
+    </div>
+
+    <hr class="jl-divider"/>
+
+    <!-- GALERÍA -->
+    <div class="jl-fade">
+      <p class="jl-seccion-label">Galería</p>
+      <h2 class="jl-seccion-titulo">Fotografías</h2>
+      <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-bottom:20px;">Toca las imágenes para verlas completas</p>
+      <div class="jl-galeria">
+        <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="img/CHICLIN/Culturales/javierlarco.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="img/CHICLIN/Culturales/javierlarco1.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="img/CHICLIN/Culturales/javierlarco2.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="jl-divider"/>
+
+    <!-- CITA FINAL -->
+    <div class="jl-fade">
+      <p class="jl-seccion-label">Palabras del historiador</p>
+      <h2 class="jl-seccion-titulo">Un legado que sigue vivo</h2>
+      <div class="jl-cita-final">
+        <p>"Para que en las tardes de crepúsculo o en los amaneceres soleados y sublimes, nos acerquemos y rindamos tributo a quien supo querernos y dejó una honda huella de enseñanza y ejemplo que nos ha de servir de norte en la vida que nos toca alentar en su ausencia."</p>
+        <cite>Daniel Terrones Valverde · "Semblanzas históricas de Chiclín", 2009</cite>
+      </div>
+    </div>
+
+    <!-- HISTORIADOR -->
+    <div class="jl-historiador jl-fade">
+      <div class="jl-historiador-foto-wrap">
+        <img src="https://scontent.flim12-1.fna.fbcdn.net/v/t1.6435-9/125121443_3647816681943472_3852287644045594815_n.jpg?stp=dst-jpg_tt6&cstp=mx1584x1875&ctp=s1584x1875&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeESWlrZsWEkf_oJ17fRpP2b7KaZaSuVpNnspplpK5Wk2dHCwNjFS0zQf8XnadZHpk0TvvrqySBy0ev6AcH8o2NR&_nc_ohc=pX8f0S-afNQQ7kNvwEnqnmT&_nc_oc=AdoRaX9DYEjjRzryPp67J16UGxJmMGkf9TbGSeiiCOYv5IRGV8OP61byDeH-C4atZPc&_nc_zt=23&_nc_ht=scontent.flim12-1.fna&_nc_gid=gxf9jAFaBip9Zckf3Cvzaw&_nc_ss=7b2a8&oh=00_Af_tOclGwkthqmTH_ANualhmco_NnNsh5QPwkTuETAaRJQ&oe=6A55ECD3" alt="Daniel Terrones Valverde" class="jl-historiador-foto"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+        <div class="jl-historiador-placeholder" style="display:none;"><i class="fa-solid fa-user"></i></div>
+      </div>
+      <div class="jl-historiador-info">
+        <p class="jl-historiador-nombre">Daniel Terrones Valverde</p>
+        <p class="jl-historiador-cargo">Historiador de Chiclín</p>
+        <p class="jl-historiador-fuente">
+          <i class="fa-solid fa-book-open"></i>
+          <span><strong>Fuente:</strong> "La Nación", 1948 · "Semblanzas históricas de Chiclín", Daniel Terrones Valverde, 2009.</span>
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- WHATSAPP CTA -->
+  <div class="jl-whatsapp-cta jl-fade">
+    <div class="jl-whatsapp-cta-box">
+      <div class="jl-whatsapp-cta-icono"><i class="fa-brands fa-whatsapp"></i></div>
+      <div class="jl-whatsapp-cta-texto">
+        <strong>¿Recomendaciones, apoyo o donaciones?</strong>
+        <p>Escríbenos por WhatsApp, estaremos felices de atenderte.</p>
+      </div>
+      <a href="https://wa.me/51936674120" target="_blank" class="jl-whatsapp-cta-btn">
+        <i class="fa-brands fa-whatsapp"></i> Escribir
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER NAV -->
+  <div class="jl-footer-nav">
+    <a href="culturales.html#javier-larco" class="jl-footer-btn">
+      <i class="fa-solid fa-arrow-left"></i> Volver a Monumentos
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="img/location/logo.png" alt="logo"/>
+        <span>Valle Chicama</span>
+      </div>
+      <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+    </div>
+  </footer>
+
+  <!-- MODAL IMAGEN -->
+  <div id="img-modal" class="img-modal-overlay" onclick="cerrarImagen(event)">
+    <div class="img-modal-box">
+      <button class="img-modal-close" onclick="document.getElementById('img-modal').classList.remove('active')">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="img-modal-src" src="" alt="Foto Javier Larco Hoyle"/>
+    </div>
+  </div>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/51936674120" target="_blank" class="jl-whatsapp-float" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.jl-fade').forEach(el => observer.observe(el));
+
+    function abrirImagen(src) {
+      document.getElementById('img-modal-src').src = src;
+      document.getElementById('img-modal').classList.add('active');
+    }
+    function cerrarImagen(e) {
+      if (e.target === document.getElementById('img-modal'))
+        document.getElementById('img-modal').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.getElementById('img-modal').classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
