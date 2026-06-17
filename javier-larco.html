@@ -365,6 +365,61 @@
   transform: scale(1.05);
 }
 
+/* ── COMPARATIVA 1950-2026 ── */
+.jl-comparativa {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+.jl-comparativa-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.jl-comparativa-img {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+.jl-comparativa-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.jl-comparativa-item:hover .jl-comparativa-img img {
+  transform: scale(1.05);
+}
+.jl-comparativa-tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: rgba(0,229,160,0.9);
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+.jl-comparativa-texto {
+  padding: 18px 20px;
+}
+.jl-comparativa-texto p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+.jl-comparativa-flecha {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .jl-comparativa { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   .jl-logro-img {
     height: 140px;
@@ -443,6 +498,7 @@
 
   <!-- CONTENIDO -->
   <main class="jl-main">
+    <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-bottom:20px;">Toca las imágenes para verlas completas</p>
     <!-- CITA APERTURA -->
     <div class="jl-fade">
       <div class="jl-cita-apertura">
@@ -450,8 +506,7 @@
         <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
           <img src="https://i.ibb.co/xqDDLkKx/Captura-de-pantalla-2026-06-16-082358.png" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div> <br>
-        <cite>Daniel Terrones Valverde, "Semblanzas históricas de Chiclín", 2009</cite>
+        </div>
       </div>
     </div>
 
@@ -464,7 +519,7 @@
         <p class="jl-desc-p">Como Subdirector del Museo Rafael Larco Herrera, fue el colaborador más decidido y científico de su hermano Rafael. Luchó por conservar la raza del caballo peruano y forjó el criadero de porcinos más grande de la costa peruana y Sudamérica, en la hacienda Salamanca.</p>
       </div>
       <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="https://i.ibb.co/7tzf70GJ/images.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <img src="https://i.ibb.co/Fq8FDbHB/Captura-de-pantalla-2026-06-16-091802.png"  alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div> <br>
     </div>
@@ -495,7 +550,9 @@
 <div class="jl-fade">
   <p class="jl-seccion-label">Su legado</p>
   <h2 class="jl-seccion-titulo">Un hombre de muchos talentos</h2>
+  <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-bottom:20px;">Toca las imágenes para verlas completas</p>
   <div class="jl-logros">
+    
 
     <div class="jl-logro jl-fade">
       <div class="jl-logro-icono"><i class="fa-solid fa-landmark"></i></div>
@@ -534,7 +591,7 @@
       <div class="jl-logro-icono"><i class="fa-solid fa-trophy"></i></div>
       <div style="flex:1;">
         <h4 class="jl-logro-titulo">Esgrima</h4>
-        <p class="jl-logro-desc">Campeonato nacional y bolivariano en Esgrima, luego de distinciones obtenidas en Estados Unidos.</p>
+        <p class="jl-logro-desc">Tras obtener diversas distinciones en Estados Unidos, se coronó campeón nacional y, en 1939, alcanzó el campeonato bolivariano de esgrima.</p>
         <div class="jl-logro-img" onclick="abrirImagen(this.querySelector('img').src)" style="cursor:pointer; margin-top:14px;">
           <img src="https://i.ibb.co/CpYdDFjK/Captura-de-pantalla-2026-06-16-091848.png" alt="Esgrima" onerror="this.parentElement.style.display='none'"/>
         </div>
@@ -589,16 +646,24 @@
           <div class="jl-card-body">
             <div class="jl-fila">
               <span class="jl-fila-label">Fecha</span>
-              <span class="jl-fila-valor">Diciembre de 1946</span>
+              <span class="jl-fila-valor">29 de diciembre de 1946, domingo</span>
+            </div>
+             <div class="jl-fila">
+            <span class="jl-fila-label">Lugar</span>
+            <span class="jl-fila-valor">Plaza de toros (toril) de la Hacienda Chiclín, durante los festejos de la fiesta del pueblo</span>
             </div>
             <div class="jl-fila">
               <span class="jl-fila-label">Circunstancia</span>
-              <span class="jl-fila-valor">En medio del fragor de la fiesta brava, luciendo su maestría taurina, en una tarde soleada de olés estruendosos</span>
+              <span class="jl-fila-valor">Tras un gran esfuerzo físico alternando en la corrida, bajo el intenso calor de diciembre en la costa norte, agitado y sudoroso ingirió agua con hielo</span>
             </div>
             <div class="jl-fila">
               <span class="jl-fila-label">Causa</span>
-              <span class="jl-fila-valor">Neumonía fulminante</span>
+              <span class="jl-fila-valor">El violento cambio de temperatura le originó una pulmonía fulminante</span>
             </div>
+            <div class="jl-fila">
+             <span class="jl-fila-label">Desenlace</span>
+            <span class="jl-fila-valor">Chiclín no contaba con un hospital de alta complejidad. Falleció en el trayecto hacia el Hospital de Chocope, la opción médica más cercana</span>
+          </div>
           </div>
         </div>
 
@@ -624,18 +689,50 @@
 
     <hr class="jl-divider"/>
 
+    <div class="jl-fade">
+  <p class="jl-seccion-label">Comparativa Histórica</p>
+  <h2 class="jl-seccion-titulo">El monumento a través del tiempo</h2>
+  <div class="jl-comparativa">
+
+    <div class="jl-comparativa-item" onclick="abrirImagen(this.querySelector('img').src)">
+      <div class="jl-comparativa-img">
+        <span class="jl-comparativa-tag"><i class="fa-solid fa-clock-rotate-left"></i> 1948</span>
+        <img src="https://i.ibb.co/8nK6fVxp/Captura-de-pantalla-2026-06-16-100146.png" alt="Monumento Javier Larco 1950" onerror="this.parentElement.parentElement.style.background='#1a1d24'"/>
+      </div>
+      <div class="jl-comparativa-texto">
+        <p>Monumento de Javier Larco H. colocado desde su inauguración en 1948, en el mismo ruedo de la plaza de toros de Chiclín.</p>
+      </div>
+    </div>
+
+    <div class="jl-comparativa-item" onclick="abrirImagen(this.querySelector('img').src)">
+      <div class="jl-comparativa-img">
+        <span class="jl-comparativa-tag"><i class="fa-solid fa-calendar-check"></i> 2026</span>
+        <img src="https://i.ibb.co/chWq3qJP/watermarked-img-1993060125008686047.jpg" alt="Monumento Javier Larco actual" onerror="this.parentElement.parentElement.style.background='#1a1d24'"/>
+      </div>
+      <div class="jl-comparativa-texto">
+        <p>El monumento hoy, reubicado en la Plaza Mayor de Chiclín, donde sigue recordando el legado de Javier Larco Hoyle.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
     <!-- SIMBOLISMO -->
     <div class="jl-fade">
       <p class="jl-seccion-label">Significado de la escultura</p>
       <h2 class="jl-seccion-titulo">Un gran simbolismo en bronce</h2>
       <div class="jl-simbolismo">
         <div class="jl-simbolismo-item">
-          <div class="jl-simbolismo-icono"><i class="fa-solid fa-shirt"></i></div>
+          <div class="jl-simbolismo-icono"><i class="fa-solid fa-crown"></i></div>
           <p class="jl-simbolismo-texto">"Un hombre joven y atlético, forjado en bronce, llorando inconsolable sobre una capa de torero, esa misma capa que luciera don Javier aquel día triste, y que representa su recuerdo justo, cariñoso y patriótico."</p>
         </div>
         <div class="jl-simbolismo-item">
           <div class="jl-simbolismo-icono"><i class="fa-solid fa-people-group"></i></div>
           <p class="jl-simbolismo-texto">"Ese hombre joven y fuerte es la colectividad de Chiclín, que se desenvuelve en medio de un ambiente nuevo y seguro de triunfo, guiada por hombres nacidos para el trabajo y para el bien común."</p>
+        </div>
+        <div class="jl-simbolismo-item">
+          <div class="jl-simbolismo-icono"><i class="fa-solid fa-hands-praying"></i></div>
+          <p class="jl-simbolismo-texto">"Para que en las tardes de crepúsculo o en los amaneceres soleados y sublimes, nos acerquemos y rindamos tributo a quién supo querernos y dejó una honda huella de enseñanza y ejemplo que nos ha de servir de norte en la vida que nos toca alentar en su ausencia."</p>
         </div>
       </div>
     </div>
@@ -646,7 +743,7 @@
     <div class="jl-homenaje jl-fade">
       <div class="jl-homenaje-icono"><i class="fa-solid fa-graduation-cap"></i></div>
       <div class="jl-homenaje-texto">
-        <p>Cada año, las escuelas de Chiclín honraban su memoria con desfiles cívicos en la Plaza Mayor, frente al monumento. Una tradición que mantuvo viva su huella de enseñanza durante generaciones de chiclineros.</p>
+        <p>Las escuelas chiclinenses solían rendirle culto, anualmente, con ceremonias y desfiles escolares en la propia plaza donde murió, ante el monumento de bronce que le erigieron en su honor y que hoy reposa en la Plaza Mayor</p>
       </div>
     </div>
 
@@ -663,11 +760,11 @@
           <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
         <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="img/CHICLIN/Culturales/javierlarco1.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <img src="https://i.ibb.co/k2crjt14/Whats-App-Image-2026-06-16-at-8-49-26-AM.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
         <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="img/CHICLIN/Culturales/javierlarco2.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <img src="https://i.ibb.co/xqDDLkKx/Captura-de-pantalla-2026-06-16-082358.png" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
       </div>
@@ -680,7 +777,11 @@
       <p class="jl-seccion-label">Palabras del historiador</p>
       <h2 class="jl-seccion-titulo">Un legado que sigue vivo</h2>
       <div class="jl-cita-final">
-        <p>"Para que en las tardes de crepúsculo o en los amaneceres soleados y sublimes, nos acerquemos y rindamos tributo a quien supo querernos y dejó una honda huella de enseñanza y ejemplo que nos ha de servir de norte en la vida que nos toca alentar en su ausencia."</p>
+        <p>"En pocas palabras, toda actividad que demandó su inteligencia fue cumplida a cabalidad y con eficiencia asombrosa. Honraremos su memoria trabajando, cada cual en su esfera, para hacer de Chiclín lo que él y toda la familia Larco siempre anhelaron: una colectividad ejemplar, unida, virtuosa y patriota."</p> <br>
+         <div class="jl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/7tzf70GJ/images.jpg" alt="Javier Larco Hoyle" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="jl-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div><br>
         <cite>Daniel Terrones Valverde · "Semblanzas históricas de Chiclín", 2009</cite>
       </div>
     </div>
@@ -745,7 +846,6 @@
       <img id="img-modal-src" src="" alt="Foto Javier Larco Hoyle"/>
     </div>
   </div>
-
   <!-- WHATSAPP FLOAT -->
   <a href="https://wa.me/51936674120" target="_blank" class="jl-whatsapp-float" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>

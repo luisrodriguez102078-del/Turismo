@@ -997,7 +997,6 @@
   text-transform: uppercase;
   font-style: normal;
 }
-
 .descubre-btn {
   display: flex;
   align-items: center;
@@ -1005,10 +1004,10 @@
   gap: 12px;
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(135deg, rgba(0,229,160,0.15), rgba(0,229,160,0.05));
-  border: 1.5px solid rgba(0,229,160,0.5);
+  background: linear-gradient(135deg, rgba(220,38,38,0.15), rgba(220,38,38,0.05));
+  border: 2px solid #dc2626;
   border-radius: 12px;
-  color: #00e5a0;
+  color: #ffffff;
   font-family: 'Outfit', sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -1016,14 +1015,32 @@
   text-decoration: none;
   transition: all 0.3s ease;
   margin-top: 6px;
+  animation: pulso-rojo 2s infinite;
+  position: relative;
+  overflow: hidden;
 }
+
 .descubre-btn:hover {
-  background: linear-gradient(135deg, rgba(0,229,160,0.25), rgba(0,229,160,0.1));
-  border-color: #00e5a0;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,229,160,0.2);
+  background: linear-gradient(135deg, rgba(220,38,38,0.3), rgba(220,38,38,0.15));
+  border-color: #ff3333;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(220,38,38,0.4);
+  animation-play-state: paused;
 }
+
 .descubre-arrow {
   margin-left: auto;
   font-size: 1.1rem;
+}
+
+@keyframes pulso-rojo {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220,38,38,0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(220,38,38,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220,38,38,0);
+  }
 }

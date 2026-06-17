@@ -248,7 +248,7 @@
     .mt-foto:hover .mt-foto-overlay { opacity: 1; }
     .mt-foto img {
       width: 100%; height: 100%; object-fit: cover;
-      filter: brightness(0.85); transition: transform 0.5s ease, filter 0.3s ease; display: block;
+      filter: brightness(0.85); transition: transform 0.5s ease, filter 0.4s ease; display: block;
     }
     .mt-foto:hover img { transform: scale(1.06); filter: brightness(1); }
 
@@ -346,37 +346,6 @@
     .mt-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .mt-fade.visible { opacity: 1; transform: translateY(0); }
 
-    .mt-figura-foto {
-  width: 100%;
-  height: 160px;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  margin-bottom: 12px;
-}
-.mt-figura-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  filter: brightness(0.85);
-  transition: transform 0.4s ease, filter 0.3s ease;
-  display: block;
-}
-.mt-figura-foto:hover img {
-  transform: scale(1.05);
-  filter: brightness(1);
-}
-.mt-figura-foto-overlay {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(0,229,160,0.35);
-  opacity: 0; transition: opacity 0.3s ease;
-}
-.mt-figura-foto-overlay i { font-size: 1.5rem; color: #fff; }
-.mt-figura-foto:hover .mt-figura-foto-overlay { opacity: 1; }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .mt-hero { padding-top: 120px; min-height: 700px; }
@@ -429,7 +398,7 @@
   <!-- HERO -->
   <section class="mt-hero">
     <video class="mt-hero-bg" autoplay muted loop playsinline>
-      <source src="https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/v1781304261/Monumento_al_trabajo_nnjkdb.mp4" type="video/mp4"/>
+      <source src="videos/Chiclin.mp4" type="video/mp4"/>
     </video>
     <div class="mt-hero-overlay"></div>
     <div class="mt-hero-content">
@@ -445,17 +414,16 @@
     </div>
   </section>
 
-  
-
   <!-- CONTENIDO -->
   <main class="mt-main">
+
+    <a href="culturales.html#monumento-trabajo" class="mt-volver">
+      <i class="fa-solid fa-arrow-left"></i> Volver a Monumentos
+    </a>
+
     <!-- BANNER CENTENARIO -->
-     <p class="mt-hero-sub">Toca las imágenes para verlas completas</p><br>
     <div class="mt-centenario mt-fade">
-          <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="https://i.ibb.co/QFgj5HCL/Captura-de-pantalla-2026-06-14-194933.png" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
+      <div class="mt-centenario-icono">🏛️</div>
       <div class="mt-centenario-texto">
         <strong>CENTENARIO 1926 — 2026</strong>
         <p>Este año el Monumento al Trabajo cumple 100 años desde su inauguración el 15 de agosto de 1926. Un siglo de historia, lealtad y belleza escultórica en la Plaza Mayor de Chiclín.</p>
@@ -465,8 +433,8 @@
     <!-- CITA APERTURA -->
     <div class="mt-fade">
       <div class="mt-cita-apertura">
-        <p>"En 1921, quinientos trabajadores de Chiclín empuñaron sus herramientas para salvar a su empresa. Ese gesto de lealtad quedó inmortalizado para siempre en el mármol más noble del mundo: el mármol de Carrara."</p>
-        <cite>— Inspirado en las Memorias de Rafael Larco Herrera, 1947</cite>
+        <p>"En 1921, quinientos trabajadores de Chiclín empuñaron sus herramientas para salvar a su empresa. Conmovido por ese gesto de lealtad, Rafael Larco Herrera encargó al escultor romano Ernesto Gazzeri inmortalizarlo para siempre. Así nació, en 1923, una obra tallada en el mármol más noble del mundo: el mármol de Carrara."</p>
+        <cite>— Memorias de Rafael Larco Herrera, 1947</cite>
       </div>
     </div>
 
@@ -477,10 +445,6 @@
       <div class="mt-descripcion">
         <p class="mt-desc-p">Ubicado en el extremo sur de la Plaza Mayor, este monumento de mármol de Carrara mide 4.20 metros de altura y 2 metros de ancho. Fue elaborado por el artista romano <strong>Ernesto Gazzeri</strong> con clara influencia florentina y un boceto masónico, inaugurado el <strong>15 de agosto de 1926</strong> con el nombre de <em>"Trabajo, Progreso y Vida"</em>.</p>
         <p class="mt-desc-p">Representa un cuadro de desnudos de la anatomía humana trabajada de manera clásica: tres figuras que simbolizan el <strong>Trabajo</strong>, el <strong>Progreso</strong> y la <strong>Vida</strong>. Asentado sobre una base cúbica de mármol, es uno de los monumentos más hermosos y singulares del norte del Perú.</p>
-        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="https://i.ibb.co/MyMLg5mZ/Monumento1.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
       </div>
     </div>
 
@@ -510,32 +474,18 @@
     <div class="mt-fade">
       <p class="mt-seccion-label">Las tres figuras</p>
       <h2 class="mt-seccion-titulo">Trabajo · Progreso · Vida</h2>
-      <p class="mt-hero-sub">Toca las imágenes para verlas completas</p><br>
-      <p class="mt-desc-p"></p>
       <div class="mt-figuras">
         <div class="mt-figura mt-fade">
-        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-        <img src="https://i.ibb.co/wNShDwDq/Trabajo.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
-        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div> <br>
           <div class="mt-figura-num">01</div>
           <h3 class="mt-figura-titulo"><i class="fa-solid fa-hammer"></i> El Trabajo</h3>
           <p class="mt-figura-desc">La figura central — sentado sobre un yunque, con un martillo en la mano izquierda y la mano derecha apoyada sobre el hombro de un adolescente. Representa la serenidad y dignidad del trabajador.</p>
         </div>
         <div class="mt-figura mt-fade">
-        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-        <img src="https://i.ibb.co/4g1G9bw3/Progreso.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
-        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div><br>
           <div class="mt-figura-num">02</div>
           <h3 class="mt-figura-titulo"><i class="fa-solid fa-bolt"></i> El Progreso</h3>
           <p class="mt-figura-desc">El adolescente — porta en su mano derecha una antorcha y en la izquierda una rueda. Símbolo del avance, la tecnología y el futuro que se construye con esfuerzo y visión.</p>
         </div>
         <div class="mt-figura mt-fade">
-        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-        <img src="https://i.ibb.co/TMdyP5Z5/Vida.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
-        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div><br>
           <div class="mt-figura-num">03</div>
           <h3 class="mt-figura-titulo"><i class="fa-solid fa-heart"></i> La Vida</h3>
           <p class="mt-figura-desc">La madre — sobre un haz de trigo, besa tiernamente al niño en su regazo. Una guirnalda de flores y frutos decora el pedestal. Imagen de la ternura, la fertilidad y la continuidad.</p>
@@ -567,7 +517,15 @@
             </div>
             <div class="mt-fila">
               <span class="mt-fila-label">Escultor</span>
-              <span class="mt-fila-valor">Ernesto Ermete Gazzeri — Roma-Italia Creación del monumento 1923</span>
+              <span class="mt-fila-valor">Ernesto Ermete Gazzeri — Roma, Italia. Creación del monumento: 1923</span>
+            </div>
+            <div class="mt-fila" style="flex-direction:column; gap:10px;">
+              <span class="mt-fila-label">Fotografía del escultor</span>
+              <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)" style="height:180px; max-width:240px;">
+                <img src="img/CHICLIN/Culturales/ernestogazzeri.jpg" alt="Ernesto Gazzeri, 1947" onerror="this.parentElement.style.background='#1a1d24'"/>
+                <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+              </div>
+              <span style="font-size:0.72rem; color:rgba(255,255,255,0.4);">1947 · Ernesto Gazzeri</span>
             </div>
             <div class="mt-fila">
               <span class="mt-fila-label">Material</span>
@@ -633,10 +591,6 @@
             </div>
           </div>
         </div>
-        <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-        <img src="https://i.ibb.co/x87jGBRH/Captura-de-pantalla-2026-06-14-215143.png"  alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
-        <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
 
       </div>
     </div>
@@ -650,7 +604,8 @@
       <div class="mt-historia-narrativa">
         <p>A inicios del siglo XX, muchos trabajadores sucumbieron a la prédica violentista y a la propaganda sindicalista. El trabajador de Chiclín gozaba de una moral, un sentido del orden y respeto — producto del buen trato y beneficios — que lo diferenciaba de los demás braseros azucareros.</p>
         <p>Sin embargo, el movimiento sindicalista en expansión subvirtió el orden público, quemó cañaverales e intensificó amenazas a obreros y empleados. En agosto de 1921, al decretarse un paro, con caña quemada que debía beneficiarse so pena de malograrse, quinientos trabajadores leales marcharon al campo y salvaron a la empresa.</p>
-        <p>Ese gesto fue el origen y motivo para edificar el Monumento al Trabajo. El 15 de agosto de 1926, con la concurrencia de empleados, artesanos y obreros de Chiclín, fue inaugurado con el nombre de <em>"Trabajo, Progreso y Vida"</em> — un homenaje eterno labrado en el mármol más noble del mundo.</p>
+        <p>Conmovido por ese gesto de lealtad, Rafael Larco Herrera decidió que merecía quedar grabado para siempre. Encargó la obra al escultor romano Ernesto Gazzeri, quien la elaboró en 1923 en mármol de Carrara, representando las tres figuras del Trabajo, el Progreso y la Vida.</p>
+        <p>Finalmente, el 15 de agosto de 1926, con la concurrencia de empleados, artesanos y obreros de Chiclín, el monumento fue inaugurado con el nombre de <em>"Trabajo, Progreso y Vida"</em> — un homenaje eterno labrado en el mármol más noble del mundo, que hoy, cien años después, sigue en pie en la Plaza Mayor de Chiclín.</p>
       </div>
     </div>
 
@@ -663,7 +618,8 @@
       <div class="mt-lema">
         <p class="mt-lema-label"><i class="fa-solid fa-quote-left"></i> Lema de la Sociedad Unión de Empleados y Obreros de Chiclín</p>
         <p>"Cuando los hombres se agrupan en torno a un ideal, si no inscriben en su bandera, con caracteres imperativos, el respeto a la verdad, el culto a la justicia y la intangibilidad del derecho ajeno: entonces la solidaridad que los liga, lejos de ser factor de perfeccionamiento, es fuerza ciega que los sugestiona y les arrastra al crimen y a la desorganización de la sociedad."</p>
-        <cite>Redactado por Rafael Larco Herrera e inspirado en la obra "Las Fuerzas Morales" de José Ingenieros. Chiclín, 15 de agosto de 1926.</cite>
+        <cite>— Rafael Larco Herrera</cite>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.45); margin-top:14px; font-style:normal;">Redactado por Rafael Larco Herrera e inspirado en la obra "Las Fuerzas Morales" de José Ingenieros. Chiclín, 15 de agosto de 1926.</p>
       </div>
     </div>
 
@@ -673,18 +629,17 @@
     <div class="mt-fade">
       <p class="mt-seccion-label">Galería</p>
       <h2 class="mt-seccion-titulo">Fotografías</h2>
-      <p class="mt-hero-sub">Toca las imágenes para verlas completas</p><br>
       <div class="mt-galeria">
         <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="https://i.ibb.co/MyMLg5mZ/Monumento1.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <img src="img/CHICLIN/javier1.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
         <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="https://i.ibb.co/whpjV5fq/Monumento3.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <img src="img/CHICLIN/javier2.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
         <div class="mt-foto" onclick="abrirImagen(this.querySelector('img').src)">
-          <img src="https://images.hive.blog/DQmPUT4mF25e1tpUeHE8UjA3e9DGLei7oLYyPyDctKN3TTd/chiclinmonumento.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <img src="img/CHICLIN/javier3.jpg" alt="Monumento al Trabajo" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="mt-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
       </div>
