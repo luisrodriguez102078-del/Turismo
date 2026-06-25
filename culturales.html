@@ -4,9 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Culturales – Chiclín</title>
-  <link rel="stylesheet" href="estilos-destino.css"/>
-  <link rel="stylesheet" href="estilos-culturales.css"/>
+  <link rel="stylesheet" href="css/estilos-destino.css"/>
+  <link rel="stylesheet" href="css/estilos-culturales.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
 
@@ -303,100 +304,359 @@
 
 </div>
   <!-- ══════════ MUSEO DE CHICLÍN ══════════ -->
-  <section class="section section-dark" id="museo">
-    <div class="container">
+<section class="section section-dark" id="museo">
+  <div class="container">
+ 
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Ex Museo</span>
+        <div class="section-line"></div>
+      </div>
+    </div>
+    <h2 class="section-title">Casa de la Cultura de Chiclín</h2>
+    <p class="section-sub">"Ysabel Larco de Álvarez Calderón" — Ex Museo Rafael Larco Herrera</p>
+ 
+    <!-- INTRO -->
+    <div class="museo-intro">
+      <div class="museo-intro-texto">
+        <div class="museo-badge">🏛️ Fundado en 1926 · 100 años de historia</div>
+        <h3 class="museo-intro-titulo">La memoria arqueológica del Valle Chicama</h3>
+        <p>Este local fue uno de los primeros centros de salud de la hacienda — muchos lo llamaron el "hospital viejo". Con el tiempo fue acondicionado como centro de recreación para la juventud y escenario de veladas boxísticas. Sobre un área de 1,000 m², fue reinaugurado en 1926 para albergar los primeros ceramios que los Larco acopiaron a lo largo de muchos años.</p>
+        <p>En 1946, don Rafael Larco Hoyle, en coordinación con el Instituto de Investigaciones Andinas de New York, marcó un hito en la Mochicología: expuso la secuencia estilística de cinco periodos de la cerámica Mochica, cambiando el curso de la historia. Todo ello fue presentado en la histórica <strong>Mesa Redonda de Chiclín</strong>, realizada en los interiores de este mismo museo.</p>
+      </div>
+      <div class="museo-intro-img">
+        <img src="img/CHICLIN/fotos/d6.jpg" alt="Casa de la Cultura de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="museo-intro-tag">Fundado en 1926 · Reabierto como Casa de la Cultura</div>
+      </div>
+    </div>
+<!-- ANTES (esto se borra, junto con el bloque "DESPUÉS" duplicado debajo) -->
 
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <div class="section-label-wrap">
-          <span class="section-label">Museo</span>
-          <div class="section-line"></div>
+    <!-- LÍNEA DEL TIEMPO -->
+    <div class="museo-timeline">
+      <div class="museo-tl-header">
+        <span class="museo-gal-label">Historia</span>
+        <h4 class="museo-gal-titulo">Línea del tiempo</h4>
+      </div>
+      <div class="museo-tl-grid">
+
+        <div class="museo-tl-item">
+          <div class="museo-tl-year">1926</div>
+          <div class="museo-tl-content">
+            <h5>Inauguración del Museo</h5>
+            <p>El 28 de julio Sobre 1,000 m² se inaugura como repositorio de piezas arqueológicas del Museo Rafael Larco Herrera. Primer director: Rafael Larco Hoyle.</p>
+            <div class="museo-tl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+              <img src="https://i.ibb.co/W4Q29HrN/museo-1926.jpg" alt="Fachada original del museo" onerror="this.parentElement.style.display='none'"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="museo-tl-item">
+          <div class="museo-tl-year">1946</div>
+          <div class="museo-tl-content">
+            <h5>Mesa Redonda de Chiclín</h5>
+            <p>Hito mundial en arqueología. Rafael Larco Hoyle expone la secuencia cronológica de la cerámica Mochica ante los estudiosos más representativos de la arqueología nacional e internacional.</p>
+            <div class="museo-tl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+              <img src="https://i.ibb.co/mm4NTnY/Whats-App-Image-2026-06-24-at-12-10-52-PM-1.jpg" alt="Fachada original del museo" onerror="this.parentElement.style.display='none'"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="museo-tl-item">
+          <div class="museo-tl-year">1953</div>
+          <div class="museo-tl-content">
+            <h5>Decreto del Senado</h5>
+            <p>Tras inspeccionar la colección, una comisión del Senado dictaminó que el Estado debía garantizar la seguridad y perennidad de las piezas mediante la construcción de un palacio monumental y turístico en la misma Hacienda Chiclín.</p>
+            <div class="museo-tl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+              <img src="https://i.ibb.co/M51NnhBr/Whats-App-Image-2026-06-24-at-4-57-03-PM.jpg" alt="Fachada original del museo" onerror="this.parentElement.style.display='none'"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="museo-tl-item">
+          <div class="museo-tl-year">1956</div>
+          <div class="museo-tl-content">
+            <h5>Traslado a Lima</h5>
+            <p>Por seguridad del patrimonio, los Larco trasladan su colección arqueológica a Lima (Pueblo Libre), al actual Museo Larco — hoy uno de los 20 museos más importantes del mundo.</p>
+            <div class="museo-tl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+              <img src="https://i.ibb.co/TM9LxrBC/MUSEO-LARCO-1-Small.jpg" alt="Fachada original del museo" onerror="this.parentElement.style.display='none'"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="museo-tl-item">
+          <div class="museo-tl-year">2018</div>
+          <div class="museo-tl-content">
+            <h5>Reapertura</h5>
+            <p>Tras 50 años cerrado, es reabierto y su frontis restaurado gracias al apoyo de los hijos de Chiclín. Hoy funciona como la Casa de la Cultura "Ysabel Larco de Álvarez Calderón".</p>
+            <div class="museo-tl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+              <img src="https://i.ibb.co/xKK5X6Qf/museo-2018.png" alt="Edificio antes de la restauración, 2018" onerror="this.parentElement.style.display='none'"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="museo-tl-item">
+          <div class="museo-tl-year">2020</div>
+          <div class="museo-tl-content">
+            <h5>Restauración del frontis</h5>
+            <p>El Patronato de Cultura de Chiclín, con el apoyo de los hijos de la tierra, culmina la restauración de la fachada, recuperando sus colores y ornamentos originales.</p>
+            <div class="museo-tl-foto" onclick="abrirImagen(this.querySelector('img').src)">
+              <img src="https://i.ibb.co/GfThw2RJ/museo-2020.jpg" alt="Edificio restaurado, 2020" onerror="this.parentElement.style.display='none'"/>
+            </div>
+          </div>
         </div>
       </div>
-      <h2 class="section-title">Ex Museo de Chiclín</h2>
-
-      <!-- INTRO MUSEO -->
-      <div class="museo-intro">
-        <div class="museo-intro-texto">
-          <div class="museo-badge">🏛️ Centenario 1926 – 2026</div>
-          <h3 class="museo-intro-titulo">La memoria arqueológica del Valle Chicama</h3>
-          <p>El Ex Museo de Chiclín fue fundado por Rafael Larco Herrera en 1926 como parte del complejo cultural de la Hacienda Chiclín. Durante décadas albergó una de las colecciones arqueológicas más importantes del norte del Perú, con piezas de las culturas Moche, Chimú y Virú encontradas en el Valle Chicama.</p>
-          <p>Su edificio histórico, que cumple 100 años en 2026, es en sí mismo un patrimonio arquitectónico del pueblo. El frontis del museo está decorado con iconografía mochica — los famosos "sapos" de cemento natural que representan sacerdotes con tocados ceremoniales, tal como los describió Rafael Larco Hoyle, padre de la arqueología peruana.</p>
-        </div>
-        <div class="museo-intro-img">
-          <img src="img/CHICLIN/fotos/d6.jpg" alt="Museo de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-intro-tag">Fundado en 1926 · 100 años de historia</div>
-        </div>
-      </div>
-
+    </div>
       <!-- GALERÍA MUSEO -->
       <div class="museo-galeria-header">
         <span class="museo-gal-label">Galería</span>
         <h4 class="museo-gal-titulo">Álbum de fotos — Ex Museo de Chiclín</h4>
       </div>
       <div class="museo-gal-grid">
-        <div class="museo-gal-item museo-gal-item--large">
-          <img src="img/CHICLIN/Culturales/museo1.jpg" alt="Museo 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="museo-gal-item museo-gal-item--large" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/v439cth8/Whats-App-Image-2026-06-24-at-12-50-33-PM.jpg"alt="Museo 1" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="museo-gal-overlay"><span>Ex Museo de Chiclín</span></div>
         </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo2.jpg" alt="Museo 2" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Colección arqueológica</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo3.jpg" alt="Museo 3" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Iconografía Moche</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo4.jpg" alt="Museo 4" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Piezas del Valle Chicama</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo5.jpg" alt="Museo 5" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Cultura Chimú</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo6.jpg" alt="Museo 6" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Patrimonio histórico</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo7.jpg" alt="Museo 7" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Arquitectura del museo</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo8.jpg" alt="Museo 8" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Frontis histórico</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo9.jpg" alt="Museo 9" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Detalles arqueológicos</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo10.jpg" alt="Museo 10" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Valle Chicama antiguo</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo11.jpg" alt="Museo 11" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Colección Larco</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo12.jpg" alt="Museo 12" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Historia del museo</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo13.jpg" alt="Museo 13" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Piezas precolombinas</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo14.jpg" alt="Museo 14" onerror="this.parentElement.style.background='#1a1d24'"/>
-          <div class="museo-gal-overlay"><span>Legado cultural</span></div>
-        </div>
-        <div class="museo-gal-item">
-          <img src="img/CHICLIN/Culturales/museo15.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/21LFRvzL/museo18.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
           <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
         </div>
-      </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/j9wnhCVY/museo5.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/tTw2tCd5/Whats-App-Image-2026-06-24-at-12-50-32-PM.jpg" alt="Museo 2" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Colección arqueológica</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/jk2gvPBs/Whats-App-Image-2026-06-24-at-12-50-35-PM.jpg" alt="Museo 3" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Iconografía Moche</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/d4QSMr2X/museo4.jpg" alt="Museo 4" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Piezas del Valle Chicama</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/HLvVnSQL/Whats-App-Image-2026-06-24-at-12-50-34-PM.jpg" alt="Museo 5" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Cultura Chimú</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/NgMvNk0D/Whats-App-Image-2026-06-24-at-12-50-32-PM-1.jpg" alt="Museo 6" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Patrimonio histórico</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/Jw2fLbxc/Whats-App-Image-2026-06-24-at-12-50-34-PM-1.jpg" alt="Museo 7" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Arquitectura del museo</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/GQRCF3Py/Whats-App-Image-2026-06-24-at-12-50-33-PM-1.jpg" alt="Museo 8" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Frontis histórico</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/S4Tn2KqC/museo9.jpg" alt="Museo 9" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Detalles arqueológicos</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/vC3xGhRB/Whats-App-Image-2026-06-24-at-12-50-27-PM-1.jpg" alt="Museo 10" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Valle Chicama antiguo</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/HfKcF07v/museo11.jpg" alt="Museo 11" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Colección Larco</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/kgHcSc0M/Whats-App-Image-2026-06-24-at-12-50-28-PM.jpg" alt="Museo 12" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Historia del museo</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/mF2BMh8X/Whats-App-Image-2026-06-24-at-12-50-30-PM.jpg" alt="Museo 13" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Piezas precolombinas</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/chjSdBDR/museo14.jpg" alt="Museo 14" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Legado cultural</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/jkJ3n5J6/Whats-App-Image-2026-06-24-at-12-10-07-PM-4.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/wN0BJnVt/475520841-122208734294034415-9162662306076307644-n.jpg"  alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/fmrhkJ4/Whats-App-Image-2026-06-24-at-12-10-07-PM.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/HpMy3ysz/Whats-App-Image-2026-06-24-at-12-10-07-PM-1.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/v43rjnx3/Whats-App-Image-2026-06-24-at-12-10-01-PM-2.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/zHhrcKnj/Whats-App-Image-2026-06-24-at-12-10-59-PM-4.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/9mZH4Rg4/Whats-App-Image-2026-06-24-at-12-10-58-PM-3.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/TqJgTLXk/608591311-4303167893336784-6871395008046888994-n.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/j9JfBgch/images.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/7JNLV3C0/Whats-App-Image-2026-06-24-at-12-50-36-PM-1.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/mC4HYJcG/Whats-App-Image-2026-06-24-at-12-50-36-PM.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/Ng6TmJFj/museo17.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
+        <div class="museo-gal-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/gM4VHDkC/Whats-App-Image-2026-06-24-at-12-10-01-PM.jpg" alt="Museo 15" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="museo-gal-overlay"><span>Chiclín — 1926</span></div>
+        </div>
 
+      </div>
+      <button class="qr-btn" onclick="abrirQR('museo', 'Ex Museo · Hoy Casa de la Cultura')" style="margin-bottom:40px;">
+  <span class="qr-btn-icon">⬛</span> Ver código QR del Museo
+</button>
+    </div>
+  </section>
+
+  <!-- ══════════ EL SAPITO DEL MUSEO ══════════ -->
+    <div class="museo-sapito">
+      <div class="museo-sapito-media">
+        <img src="https://i.ibb.co/0R8bPNDg/Whats-App-Image-2026-06-24-at-12-10-01-PM-1.jpg" alt="El Sapito del Museo de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+      </div>
+      <div class="museo-sapito-info">
+        <div class="museo-sapito-badge">🐸Pieza escondida</div>
+        <h4 class="museo-sapito-titulo">Mira, conoce a El Sapo Mitológico</h4>
+        <p class="museo-sapito-texto">
+          En los extremos del museo, custodiando en silencio cada esquina, descansa esta singular
+          escultura mochica conocida como "el Sapito". Su mirada y sus formas guardan una historia propia,
+          tan antigua como el resto del patrimonio de Chiclín.
+        </p>
+        <a href="sapito.html" class="descubre-btn">
+          <span><i class="fa-solid fa-book-open"></i></span>
+          <span>Presiona aquí y Descubre su historia</span>
+          <span class="descubre-arrow">→</span>
+        </a>
+       <button class="qr-btn" onclick="abrirQRPagina('https://luisrodriguez102078-del.github.io/Turismo/sapito.html', 'El Sapito del Museo')" style="margin-top:14px;">
+          <span class="qr-btn-icon">⬛</span> Ver código QR del Sapito
+        </button>
+      </div>
+    </div>
+
+  <!-- ══════════ PATRONATO DE CULTURA DE CHICLÍN ══════════ -->
+  <section class="section section-dark" id="patronato">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <div class="section-label-wrap">
+          <span class="section-label">Patronato</span>
+          <div class="section-line"></div>
+        </div>
+      </div>
+      <h2 class="section-title">Patronato de Cultura de Chiclín</h2>
+      <p class="section-sub">Fundado el 29 de junio, 2019 — Rumbo al Centenario 1926–2026</p>
+
+      <div class="museo-patronato">
+
+        <!-- LOGO -->
+        <div class="museo-patronato-logo">
+          <img src="https://i.ibb.co/pvxQpqnV/patronato.png" alt="Logo Patronato de Cultura de Chiclín" onerror="this.parentElement.style.display='none'"/>
+        </div>
+
+        <div class="museo-patronato-badge">🛠️ Obra en curso</div>
+        <h4 class="museo-patronato-titulo">El Patronato de Cultura de Chiclín está restaurando el museo</h4>
+
+        <p class="museo-patronato-texto">
+            De cara a los días centrales de la Fiesta Patronal del Señor de la Caña — <strong>26, 27 y 28 de junio</strong> —
+          el Patronato de Cultura de Chiclín se encuentra trabajando en distintos puntos del pueblo: la limpieza del
+          frontis del Santuario Señor de la Caña, la restauración del Monumento al Trabajo, el Cristo Rey, el ícono
+          mochica dañado y el obelisco de entrada al centro poblado — todo con el valioso apoyo de integrantes de
+          la cuadrilla de cargadores.
+        </p>
+
+        <div class="museo-patronato-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/zTLn485j/724368672-122175977067132357-1050376712064554339-n.jpg" alt="Restauración del museo en curso" onerror="this.parentElement.style.background='#1a1d24'"/>
+        </div> <br>
+
+         <div class="museo-patronato-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/3yF02ZcQ/Captura-de-pantalla-2026-06-25-023007.png" alt="Restauración del museo en curso" onerror="this.parentElement.style.background='#1a1d24'"/>
+        </div>
+
+        <p class="museo-patronato-texto">
+          Este trabajo es parte de un esfuerzo más grande: el Patronato busca continuar la restauración del local
+          y, con el tiempo, devolverle su función original como museo — tal como funcionó durante décadas — para
+          que vuelva a ser un espacio vivo donde se exhiba y conserve el patrimonio arqueológico del Valle Chicama.
+        </p>
+
+        <div class="museo-patronato-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/kVKkLSYh/Whats-App-Image-2026-06-24-at-12-10-02-PM-3.jpg" alt="Trabajadores pintando la fachada" onerror="this.parentElement.style.background='#1a1d24'"/>
+        </div>
+
+        <div class="museo-patronato-meta">
+          <div class="museo-patronato-item">
+            <span class="museo-patronato-label">Encargado</span>
+            <span class="museo-patronato-val">Patronato de Cultura de Chiclín</span>
+          </div>
+          <div class="museo-patronato-item">
+            <span class="museo-patronato-label">Fundado</span>
+            <span class="museo-patronato-val">29 de junio, 2019</span>
+          </div>
+          <div class="museo-patronato-item">
+            <span class="museo-patronato-label">Meta</span>
+            <span class="museo-patronato-val">Rumbo al Centenario · 1926–2026</span>
+          </div>
+        </div>
+
+        <!-- FOTOS DEL PATRONATO (logo/banner) -->
+        <div class="museo-patronato-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/KjGx36Dg/721041298-122175977241132357-1402988742807053640-n.jpg" alt="Patronato de Cultura de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+        </div>
+
+        <div class="museo-patronato-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/s9pGPv6Q/724493785-122175976965132357-4887180999778341893-n.jpg" alt="Patronato de Cultura de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+        </div>
+
+        <div class="museo-patronato-foto" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/35Zfjm6d/Whats-App-Image-2026-06-24-at-12-49-45-PM-2.jpg" alt="Patronato de Cultura de Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+        </div>
+
+        <!-- APOYO / DONACIONES -->
+        <div class="museo-patronato-apoyo">
+          <div class="museo-patronato-apoyo-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h5 class="museo-patronato-apoyo-titulo">¿Recomendaciones, apoyo o donaciones?</h5>
+          <p class="museo-patronato-apoyo-texto">
+            El Patronato de Cultura de Chiclín está buscando apoyo para continuar la restauración del museo.
+            Escríbenos por WhatsApp, estaremos felices de atenderte.
+          </p>
+          <a href="https://wa.me/51933362476" target="_blank" class="museo-patronato-apoyo-btn">
+            <i class="fa-brands fa-whatsapp"></i> Escribir
+          </a>
+        </div>
+<button class="qr-btn" onclick="abrirQR('patronato', 'Patronato de Cultura de Chiclín')" style="margin-top:18px;">
+          <span class="qr-btn-icon">⬛</span> Ver código QR del Patronato
+        </button>
+      </div>
     </div>
   </section>
 
@@ -411,7 +671,7 @@
     </div>
   </footer>
 
-  <script src="culturales.js"></script>
+  <script src="js/culturales.js"></script>
 
   <!-- ══════════ MODAL QR ══════════ -->
   <div id="qr-modal" class="qr-modal-overlay" onclick="cerrarQR(event)">

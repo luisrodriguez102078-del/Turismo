@@ -219,175 +219,6 @@
   color: var(--text);
   line-height: 1.2;
 }
-
-/* ══════════════════════════════════════════
-   MUSEO DE CHICLÍN
-   ══════════════════════════════════════════ */
-
-.museo-intro {
-  display: flex;
-  gap: 50px;
-  align-items: center;
-  margin-bottom: 60px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid var(--border);
-}
-
-.museo-intro-texto {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.museo-badge {
-  display: inline-block;
-  background: rgba(0,229,160,0.1);
-  border: 1px solid rgba(0,229,160,0.3);
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 50px;
-  width: fit-content;
-}
-
-.museo-intro-titulo {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  letter-spacing: 1px;
-  color: var(--text);
-  line-height: 1.1;
-  margin: 0;
-}
-
-.museo-intro-texto p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.85;
-}
-
-.museo-intro-img {
-  flex: 0 0 420px;
-  position: relative;
-  height: 320px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.museo-intro-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.88);
-  transition: filter 0.4s ease;
-}
-
-.museo-intro-img:hover img { filter: brightness(1); }
-
-.museo-intro-tag {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: rgba(0,229,160,0.9);
-  color: #000;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 5px 14px;
-  border-radius: 50px;
-  letter-spacing: 1px;
-}
-
-/* GALERÍA MUSEO */
-.museo-galeria-header {
-  margin-bottom: 24px;
-}
-
-.museo-gal-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--accent);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.museo-gal-titulo {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  color: var(--text);
-  letter-spacing: 2px;
-  margin: 0;
-}
-
-.museo-gal-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.museo-gal-item {
-  position: relative;
-  height: 200px;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  background: #1a1d24;
-}
-
-.museo-gal-item--large {
-  grid-column: span 2;
-  height: 260px;
-}
-
-.museo-gal-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.museo-gal-item:hover img {
-  transform: scale(1.06);
-}
-
-.museo-gal-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 229, 160, 0.55);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.museo-gal-item:hover .museo-gal-overlay {
-  opacity: 1;
-}
-
-.museo-gal-overlay span {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  color: #000;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 0 10px;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
-
-.museo-gal-item:hover .museo-gal-overlay span {
-  transform: scale(1);
-}
-
 /* ══════════════════════════════════════════
    ANIMACIONES
    ══════════════════════════════════════════ */
@@ -1042,5 +873,691 @@
   }
   100% {
     box-shadow: 0 0 0 0 rgba(220,38,38,0);
+  }
+}
+
+
+
+/* ══════════════════════════════════════════
+   MUSEO DE CHICLÍN
+   ══════════════════════════════════════════ */
+
+.museo-intro {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+.museo-intro-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.museo-badge {
+  display: inline-block;
+  background: rgba(0,229,160,0.1);
+  border: 1px solid rgba(0,229,160,0.3);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+.museo-intro-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  letter-spacing: 1px;
+  color: var(--text);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.museo-intro-texto p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.museo-intro-img {
+  flex: 0 0 420px;
+  position: relative;
+  height: 320px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.museo-intro-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.88);
+  transition: filter 0.4s ease;
+}
+
+.museo-intro-img:hover img { filter: brightness(1); }
+
+.museo-intro-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0,229,160,0.9);
+  color: #000;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════════
+   LÍNEA DEL TIEMPO — MUSEO
+   ══════════════════════════════════════════ */
+.museo-timeline {
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+}
+ 
+.museo-tl-header {
+  margin-bottom: 32px;
+}
+ 
+.museo-tl-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 40px;
+}
+ 
+.museo-tl-grid::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(0,229,160,0.6), rgba(0,229,160,0.05));
+}
+ 
+.museo-tl-item {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+}
+ 
+.museo-tl-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 28px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent, #00e5a0);
+  border: 2px solid rgba(0,229,160,0.3);
+  box-shadow: 0 0 10px rgba(0,229,160,0.4);
+}
+ 
+.museo-tl-item:last-child {
+  border-bottom: none;
+}
+ 
+.museo-tl-year {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--accent, #00e5a0);
+  letter-spacing: 2px;
+  flex-shrink: 0;
+  width: 80px;
+  line-height: 1;
+  padding-top: 2px;
+}
+ 
+.museo-tl-content h5 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--text);
+  margin: 0 0 8px 0;
+}
+ 
+.museo-tl-content p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+ 
+.section-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: -16px;
+  margin-bottom: 48px;
+  font-style: italic;
+}
+ 
+/* Responsive línea del tiempo */
+@media (max-width: 768px) {
+  .museo-tl-grid {
+    padding-left: 28px;
+  }
+  .museo-tl-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .museo-tl-year {
+    font-size: 1.3rem;
+    width: auto;
+  }
+  .museo-tl-item::before {
+    left: -21px;
+    top: 26px;
+  }
+}
+
+/* GALERÍA MUSEO */
+.museo-galeria-header {
+  margin-bottom: 24px;
+}
+
+.museo-gal-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.museo-gal-titulo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text);
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.museo-gal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.museo-gal-item {
+  position: relative;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #1a1d24;
+}
+
+.museo-gal-item--large {
+  grid-column: span 2;
+  height: 260px;
+}
+
+.museo-gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.museo-gal-item:hover img {
+  transform: scale(1.06);
+}
+
+.museo-gal-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 229, 160, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.museo-gal-item:hover .museo-gal-overlay {
+  opacity: 1;
+}
+
+.museo-gal-overlay span {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: #000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 10px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.museo-gal-item:hover .museo-gal-overlay span {
+  transform: scale(1);
+}
+
+
+/* ══════════════════════════════════════════
+   FOTOS DENTRO DE LA LÍNEA DEL TIEMPO
+   ══════════════════════════════════════════ */
+
+.museo-tl-foto {
+  margin-top: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  max-width: 360px;
+  cursor: zoom-in;
+}
+
+.museo-tl-foto img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.92);
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+.museo-tl-foto:hover img {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+
+@media (max-width: 768px) {
+  .museo-tl-foto {
+    max-width: 100%;
+  }
+  .museo-tl-foto img {
+    height: 180px;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   FIX GALERÍA MUSEO EN MÓVIL
+   ══════════════════════════════════════════ */
+
+@media screen and (max-width: 768px) {
+  .museo-gal-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .museo-gal-item {
+    height: 160px !important;
+  }
+
+  .museo-gal-item--large {
+    grid-column: span 2 !important;
+    height: 200px !important;
+  }
+
+  .museo-gal-overlay span {
+    font-size: 0.78rem !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .museo-gal-item {
+    height: 140px !important;
+  }
+  .museo-gal-item--large {
+    height: 170px !important;
+  }
+}
+/* ══════════════════════════════════════════
+   PATRONATO – RESTAURACIÓN EN CURSO
+   ══════════════════════════════════════════ */
+
+.museo-patronato {
+  margin-top: 50px;
+  margin-bottom: 60px;
+  padding: 34px 36px;
+  background: rgba(0,229,160,0.05);
+  border: 1px solid rgba(0,229,160,0.25);
+  border-left: 4px solid var(--accent, #00e5a0);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.museo-patronato-badge {
+  display: inline-block;
+  background: rgba(0,229,160,0.12);
+  border: 1px solid rgba(0,229,160,0.35);
+  color: var(--accent, #00e5a0);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.museo-patronato-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  letter-spacing: 0.5px;
+  color: var(--text);
+  line-height: 1.25;
+  margin: 0 0 18px 0;
+}
+
+.museo-patronato-texto {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0 0 18px 0;
+}
+
+.museo-patronato-texto strong {
+  color: var(--accent, #00e5a0);
+  font-weight: 700;
+}
+
+/* ── FOTO INTERCALADA, después de cada párrafo ── */
+.museo-patronato-foto {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1d24;
+  cursor: zoom-in;
+  height: 320px;
+  margin-bottom: 18px;
+}
+
+.museo-patronato-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9);
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+.museo-patronato-foto:hover img {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+
+.museo-patronato-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 20px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.museo-patronato-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 150px;
+}
+
+.museo-patronato-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent, #00e5a0);
+}
+
+.museo-patronato-val {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .museo-patronato {
+    padding: 22px 20px;
+    margin-top: 36px;
+    margin-bottom: 40px;
+  }
+
+  .museo-patronato-foto {
+    height: 220px;
+  }
+
+  .museo-patronato-meta {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+/* ── APOYO / DONACIONES (WhatsApp) ── */
+.museo-patronato-apoyo {
+  margin-top: 28px;
+  padding: 28px 24px;
+  background: radial-gradient(circle at top, rgba(0,229,160,0.08), rgba(0,0,0,0));
+  border: 1px solid rgba(0,229,160,0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.museo-patronato-apoyo-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #00e5a0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #0a0c10;
+  margin-bottom: 16px;
+}
+
+.museo-patronato-apoyo-titulo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  margin: 0 0 10px 0;
+}
+
+.museo-patronato-apoyo-texto {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  max-width: 360px;
+}
+
+.museo-patronato-apoyo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 32px;
+  background: #00e5a0;
+  color: #0a0c10;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.25s ease;
+}
+
+.museo-patronato-apoyo-btn:hover {
+  background: #00ffb4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,229,160,0.35);
+}
+
+.museo-patronato-apoyo-btn i {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .museo-patronato-apoyo {
+    padding: 22px 18px;
+  }
+}
+
+/* ── LOGO DEL PATRONATO ── */
+.museo-patronato-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.museo-patronato-logo img {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .museo-patronato-logo img {
+    height: 140px;
+  }
+}
+
+/* ══════════════════════════════════════════
+   VER MÁS: GALERÍA Y LÍNEA DEL TIEMPO
+   ══════════════════════════════════════════ */
+.vm-oculto {
+  display: none !important;
+}
+
+.vm-visual-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 22px auto 50px;
+  padding: 11px 28px;
+  background: rgba(0,229,160,0.12);
+  border: 1.5px solid rgba(0,229,160,0.5);
+  border-radius: 50px;
+  color: #00e5a0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vm-visual-btn:hover {
+  background: rgba(0,229,160,0.22);
+  border-color: #00e5a0;
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════
+   EL SAPITO DEL MUSEO
+   ══════════════════════════════════════════ */
+.museo-sapito {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  padding: 28px;
+  background: rgba(0,229,160,0.04);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.museo-sapito-media {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1d24;
+  height: 280px;
+}
+
+.museo-sapito-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.92);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.museo-sapito-media:hover img {
+  filter: brightness(1);
+  transform: scale(1.04);
+}
+
+.museo-sapito-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.museo-sapito-badge {
+  display: inline-block;
+  background: rgba(0,229,160,0.1);
+  border: 1px solid rgba(0,229,160,0.3);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+.museo-sapito-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  letter-spacing: 0.5px;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.museo-sapito-texto {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .museo-sapito {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  .museo-sapito-media {
+    height: 220px;
   }
 }

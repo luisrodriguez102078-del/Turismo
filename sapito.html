@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Sapito del Museo – Chiclín</title>
+  <link rel="stylesheet" href="css/estilos-destino.css"/>
+  <link rel="stylesheet" href="css/estilos-culturales.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    /* ══════════════════════════════════════════
+       SAPITO – PÁGINA INDIVIDUAL
+       ══════════════════════════════════════════ */
+
+    /* ── HERO ── */
+    .sapito-hero {
+      position: relative;
+      height: 70vh;
+      min-height: 480px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .sapito-hero-img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .sapito-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.55);
+    }
+
+    .sapito-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(10,12,16,0.95) 0%, rgba(10,12,16,0.55) 45%, rgba(10,12,16,0.15) 100%);
+    }
+
+    .sapito-volver {
+      position: absolute;
+      top: 90px;
+      left: 32px;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      transition: all 0.25s ease;
+    }
+
+    .sapito-volver:hover {
+      background: rgba(0,229,160,0.2);
+      border-color: rgba(0,229,160,0.5);
+    }
+
+    .sapito-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 32px 56px;
+      max-width: 900px;
+    }
+
+    .sapito-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent, #00e5a0);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .sapito-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: 1px;
+      color: #fff;
+      margin: 0 0 12px 0;
+    }
+
+    .sapito-hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      margin: 0;
+    }
+
+    /* ── SECCIÓN DE CONTENIDO ── */
+    .sapito-section {
+      background: var(--bg, #0a0c10);
+      padding: 70px 0 90px;
+    }
+
+    .sapito-container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .sapito-lead {
+      font-size: 1.15rem;
+      color: var(--text, #f4f4f4);
+      line-height: 1.8;
+      margin: 0 0 50px 0;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── FOTO DESTACADA ── */
+    .sapito-foto-full {
+      margin-bottom: 60px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .sapito-foto-full img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+      transition: filter 0.4s ease, transform 0.5s ease;
+    }
+
+    .sapito-foto-full:hover img {
+      filter: brightness(1);
+      transform: scale(1.03);
+    }
+
+    .sapito-foto-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      font-style: italic;
+    }
+
+    /* ── BLOQUES NUMERADOS ── */
+    .sapito-bloque {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 46px;
+    }
+
+    .sapito-bloque--reverse {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .sapito-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: rgba(0,229,160,0.18);
+      letter-spacing: 2px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .sapito-bloque-texto h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+      color: var(--text, #f4f4f4);
+      margin: 0 0 10px 0;
+    }
+
+    .sapito-bloque-texto p {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .sapito-bloque-texto strong {
+      color: var(--accent, #00e5a0);
+    }
+
+    /* ── CITA DEL TESTIGO ── */
+    .sapito-cita {
+      margin: 50px 0;
+      padding: 32px 36px;
+      background: rgba(0,229,160,0.05);
+      border-left: 3px solid var(--accent, #00e5a0);
+      border-radius: 0 14px 14px 0;
+      position: relative;
+    }
+
+    .sapito-cita-icon {
+      color: rgba(0,229,160,0.35);
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .sapito-cita p {
+      font-size: 1.05rem;
+      color: var(--text, #f4f4f4);
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0 0 14px 0;
+    }
+
+    .sapito-cita span {
+      font-size: 0.8rem;
+      color: var(--accent, #00e5a0);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── BARRA DE DATOS ── */
+    .sapito-meta-bar {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .sapito-meta-item {
+      background: var(--bg, #0a0c10);
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .sapito-meta-item:hover {
+      background: var(--surface);
+    }
+
+    .sapito-meta-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent, #00e5a0);
+    }
+
+    .sapito-meta-val {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: var(--text, #f4f4f4);
+      line-height: 1.25;
+    }
+
+    /* ── ANTES / DURANTE EL PROCESO ── */
+    .sapito-proceso {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .sapito-proceso-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sapito-proceso-foto {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1a1d24;
+      height: 220px;
+      cursor: zoom-in;
+    }
+
+    .sapito-proceso-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.88) grayscale(0.15);
+      transition: filter 0.4s ease, transform 0.5s ease;
+    }
+
+    .sapito-proceso-foto:hover img {
+      filter: brightness(1) grayscale(0);
+      transform: scale(1.04);
+    }
+
+    .sapito-proceso-tag {
+      display: inline-block;
+      background: rgba(0,229,160,0.12);
+      border: 1px solid rgba(0,229,160,0.35);
+      color: var(--accent, #00e5a0);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      width: fit-content;
+    }
+
+    .sapito-proceso-texto {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .sapito-proceso {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .sapito-proceso-foto {
+        height: 200px;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .sapito-hero {
+        height: 60vh;
+        min-height: 420px;
+      }
+
+      .sapito-volver {
+        top: 70px;
+        left: 16px;
+        padding: 7px 14px;
+        font-size: 0.78rem;
+      }
+
+      .sapito-hero-content {
+        padding: 0 20px 40px;
+      }
+
+      .sapito-title {
+        font-size: clamp(2.2rem, 11vw, 3rem);
+      }
+
+      .sapito-section {
+        padding: 50px 0 60px;
+      }
+
+      .sapito-lead {
+        font-size: 1rem;
+        margin-bottom: 36px;
+        padding-bottom: 28px;
+      }
+
+      .sapito-foto-full img {
+        height: 240px;
+      }
+
+      .sapito-bloque,
+      .sapito-bloque--reverse {
+        flex-direction: column;
+        text-align: left;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+
+      .sapito-num {
+        font-size: 2.2rem;
+      }
+
+      .sapito-cita {
+        padding: 24px 22px;
+        margin: 36px 0;
+      }
+
+      .sapito-meta-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+    .sapito-cita {
+      margin: 50px 0;
+      padding: 32px 36px;
+      background: rgba(0,229,160,0.05);
+      border-left: 3px solid var(--accent, #00e5a0);
+      border-radius: 0 14px 14px 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .sapito-cita-foto {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent, #00e5a0);
+      margin-bottom: 20px;
+    }
+
+    .sapito-cita-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sapito-cita-icon {
+      color: rgba(0,229,160,0.35);
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .sapito-cita p {
+      font-size: 1.1rem;
+      color: var(--text, #f4f4f4);
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0 0 16px 0;
+      max-width: 480px;
+    }
+
+    .sapito-cita span {
+      font-size: 0.8rem;
+      color: var(--accent, #00e5a0);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .sapito-navbar-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(0,229,160,0.1);
+      border: 1px solid rgba(0,229,160,0.35);
+      border-radius: 50px;
+      color: var(--accent, #00e5a0);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .sapito-navbar-volver:hover {
+      background: rgba(0,229,160,0.2);
+      border-color: #00e5a0;
+    }
+
+    @media (max-width: 480px) {
+      .sapito-navbar-volver {
+        font-size: 0.78rem;
+        padding: 7px 14px;
+      }
+      .sapito-navbar-volver span,
+      .sapito-navbar-volver {
+        white-space: nowrap;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img/location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+      <a href="culturales.html#museo" class="sapito-navbar-volver">
+      <i class="fa-solid fa-arrow-left"></i> Volver al Museo
+    </a>
+    
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="sapito-hero">
+    <div class="sapito-hero-img">
+      <img src="https://i.ibb.co/gM4VHDkC/Whats-App-Image-2026-06-24-at-12-10-01-PM.jpg" alt="El Sapito del Museo de Chiclín"/>
+    </div>
+    <div class="sapito-hero-overlay"></div>
+    <a href="culturales.html#museo" class="sapito-volver">
+      <i class="fa-solid fa-arrow-left"></i> Volver al Museo
+    </a>
+    <div class="sapito-hero-content">
+      <div class="sapito-tag">Casa de la Cultura · Chiclín</div>
+      <h1 class="sapito-title">EL SAPO MITOLOGICO<br/>DEL MUSEO</h1>
+      <p class="sapito-hero-sub">Custodio de bronce en los extremos del Museo</p>
+    </div>
+  </section>
+
+  <!-- ══════════ HISTORIA ══════════ -->
+  <section class="sapito-section">
+    <div class="sapito-container">
+
+      <div class="sapito-intro">
+        <p class="sapito-lead">
+          En cada extremo del museo, sobre su propio pedestal, descansa una pequeña escultura de
+          bronce con forma de sapo. Pocos visitantes se detienen a mirarla con atención — pero quienes lo
+          hacen encuentran un detalle tallado con un propósito: adornar y proteger un espacio que alguna vez
+          fue uno de los museos más importantes del país.
+        </p>
+      </div>
+
+      <div class="sapito-foto-full">
+        <img src="https://i.ibb.co/gM4VHDkC/Whats-App-Image-2026-06-24-at-12-10-01-PM.jpg" alt="El Sapito en su esquina del patio del museo" onclick="abrirImagen(this.src)"/>
+        <span class="sapito-foto-caption">El Sapito en su esquina original del patio, junto a los nichos decorativos del museo</span>
+      </div>
+
+      <div class="sapito-bloque">
+        <span class="sapito-num">01</span>
+        <div class="sapito-bloque-texto">
+          <h3>Un adorno con intención</h3>
+          <p>
+            Estos sapitos fueron puestos por el hacendado <strong>don Rafael Larco</strong>, quien quiso
+            adornar los ambientes del museo y creyó conveniente crear un sapo de carácter mitológico —
+            una pieza pensada para darle más carácter a lo que entonces era un pomposo museo de ceramios.
+          </p>
+        </div>
+      </div>
+
+      <div class="sapito-bloque sapito-bloque--reverse">
+        <span class="sapito-num">02</span>
+        <div class="sapito-bloque-texto">
+          <h3>60 años desaparecido</h3>
+          <p>
+            Los sapitos originales que adornaban el museo desaparecieron hace aproximadamente
+            <strong>60 años</strong>. Durante todo ese tiempo, las esquinas del patio quedaron vacías,
+            sin el detalle que las completaba.
+          </p>
+        </div>
+      </div>
+
+      <div class="sapito-bloque">
+        <span class="sapito-num">03</span>
+        <div class="sapito-bloque-texto">
+          <h3>Un molde, una segunda vida</h3>
+          <p>
+            Un grupo de amigos de Chiclín decidió que era momento de recuperar esa pieza perdida. La
+            solución apareció gracias a <strong>Jorge Cox</strong>, quien conservaba en su casa una de
+            las esculturas originales. Con su pieza como modelo, se sacó un molde, y a partir de ese
+            molde se fabricaron los sapitos que hoy día se encuentran en el museo.
+          </p>
+        </div>
+      </div>
+
+      <!-- ANTES / DURANTE: fotos del proceso -->
+      <div class="sapito-proceso">
+        <div class="sapito-proceso-item">
+          <div class="sapito-proceso-foto">
+            <img src="https://i.ibb.co/5XwrZmyD/486102550-3913840988761005-4682230581046207044-n.jpg" alt="El sapito original, años atrás" onclick="abrirImagen(this.src)"/>
+          </div><br>
+          <div class="sapito-proceso-foto">
+            <img src="https://i.ibb.co/qMznfts0/486227617-3913840718761032-6793583805095516248-n.jpg" alt="El sapito original, años atrás" onclick="abrirImagen(this.src)"/>
+          </div>
+          <span class="sapito-proceso-tag">Antes</span>
+          <p class="sapito-proceso-texto">El sapito original, como se conservaba antes de su desaparición.</p>
+        </div>
+        <div class="sapito-proceso-item">
+          <div class="sapito-proceso-foto">
+            <img src="https://i.ibb.co/8DS5T64j/481951925-3856784187955347-3644711526514541163-n.jpg" alt="Fabricando el molde y las copias del sapito" onclick="abrirImagen(this.src)"/>
+          </div> <br>
+          <div class="sapito-proceso-foto">
+            <img src="https://i.ibb.co/8Ldv4cMR/485912937-3913840985427672-2188814756434724102-n.jpg" alt="Fabricando el molde y las copias del sapito" onclick="abrirImagen(this.src)"/>
+          </div>
+          <span class="sapito-proceso-tag">El proceso</span>
+          <p class="sapito-proceso-texto">El molde tomado de la pieza original, durante la fabricación de las copias.</p>
+        </div>
+      </div>
+
+      <!-- CITA DEL TESTIGO -->
+      <div class="sapito-cita">
+        <div class="sapito-cita-foto">
+          <img src="https://i.ibb.co/9k287cym/Captura-de-pantalla-2026-06-25-040040.png" alt="Lucio Valverde Burgos"/>
+        </div>
+        <p>
+         "Este sapo fue desaparecido y eso me dio la motivación de volver a inclinarme nuevamente a hacer
+          lo que antes fue este sapo mitológico. La elaboración de la escultura fue sacar el molde a la
+          original, para con esos moldes sacar las piezas que pueden ver en este pedestal del Sapo Mitológico".
+        </p>
+        <span>— Lucio Valverde Burgos, escultor Artista Plastico 39 años de experiencia en la especialidad de la escultura</span>
+      </div>
+
+      <div class="sapito-meta-bar">
+        <div class="sapito-meta-item">
+          <span class="sapito-meta-label">Origen</span>
+          <span class="sapito-meta-val">Idea de don Rafael Larco</span>
+        </div>
+        <div class="sapito-meta-item">
+          <span class="sapito-meta-label">Ubicación</span>
+          <span class="sapito-meta-val">Extremos del museo</span>
+        </div>
+        <div class="sapito-meta-item">
+          <span class="sapito-meta-label">Material</span>
+          <span class="sapito-meta-val">Bronce, vaciado en molde</span>
+        </div>
+        <div class="sapito-meta-item">
+          <span class="sapito-meta-label">Recuperado gracias a</span>
+          <span class="sapito-meta-val">Jorge Cox y Patronato</span>
+        </div>
+      </div>
+
+    </div>
+
+    
+  </section>
+
+  
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="img/location/logo.png" alt="logo"/>
+        <span>Valle Chicama</span>
+      </div>
+      <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+    </div>
+  </footer>
+
+  <script src="js/culturales.js"></script>
+
+</body>
+</html>
