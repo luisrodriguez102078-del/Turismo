@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plaza Mayor de Chiclín – Valle Chicama</title>
+  <link rel="stylesheet" href="css/estilos-destino.css"/>
+  <link rel="stylesheet" href="css/estilos-culturales.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    /* ══ HERO ══ */
+    .pm-hero {
+      position: relative; height: 100svh; min-height: 560px;
+      overflow: hidden; display: flex; align-items: flex-end;
+    }
+    .pm-hero video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; filter: brightness(0.35); z-index: 0;
+    }
+    .pm-hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top,
+        rgba(10,12,16,0.97) 0%, rgba(10,12,16,0.5) 50%, rgba(10,12,16,0.08) 100%);
+    }
+    .pm-volver {
+      position: absolute; top: 90px; left: 32px; z-index: 5;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 50px;
+      color: #fff; font-family: 'Outfit', sans-serif; font-size: 0.85rem;
+      text-decoration: none; backdrop-filter: blur(6px); transition: all 0.25s;
+    }
+    .pm-volver:hover { background: rgba(0,229,160,0.2); border-color: rgba(0,229,160,0.5); }
+    .pm-hero-content { position: relative; z-index: 2; padding: 0 40px 60px; max-width: 960px; }
+    .pm-tag {
+      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #00e5a0; font-weight: 700; margin-bottom: 12px; display: block;
+    }
+    .pm-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 9vw, 6rem);
+      line-height: 1; letter-spacing: 2px; color: #fff; margin: 0 0 16px 0;
+    }
+    .pm-hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      margin: 0 0 28px 0; max-width: 520px; line-height: 1.6;
+    }
+    .pm-hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pm-badge {
+      padding: 6px 16px; border: 1px solid rgba(0,229,160,0.35);
+      border-radius: 50px; color: rgba(0,229,160,0.9);
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; background: rgba(0,229,160,0.07);
+    }
+
+    /* ══ SECCIÓN ══ */
+    .pm-section { background: var(--bg, #0a0c10); padding: 80px 0 100px; }
+    .pm-container { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+
+    .pm-lead {
+      font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.9;
+      margin: 0 0 60px 0; padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-left: 3px solid #00e5a0; padding-left: 24px;
+    }
+
+    /* ══ BLOQUES ══ */
+    .pm-bloque {
+      margin-bottom: 70px; padding-bottom: 70px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pm-bloque:last-of-type { border-bottom: none; margin-bottom: 0; }
+    .pm-bloque-header {
+      display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px;
+    }
+    .pm-bloque-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1;
+      color: rgba(0,229,160,0.13); letter-spacing: 3px; flex-shrink: 0;
+    }
+    .pm-bloque-titulo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      letter-spacing: 1px; color: #fff; margin: 0 0 4px 0; line-height: 1.1;
+    }
+    .pm-bloque-sub { font-size: 0.85rem; color: #00e5a0; font-weight: 600; letter-spacing: 0.05em; }
+
+    .pm-bloque p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.68);
+      line-height: 1.85; margin: 0 0 16px 0;
+    }
+    .pm-bloque p:last-child { margin-bottom: 0; }
+
+    .pm-era-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,229,160,0.07); border: 1px solid rgba(0,229,160,0.25);
+      color: #00e5a0; font-size: 0.74rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 22px;
+    }
+
+    /* ══ DATO BAR ══ */
+    .pm-dato-bar {
+      display: flex; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; overflow: hidden; margin: 28px 0;
+    }
+    .pm-dato {
+      flex: 1; padding: 16px 18px; display: flex; flex-direction: column;
+      gap: 5px; border-right: 1px solid rgba(255,255,255,0.08); transition: background 0.2s;
+    }
+    .pm-dato:last-child { border-right: none; }
+    .pm-dato:hover { background: rgba(255,255,255,0.03); }
+    .pm-dato-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #00e5a0; }
+    .pm-dato-val { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1px; color: #fff; line-height: 1.2; }
+
+    /* ══ FOTOS EXPANDIBLES ══ */
+    .pm-foto {
+      border-radius: 14px; overflow: hidden; margin: 32px 0;
+      border: 1px solid rgba(255,255,255,0.08); cursor: zoom-in; position: relative;
+    }
+    .pm-foto img {
+      width: 100%; height: 320px; object-fit: cover; display: block;
+      filter: brightness(0.88); transition: filter 0.4s, transform 0.5s;
+    }
+    .pm-foto:hover img { filter: brightness(1); transform: scale(1.02); }
+    .pm-foto-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center;
+      justify-content: center; background: rgba(0,229,160,0.07); opacity: 0; transition: opacity 0.3s;
+    }
+    .pm-foto:hover .pm-foto-overlay { opacity: 1; }
+    .pm-foto-overlay i { font-size: 2rem; color: #00e5a0; }
+    .pm-foto-caption {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 18px;
+      font-size: 0.8rem; font-style: italic; color: rgba(255,255,255,0.72);
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    }
+
+    /* ══ GRID FOTOS 2 COLUMNAS ══ */
+    .pm-fotos-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0;
+    }
+    .pm-fotos-grid .pm-foto { margin: 0; }
+    .pm-fotos-grid .pm-foto img { height: 220px; }
+
+    /* ══ ELEMENTOS DE LA PLAZA ══ */
+    .pm-elementos-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 28px 0;
+    }
+    .pm-elemento {
+      padding: 20px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .pm-elemento-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .pm-elemento h5 {
+      font-family: 'Outfit', sans-serif; font-size: 0.92rem;
+      font-weight: 700; color: #fff; margin: 0 0 5px 0;
+    }
+    .pm-elemento p { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.55; }
+
+    /* ══ CITA ══ */
+    .pm-cita {
+      margin: 28px 0; padding: 22px 26px;
+      background: rgba(0,229,160,0.05);
+      border-left: 3px solid rgba(0,229,160,0.45);
+      border-radius: 0 12px 12px 0;
+    }
+    .pm-cita p { font-size: 0.94rem; color: rgba(255,255,255,0.72); line-height: 1.75; font-style: italic; margin: 0 0 8px 0; }
+    .pm-cita cite { font-size: 0.74rem; color: #00e5a0; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-style: normal; }
+
+    /* ══ PANORÁMICA ══ */
+    .pm-panoramica {
+      margin: 0 0 70px 0; padding-bottom: 70px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pm-panoramica-header { margin-bottom: 20px; }
+    .pm-panoramica-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #00e5a0; display: block; margin-bottom: 6px;
+    }
+    .pm-panoramica-titulo {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
+      color: #fff; letter-spacing: 2px; margin: 0;
+    }
+    .pm-panoramica-img {
+      border-radius: 16px; overflow: hidden; cursor: zoom-in;
+      border: 1px solid rgba(255,255,255,0.08); position: relative;
+    }
+    .pm-panoramica-img img {
+      width: 100%; height: 400px; object-fit: cover; display: block;
+      filter: brightness(0.9); transition: filter 0.4s, transform 0.6s;
+    }
+    .pm-panoramica-img:hover img { filter: brightness(1); transform: scale(1.015); }
+    .pm-panoramica-img .pm-foto-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,229,160,0.06); opacity: 0; transition: opacity 0.3s; }
+    .pm-panoramica-img:hover .pm-foto-overlay { opacity: 1; }
+    .pm-panoramica-caption {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 22px;
+      font-size: 0.82rem; font-style: italic; color: rgba(255,255,255,0.75);
+      background: linear-gradient(to top, rgba(0,0,0,0.88), transparent);
+    }
+
+    /* ══ MONUMENTOS ══ */
+    .pm-monumentos-titulo {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
+      letter-spacing: 1px; color: #fff; margin: 0 0 8px 0;
+    }
+    .pm-monumentos-sub { font-size: 0.85rem; color: #00e5a0; font-weight: 600; margin: 0 0 24px 0; }
+    .pm-monumentos-grid { display: flex; flex-direction: column; gap: 12px; }
+    .pm-monumento-link {
+      display: flex; align-items: center; gap: 18px;
+      padding: 20px 24px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .pm-monumento-link:hover {
+      border-color: #00e5a0; background: rgba(0,229,160,0.05); transform: translateX(6px);
+    }
+    .pm-monumento-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #00e5a0; flex-shrink: 0; width: 36px;
+    }
+    .pm-monumento-info { flex: 1; }
+    .pm-monumento-info h4 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; color: #fff; margin: 0 0 3px 0; letter-spacing: 0.5px;
+    }
+    .pm-monumento-info span { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+    .pm-monumento-arrow { color: #00e5a0; font-size: 1.1rem; }
+
+    /* ══ QR ══ */
+    .pm-qr-section {
+      margin-top: 60px; padding: 40px; text-align: center;
+      background: rgba(0,229,160,0.04);
+      border: 1px solid rgba(0,229,160,0.18); border-radius: 20px;
+    }
+    .pm-qr-section h3 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem;
+      color: #fff; margin: 0 0 8px 0; letter-spacing: 1px;
+    }
+    .pm-qr-section p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin: 0 0 24px 0; line-height: 1.6; }
+
+/* El botón Ver más ya existe en estilos-culturales.css (.ver-mas-btn),
+       pero si esta página no la carga, agrega esto: */
+    .ver-mas-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 9px 20px;
+      background: rgba(0,229,160,0.12);
+      border: 1.5px solid rgba(0,229,160,0.5);
+      border-radius: 20px;
+      color: #00e5a0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      justify-content: center;
+    }
+    .ver-mas-btn:hover {
+      background: rgba(0,229,160,0.22);
+      border-color: #00e5a0;
+      transform: translateY(-1px);
+    }
+    .ver-mas-colapsable { animation: pm-fadeInDown 0.3s ease; }
+    @keyframes pm-fadeInDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════════
+       FOTOS NOCTURNAS – PLAZA MAYOR
+       ══════════════════════════════════════════ */
+    .pm-noche-header {
+      margin-top: 60px;
+      margin-bottom: 24px;
+    }
+    .pm-noche-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #e0a458;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .pm-noche-titulo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--text, #f4f4f4);
+      letter-spacing: 1px;
+      margin: 0 0 6px 0;
+    }
+    .pm-noche-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0;
+      font-style: italic;
+    }
+
+    .pm-noche-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 60px;
+    }
+
+    .pm-noche-item {
+      position: relative;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #0d0a05;
+    }
+
+    .pm-noche-item--large {
+      grid-column: span 2;
+      height: 260px;
+    }
+
+    .pm-noche-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.82) saturate(1.1);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .pm-noche-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.95) saturate(1.2);
+    }
+
+    .pm-noche-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(224,164,88,0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .pm-noche-item:hover .pm-noche-overlay {
+      opacity: 1;
+    }
+
+    .pm-noche-overlay span {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: #1a1208;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .pm-noche-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .pm-noche-item--large {
+        grid-column: span 2;
+        height: 220px;
+      }
+      .pm-noche-item {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .pm-noche-grid {
+        grid-template-columns: 1fr;
+      }
+      .pm-noche-item--large {
+        grid-column: span 1;
+      }
+    }
+
+    .vm-oculto {
+  display: none !important;
+}
+
+.vm-visual-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 22px auto 50px;
+  padding: 11px 28px;
+  background: rgba(0,229,160,0.12);
+  border: 1.5px solid rgba(0,229,160,0.5);
+  border-radius: 50px;
+  color: #00e5a0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vm-visual-btn:hover {
+  background: rgba(0,229,160,0.22);
+  border-color: #00e5a0;
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════
+       FOTOS DE DÍA – PLAZA MAYOR
+       ══════════════════════════════════════════ */
+    .pm-dia-header {
+      margin-top: 60px;
+      margin-bottom: 24px;
+    }
+    .pm-dia-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #00e5a0;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .pm-dia-titulo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--text, #f4f4f4);
+      letter-spacing: 1px;
+      margin: 0 0 6px 0;
+    }
+    .pm-dia-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0;
+      font-style: italic;
+    }
+
+    .pm-dia-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 60px;
+    }
+
+    .pm-dia-item {
+      position: relative;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #1a1d24;
+    }
+
+    .pm-dia-item--large {
+      grid-column: span 2;
+      height: 260px;
+    }
+
+    .pm-dia-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .pm-dia-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(1);
+    }
+
+    .pm-dia-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,229,160,0.55);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .pm-dia-item:hover .pm-dia-overlay {
+      opacity: 1;
+    }
+
+    .pm-dia-overlay span {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: #000;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .pm-dia-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .pm-dia-item--large {
+        grid-column: span 2;
+        height: 220px;
+      }
+      .pm-dia-item {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .pm-dia-grid {
+        grid-template-columns: 1fr;
+      }
+      .pm-dia-item--large {
+        grid-column: span 1;
+      }
+    }
+
+    .pm-panoramica-video{
+    margin-top:25px;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.pm-panoramica-video video{
+    width:100%;
+    display:block;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 768px) {
+      .pm-hero-content { padding: 0 20px 44px; }
+      .pm-title { font-size: clamp(2.6rem, 13vw, 4rem); }
+      .pm-volver { top: 68px; left: 16px; }
+      .pm-section { padding: 50px 0 60px; }
+      .pm-lead { font-size: 0.93rem; }
+      .pm-bloque-num { font-size: 2.5rem; }
+      .pm-bloque-titulo { font-size: 1.5rem; }
+      .pm-dato-bar { flex-direction: row; overflow-x: auto; scrollbar-width: none; }
+      .pm-dato-bar::-webkit-scrollbar { display: none; }
+      .pm-dato { flex-shrink: 0; min-width: 120px; }
+      .pm-elementos-grid { grid-template-columns: 1fr; }
+      .pm-fotos-grid { grid-template-columns: 1fr; }
+      .pm-fotos-grid .pm-foto img { height: 200px; }
+      .pm-foto img { height: 220px; }
+      .pm-panoramica-img img { height: 240px; }
+      .pm-qr-section { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="img/location/logo.png" alt="logo" class="logo-img"/>
+      <span class="logo-text">Valle Chicama</span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="cerrarMenu()">Inicio</a></li>
+      <li><a href="destino.html?id=chiclin" onclick="cerrarMenu()">Chiclín</a></li>
+      <li><a href="culturales.html" onclick="cerrarMenu()">Culturales</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="pm-hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/Plaza-armas_skputx.mp4" type="video/mp4"/>
+    </video>
+    <div class="pm-hero-overlay"></div>
+    <a href="destino.html?id=chiclin" class="pm-volver">
+      <i class="fa-solid fa-arrow-left"></i> Volver a Chiclín
+    </a>
+    <div class="pm-hero-content">
+      <span class="pm-tag">Chiclín · Valle Chicama · La Libertad</span>
+      <h1 class="pm-title">PLAZA MAYOR<br/>DE CHICLÍN</h1>
+      <p class="pm-hero-sub">El corazón del pueblo — espacio de historia, fe y memoria colectiva del Valle Chicama</p>
+      <div class="pm-hero-badges">
+        <span class="pm-badge">Historia</span>
+        <span class="pm-badge">Patrimonio</span>
+        <span class="pm-badge">Monumentos</span>
+        <span class="pm-badge">Cultura viva</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTENIDO ══ -->
+  <section class="pm-section">
+    <div class="pm-container">
+
+      <p class="pm-lead">
+        La Plaza Mayor de Chiclín — también conocida como Plaza Principal Cristo Rey — es el corazón
+        del pueblo y su espacio de identidad más importante. Aquí conviven la historia, la fe y la
+        memoria de generaciones de chiclinenses. Quien visita la plaza no solo ve jardines y bancas:
+        lee la historia completa de un pueblo construido con esfuerzo y orgullo.
+        <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/dwJJpnY4/Whats-App-Image-2026-06-27-at-1-21-46-AM.jpg" alt="Pérgola Plaza Mayor Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption"></span>
+          </div>
+      </p><br>
+
+      
+      <!-- ══ BLOQUE 1: ORIGEN ══ -->
+      <div class="pm-bloque">
+        <div class="pm-bloque-header">
+          <span class="pm-bloque-num">01</span>
+          <div>
+            <h2 class="pm-bloque-titulo">Origen: por qué se creó y quién la impulsó</h2>
+            <p class="pm-bloque-sub">Décadas de 1920 · La visión de la Hacienda Chiclín</p>
+          </div>
+        </div>
+
+        <div class="pm-era-badge"><i class="fa-solid fa-landmark"></i> Orígenes · Década de 1970</div>
+
+        <p>Antes de ser la plaza que hoy conocemos, este espacio era conocido simplemente como <strong style="color:#fff">"la pampa"</strong> — así lo recuerdan los antiguos pobladores de Chiclín. Era un campo abierto de grass, sin diseño formal ni infraestructura de plaza. Según el testimonio de <strong style="color:#fff">Constante Larco</strong>, recogido por el historiador local Daniel Terrones, ese campo fue sembrado de grass por <strong style="color:#fff">don Manuel Paiva</strong>, utilizando grama traída desde la Huerta 14.</p>
+
+        <p>En sus primeros años, "la pampa" cumplió una función deportiva y educativa: funcionó como el <strong style="color:#fff">primer campo de deportes y centro de recreación escolar</strong> de Chiclín, siendo el espacio donde las nuevas generaciones del pueblo jugaban y realizaban actividades al aire libre.</p>
+
+        <p>El diseño formal de la Plaza Mayor — con su pérgola, senderos, jardines ornamentales y elementos escultóricos — fue realizado <strong style="color:#fff">en los años setenta</strong>, durante el período del <strong style="color:#fff">cooperativismo</strong>, cuando la antigua hacienda pasó a manos de los trabajadores organizados en cooperativa agraria. Fue en esa etapa que la pampa se transformó en el espacio público que hoy es el corazón de Chiclín.</p>
+ <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/PsqFqtr2/475991606-122209691984034415-3638012965692698237-n.jpg" alt="Pérgola Plaza Mayor Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Emblemática Plaza mayor - Año: 1958.</span>
+          </div>
+          <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/mVPZHFVh/475440835-122208625016034415-7223494851877111690-n.jpg" alt="Pérgola Plaza Mayor Chiclín detalle" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Ceremonia Sabado en la mañana - Año: 1957.</span>
+          </div>
+        <div class="pm-dato-bar">
+          <div class="pm-dato">
+            <span class="pm-dato-label">Nombre original</span>
+            <span class="pm-dato-val">"La Pampa"</span>
+          </div>
+          <div class="pm-dato">
+            <span class="pm-dato-label">Primer uso</span>
+            <span class="pm-dato-val">Campo de deportes y recreación escolar</span>
+          </div>
+          <div class="pm-dato">
+            <span class="pm-dato-label">Sembrador del grass</span>
+            <span class="pm-dato-val">Don Manuel Paiva · Huerta 14</span>
+          </div>
+          <div class="pm-dato">
+            <span class="pm-dato-label">Diseño de la plaza</span>
+            <span class="pm-dato-val">Años 70 · Era del cooperativismo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ BLOQUE 2: LA PÉRGOLA ══ -->
+      <div class="pm-bloque">
+        <div class="pm-bloque-header">
+          <span class="pm-bloque-num">02</span>
+          <div>
+            <h2 class="pm-bloque-titulo">La Pérgola: el símbolo central de la plaza</h2>
+            <p class="pm-bloque-sub">Diseño escultórico · Estilo colonial · Rojo y crema</p>
+          </div>
+        </div>
+
+        <div class="pm-era-badge"><i class="fa-solid fa-circle-dot"></i> Arquitectura · Elemento central</div>
+
+        <p>En el corazón de la Plaza Mayor se alza la <strong style="color:#fff">pérgola circular</strong>, el elemento más icónico e identificable del espacio público. Su estructura de forma semicircular elevada, con escalinatas a ambos lados, columnas torneadas y una cúpula en forma de hongo, la convierte en una pieza arquitectónica singular en toda la región.</p>
+
+        <p>Su diseño combina el <strong style="color:#fff">estilo colonial peruano con influencias escultóricas</strong>: decorada con motivos geométricos y ornamentos en los colores rojo y crema — los tonos que identifican la identidad visual de Chiclín. Las balaustradas y escalinatas dobles que la rodean le dan una presencia imponente que domina visualmente el espacio de la plaza.</p>
+
+        <p>Desde la pérgola parten los senderos principales hacia los cuatro extremos de la plaza, dividiendo el espacio en cuatro cuadrantes simétricos con jardines, árboles y bancas. Es el punto de referencia visual desde cualquier ángulo y el escenario de muchos eventos culturales del pueblo.</p>
+
+        <div class="pm-fotos-grid">
+          <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/p66FrJ2j/Whats-App-Image-2026-06-24-at-12-43-09-PM.jpg" alt="Pérgola Plaza Mayor Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Pérgola central — vista frontal</span>
+          </div>
+          <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/NnN3gKd1/Plaza2.jpg" alt="Pérgola Plaza Mayor Chiclín detalle" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Pérgola central — escalinatas y cúpula</span>
+          </div>
+        </div>
+
+        <div class="pm-dato-bar">
+          <div class="pm-dato">
+            <span class="pm-dato-label">Forma</span>
+            <span class="pm-dato-val">Circular — cúpula tipo hongo</span>
+          </div>
+          <div class="pm-dato">
+            <span class="pm-dato-label">Estilo</span>
+            <span class="pm-dato-val">Colonial escultórico</span>
+          </div>
+          <div class="pm-dato">
+            <span class="pm-dato-label">Colores</span>
+            <span class="pm-dato-val">Rojo y crema</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ BLOQUE 3: FE Y TRADICIÓN ══ -->
+      <div class="pm-bloque">
+        <div class="pm-bloque-header">
+          <span class="pm-bloque-num">03</span>
+          <div>
+            <h2 class="pm-bloque-titulo">Epicentro de la fe: El Señor de la Caña</h2>
+            <p class="pm-bloque-sub">Festividad patronal · Misa de Campaña · Procesión</p>
+          </div>
+        </div>
+
+        <div class="pm-era-badge"><i class="fa-solid fa-church"></i> Tradición viva · Cada año en junio</div>
+
+        <p>La Plaza Mayor cobra su máxima relevancia social cada año durante las festividades del <strong style="color:#fff">Señor de la Caña</strong>, el santo patrón del pueblo. La Hermandad del Señor de la Caña, fundada en 1937, organiza una de las celebraciones religiosas más importantes y multitudinarias del Valle Chicama.</p>
+
+        <p>El espacio público se convierte en un <strong style="color:#fff">templo al aire libre</strong> donde cientos de fieles se congregan para la tradicional Misa de Campaña. El Cristo Rey, que domina la plaza con sus brazos abiertos, preside esta celebración que une fe, identidad y comunidad en un solo espacio.</p>
+
+        <p>La plaza es también el <strong style="color:#fff">eje central desde donde inicia y concluye</strong> el recorrido procesional de la sagrada imagen. Durante la festividad, las calles que rodean la plaza se llenan de devotos, músicos y celebrantes que convierten a Chiclín en un foco de peregrinación regional.</p>
+        <div class="pm-fotos-grid">
+          <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/99TYFk0F/725880325-4200288800262345-4734962841025989907-n.jpg" alt="Pérgola Plaza Mayor Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Misa de Campaña en Plaza Mayor - 1957.</span>
+          </div>
+          <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/qLKP6cj9/725398599-1364725755548004-8272225018195922075-n.jpg" alt="Pérgola Plaza Mayor Chiclín detalle" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Misa de Campaña junto Cristo Rey - 1957.</span>
+          </div>
+        </div>
+        
+        <div class="pm-cita">
+          <p>"En medio de gran expectativa, cientos de fieles participan en la feria regional en honor al Señor de la Caña — una de las festividades más importantes del Valle Chicama."</p>
+          <cite>— Macronorte, cobertura de la Feria Regional de Chiclín</cite>
+        </div>
+
+        <div class="pm-dato-bar">
+          <div class="pm-dato">
+            <span class="pm-dato-label">Hermandad fundada</span>
+            <span class="pm-dato-val">Desde 1937</span>
+          </div>
+          <div class="pm-dato">
+            <span class="pm-dato-label">Festividad</span>
+            <span class="pm-dato-val">Junio — Señor de la Caña</span>
+          </div>
+          <div class="pm-dato">
+            <span class="pm-dato-label">Evento principal</span>
+            <span class="pm-dato-val">Misa de Campaña</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ BLOQUE 4: ESCULTURAS Y ELEMENTOS ══ -->
+      <div class="pm-bloque">
+        <div class="pm-bloque-header">
+          <span class="pm-bloque-num">04</span>
+          <div>
+            <h2 class="pm-bloque-titulo">Esculturas, jardines y elementos de la plaza</h2>
+            <p class="pm-bloque-sub">Iconografía Mochica · Bancas · Iluminación · Áreas verdes</p>
+          </div>
+        </div>
+
+        <div class="pm-era-badge"><i class="fa-solid fa-tree"></i> Espacio público · Patrimonio urbano</div>
+
+        <p>La Plaza Mayor de Chiclín no es solo un espacio de tránsito — es un <strong style="color:#fff">museo al aire libre</strong>. En su entrada y a lo largo de sus senderos se encuentran esculturas decorativas con iconografía inspirada en la <strong style="color:#fff">cultura Mochica</strong>: rostros con tocados ceremoniales, figuras geométricas y motivos precolombinos en relieve, que recuerdan permanentemente el legado prehispánico del Valle Chicama.</p>
+
+        <p>Las fachadas de los muros perimetrales también incorporan <strong style="color:#fff">decoración en relieve con motivos Moche y Chimú</strong>, fusionando el urbanismo moderno de la hacienda con las raíces indígenas del territorio. Este fue un elemento distintivo en la concepción del espacio: que el habitante del pueblo conviviera diariamente con la historia de su tierra.</p>
+
+        <div class="pm-fotos-grid">
+          <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/WvFLRkS0/plaza4.jpg" alt="Esculturas Mochica Plaza Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Esculturas con iconografía Mochica.</span>
+          </div>
+          <div class="pm-foto" onclick="abrirImagen(this.querySelector('img').src)">
+            <img src="https://i.ibb.co/39Ln04zJ/plaza6.jpg" alt="Jardines Plaza Mayor Chiclín" onerror="this.parentElement.style.background='#1a1d24'"/>
+            <div class="pm-foto-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <span class="pm-foto-caption">Jardines y áreas verdes de la Plaza Mayor</span>
+          </div>
+        </div><br>
+
+
+       <!-- ══ VISTA PANORÁMICA ══ -->
+<div class="pm-panoramica">
+  <div class="pm-panoramica-header">
+    <span class="pm-panoramica-label">Vista panorámica</span>
+    <h3 class="pm-panoramica-titulo">La Plaza Mayor de Chiclín desde el cielo</h3>
+  </div>
+
+  <p class="pm-panoramica-desc">
+    A simple vista, la Plaza Mayor de Chiclín parece una plaza tradicional.
+    Sin embargo, al observarla desde una vista aérea, revela un diseño muy
+    particular que sorprende a propios y visitantes. Su distribución forma
+    dos figuras humanas: <strong>una niña en el lado izquierdo</strong>,
+    representada por los caminos de color blanco, y
+    <strong>un niño en el lado derecho</strong>, representado por los caminos
+    de color rojo.
+  </p>
+
+  <p class="pm-panoramica-desc">
+    Ambas figuras convergen en el centro de la plaza, donde se encuentra la
+    pérgola principal, simbolizando la unión, la armonía y el encuentro entre
+    todos los habitantes de Chiclín. Este diseño solo puede apreciarse
+    completamente desde las alturas, convirtiéndose en uno de los detalles más
+    curiosos y llamativos del distrito.
+  </p>
+
+  <div class="pm-panoramica-img" onclick="abrirImagen(this.querySelector('img').src)">
+    <img src="https://i.ibb.co/wZ1tqqy8/ni-o.png"
+         alt="Vista panorámica Plaza Mayor de Chiclín"
+         onerror="this.parentElement.style.background='#1a1d24'"/>
+
+    <div class="pm-foto-overlay">
+      <i class="fa-solid fa-magnifying-glass-plus"></i>
+    </div>
+
+    <span class="pm-panoramica-caption">
+      Vista aérea de la Plaza Mayor de Chiclín donde se aprecia el diseño en forma de una niña y un niño.
+    </span>
+  </div> <br>
+  <div class="pm-panoramica-video">
+    <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/jqmcyvkr/video/upload/v1782857684/WhatsApp_Video_2026-06-30_at_4.56.26_PM_d2vsd6.mp4" type="video/mp4">
+    </video>
+</div>
+</div>
+      <!-- ══════════ FOTOS DE DÍA ══════════ -->
+      <div class="pm-dia-header">
+        <span class="pm-dia-label">Galería</span>
+        <h3 class="pm-dia-titulo">Fotos de día — Plaza Mayor</h3>
+        <p class="pm-dia-sub">La vida diaria del pueblo alrededor de su plaza</p>
+      </div>
+      <div class="pm-dia-grid">
+        <div class="pm-dia-item pm-dia-item--large" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/93VvrQQg/Whats-App-Image-2026-06-27-at-1-21-45-AM-3.jpg" alt="Plaza Mayor de día 1" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Plaza Mayor de día</span></div>
+        </div>
+        <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/3ydxdC6c/Whats-App-Image-2026-06-24-at-12-43-07-PM.jpg" alt="Plaza Mayor de día 2" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Vista diurna</span></div>
+        </div>
+        <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/sv6Hcd6P/Whats-App-Image-2026-06-24-at-12-43-08-PM.jpg" alt="Plaza Mayor de día 3" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>La pérgola al mediodía</span></div>
+        </div>
+        <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/PGFPT63H/plaza1.jpg" alt="Plaza Mayor de día 4" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Jardines y senderos</span></div>
+        </div>
+        <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/prWPmtt3/plaza8.jpg" alt="Plaza Mayor de día 5" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Vida cotidiana</span></div>
+        </div>
+        <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/Y7jhb5Mf/plaza7.jpg" alt="Plaza Mayor de día 6" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Chiclín de día</span></div>
+        </div>
+         <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/1thqLPz4/plaza9.jpg" alt="Plaza Mayor de día 7" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Chiclín de día</span></div>
+        </div>
+         <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/Dfp4stTP/huaco.jpg" alt="Plaza Mayor de día 8" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Chiclín de día</span></div>
+        </div>
+         <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/8Dg8w4hZ/Whats-App-Image-2026-06-27-at-1-21-45-AM-1.jpg" alt="Plaza Mayor de día 9" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Chiclín de día</span></div>
+        </div>
+         <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/RpdLDKjQ/Whats-App-Image-2026-06-24-at-12-43-08-PM-1.jpg" alt="Plaza Mayor de día 10" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Chiclín de día</span></div>
+        </div>
+        <div class="pm-dia-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/dwJJpnY4/Whats-App-Image-2026-06-27-at-1-21-46-AM.jpg" alt="Plaza Mayor de día 10" onerror="this.parentElement.style.background='#1a1d24'"/>
+          <div class="pm-dia-overlay"><span>Chiclín de día</span></div>
+        </div>
+      </div>
+      
+        <!-- ══════════ FOTOS NOCTURNAS ══════════ -->
+      <div class="pm-noche-header">
+        <span class="pm-noche-label">Galería</span>
+        <h3 class="pm-noche-titulo">Fotos nocturnas — Plaza Mayor</h3>
+        <p class="pm-noche-sub">La plaza se transforma cuando cae la noche</p>
+      </div>
+      <div class="pm-noche-grid">
+        <div class="pm-noche-item pm-noche-item--large" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/4ZbgD3KQ/Museo23.jpg" alt="Plaza Mayor de noche 1" onerror="this.parentElement.style.background='#0d0a05'"/>
+          <div class="pm-noche-overlay"><span>Plaza Mayor de noche</span></div>
+        </div>
+        <div class="pm-noche-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/ynfWhhvC/Whats-App-Image-2026-06-24-at-12-43-07-PM-1.jpg" alt="Plaza Mayor de noche 2" onerror="this.parentElement.style.background='#0d0a05'"/>
+          <div class="pm-noche-overlay"><span>Iluminación nocturna</span></div>
+        </div>
+        <div class="pm-noche-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/23tZmsL0/Whats-App-Image-2026-06-24-at-12-43-07-PM-2.jpg" alt="Plaza Mayor de noche 3" onerror="this.parentElement.style.background='#0d0a05'"/>
+          <div class="pm-noche-overlay"><span>La pérgola iluminada</span></div>
+        </div>
+        <div class="pm-noche-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/1t8h6S0Y/watermarked-img-1993060125008686047.jpg" alt="Plaza Mayor de noche 4" onerror="this.parentElement.style.background='#0d0a05'"/>
+          <div class="pm-noche-overlay"><span>Ambiente nocturno</span></div>
+        </div>
+        <div class="pm-noche-item" onclick="abrirImagen(this.querySelector('img').src)">
+          <img src="https://i.ibb.co/TBYPtsbD/470228345-542452662119479-3544474777972359321-n.jpg" alt="Plaza Mayor de noche 5" onerror="this.parentElement.style.background='#0d0a05'"/>
+          <div class="pm-noche-overlay"><span>Vista nocturna</span></div>
+        </div>
+      </div>
+      </div>
+      <!-- ══ TRES TESTIGOS ══ -->
+      <div class="pm-bloque">
+        <div class="pm-bloque-header">
+          <span class="pm-bloque-num">05</span>
+          <div>
+            <h2 class="pm-bloque-titulo">Tres testigos en un mismo espacio</h2>
+            <p class="pm-bloque-sub">Década de 1940 · Los monumentos que habitan la plaza</p>
+          </div>
+        </div>
+
+        <div class="pm-era-badge"><i class="fa-solid fa-monument"></i> Consolidación · Década de 1940</div>
+
+        <p>Durante la década de 1940 la Plaza Mayor adoptó su fisonomía definitiva con la instalación de tres monumentos históricos que la convirtieron en un museo al aire libre. Cada uno cuenta, en mármol o bronce, una parte de la historia chiclinense. Hoy estos tres monumentos cuentan con señalización turística mediante <strong style="color:#fff">códigos QR</strong>.</p>
+
+        <div class="pm-monumentos-grid">
+          <a href="culturales.html#cristo-rey" class="pm-monumento-link">
+            <span class="pm-monumento-num">01</span>
+            <div class="pm-monumento-info">
+              <h4>Cristo Rey de Chiclín</h4>
+              <span>Símbolo de fe e identidad · 1943 · El único de su magnitud en La Libertad</span>
+            </div>
+            <span class="pm-monumento-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="culturales.html#monumento-trabajo" class="pm-monumento-link">
+            <span class="pm-monumento-num">02</span>
+            <div class="pm-monumento-info">
+              <h4>Monumento al Trabajo</h4>
+              <span>Mármol de Carrara · Agosto 1926 · Artista Ernesto Gazzeri · Centenario 2026</span>
+            </div>
+            <span class="pm-monumento-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="culturales.html#javier-larco" class="pm-monumento-link">
+            <span class="pm-monumento-num">03</span>
+            <div class="pm-monumento-info">
+              <h4>Monumento a Javier Larco Hoyle</h4>
+              <span>Bronce conmemorativo · 1948 · Planificador de la plaza y la hacienda</span>
+            </div>
+            <span class="pm-monumento-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+
+      <!-- ══ QR ══ -->
+      <div class="pm-qr-section">
+        <h3>Escanea el QR de la Plaza Mayor</h3>
+        <p>Este código QR te trajo aquí directamente.<br/>Compártelo con quien visite Chiclín para que conozca su historia.</p>
+        <button class="qr-btn" onclick="abrirQR('plaza-mayor', 'Plaza Mayor de Chiclín')" style="max-width:320px; margin:0 auto;">
+          <span class="qr-btn-icon">⬛</span> Ver código QR de la Plaza Mayor
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="img/location/logo.png" alt="logo"/>
+        <span>Valle Chicama</span>
+      </div>
+      <p>Sistema Turístico Inteligente – Provincia de Ascope, La Libertad, Perú</p>
+    </div>
+  </footer>
+
+  <script src="js/culturales.js"></script>
+
+  <!-- MODAL QR -->
+  <div id="qr-modal" class="qr-modal-overlay" onclick="cerrarQR(event)">
+    <div class="qr-modal-box">
+      <button class="qr-modal-close" onclick="document.getElementById('qr-modal').classList.remove('active')">✕</button>
+      <p class="qr-modal-label">Escanea para ver este lugar</p>
+      <h3 id="qr-modal-name" style="color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;margin:0;text-align:center;"></h3>
+      <div id="qr-modal-code"></div>
+      <p class="qr-modal-url" id="qr-modal-url"></p>
+    </div>
+  </div>
+
+</body>
+</html>

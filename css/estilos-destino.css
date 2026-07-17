@@ -1560,3 +1560,503 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
     height: 220px;
   }
 }
+
+/* ============================================================
+   RESPONSIVE MÓVIL – agregar al final de estilos-destino.css
+   O importar con: @import 'estilos-responsive.css';
+   Compatible: 320px → 768px
+   ============================================================ */
+
+/* ── VER MÁS: texto colapsable ── */
+.texto-colapsable {
+  position: relative;
+}
+
+.texto-colapsable.colapsado {
+  max-height: 120px;
+  overflow: hidden;
+}
+
+.texto-colapsable.colapsado::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+/* Para secciones sobre fondo oscuro alternativo */
+.section-dark .texto-colapsable.colapsado::after {
+  background: linear-gradient(to bottom, transparent, var(--bg2));
+}
+
+.btn-ver-mas {
+  display: none; /* oculto en desktop */
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-ver-mas:hover {
+  background: rgba(0,229,160,0.1);
+}
+
+/* ── RESPONSIVE GENERAL ── */
+@media (max-width: 768px) {
+
+  /* Activar botón ver más solo en móvil */
+  .btn-ver-mas {
+    display: inline-block;
+  }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    padding: 0 16px;
+    height: 56px;
+    gap: 0;
+  }
+
+  .nav-links {
+    display: none; /* ocultar links en móvil */
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .btn-volver {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 70px 16px 160px;
+    min-height: 100svh;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding-top: 10px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+    line-height: 0.92;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .hero-badges {
+    gap: 6px;
+  }
+
+  .badge {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
+
+  /* Thumbnails: fila horizontal abajo */
+  .hero-thumbs {
+    position: absolute;
+    right: auto;
+    left: 0;
+    right: 0;
+    bottom: 56px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .hero-thumbs::-webkit-scrollbar { display: none; }
+
+  .hero-thumb {
+    width: 68px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    transform: scale(0.9) !important;
+  }
+
+  .hero-thumb.active {
+    width: 90px;
+    height: 118px;
+    transform: scale(1) translateY(0) !important;
+  }
+
+  .hero-thumb-label {
+    font-size: 0.65rem;
+    padding: 18px 8px 8px;
+    letter-spacing: 1px;
+  }
+
+  /* Dots */
+  .hero-dots {
+    bottom: 20px;
+  }
+
+  /* ── SECCIONES ── */
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 8vw, 2.5rem);
+    margin-bottom: 30px;
+  }
+
+  /* ── HISTORIA ── */
+  .historia-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .historia-img-principal img {
+    height: 240px;
+  }
+
+  .historia-img-secundaria img {
+    height: 160px;
+  }
+
+  .historia-texto {
+    gap: 14px;
+  }
+
+  .historia-texto p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+
+  /* ── CATEGORÍAS ── */
+  .categorias-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cat-big-card {
+    height: 280px;
+  }
+
+  .categorias-header-center .cat-main-title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  /* ── COSTUMBRES ── */
+  .ct-bloque {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+  }
+
+  .ct-danzas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .ct-titulo {
+    font-size: clamp(1.4rem, 6vw, 1.9rem);
+  }
+
+  /* ── UGARTE ── */
+  .ct-ugarte-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ct-ugarte-img img {
+    height: 240px;
+  }
+
+  .ct-ugarte-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .ct-stat-num {
+    font-size: 1.5rem;
+  }
+
+  .ct-stat-label {
+    font-size: 0.62rem;
+  }
+
+  /* ── DANZA ROWS ── */
+  .danza-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+  }
+
+  .danza-row--reverse {
+    direction: ltr;
+  }
+
+  .danza-foto-grid {
+    grid-template-rows: 260px;
+    height: 260px;
+  }
+
+  .danza-num {
+    font-size: 2.5rem;
+  }
+
+  .danza-nombre {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .danza-meta {
+    flex-wrap: wrap;
+  }
+
+  .danza-meta-item {
+    flex: 0 0 50%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .danza-meta-item:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+
+  /* ── VIDEO ── */
+  .section-video video {
+    max-height: 220px;
+  }
+
+  .video-tag {
+    left: 16px;
+    top: 16px;
+    font-size: 0.65rem;
+  }
+
+  .video-titulo {
+    font-size: 1.6rem;
+    left: 16px;
+    bottom: 16px;
+    letter-spacing: 3px;
+  }
+
+  /* ── FESTIVIDAD ── */
+  .festividad-section {
+    padding: 50px 16px;
+  }
+
+  .festividad-titulo {
+    font-size: 1.8rem;
+  }
+
+  .festividad-intro {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .festividad-intro-img {
+    flex: none;
+    width: 100%;
+    height: 240px;
+  }
+
+  .festividad-intro-datos {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .dias-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dia-card {
+    height: 260px;
+  }
+
+  /* ── UGARTE HERO ── */
+  .ugarte-hero {
+    height: 320px;
+    border-radius: 12px;
+  }
+
+  .ugarte-nombre {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+  }
+
+  .ugarte-hero-content {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .ugarte-desc {
+    font-size: 0.85rem;
+  }
+
+  .ugarte-stats {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .ugarte-stat-sep {
+    display: none;
+  }
+
+  .ugarte-stat-item {
+    flex: 0 0 45%;
+  }
+
+  /* ── UGARTE FAN CARDS ── */
+  .ugarte-fan-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    min-height: auto;
+  }
+
+  .ugarte-fan-card {
+    margin: 0;
+    transform: none !important;
+    width: 100%;
+    max-width: 340px;
+    min-height: auto;
+  }
+
+  .ugarte-stats-bar {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .ugarte-sb-sep { display: none; }
+
+  /* ── GALERÍA UGARTE ── */
+  .ugarte-gal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ugarte-gal-item {
+    height: 160px;
+  }
+
+  /* ── UGARTE INTRO ── */
+  .ugarte-intro-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ugarte-intro-img {
+    flex: none;
+    width: 100%;
+    height: 200px;
+  }
+
+  /* ── MAPA / UBICACIÓN ── */
+  .mapa-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .mapa-embed {
+    height: 280px;
+  }
+
+  .mapa-ico-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .mapa-dato p {
+    font-size: 0.85rem;
+  }
+
+  .btn-maps {
+    font-size: 0.85rem;
+    padding: 12px 26px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 36px 16px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    text-align: left;
+  }
+
+  /* ── ANIMACIONES: reducir movimiento en móvil ── */
+  .hero-thumb,
+  .hero-thumb.active {
+    animation: none !important;
+  }
+
+  /* ── NOVENAS BANNER ── */
+  .novenas-banner {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .novenas-icono {
+    font-size: 1.5rem;
+  }
+}
+
+/* ── EXTRA PEQUEÑO (320px–400px) ── */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: clamp(2.4rem, 13vw, 3.5rem);
+  }
+
+  .hero-thumb {
+    width: 56px;
+    height: 76px;
+  }
+
+  .hero-thumb.active {
+    width: 76px;
+    height: 100px;
+  }
+
+  .ct-danzas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ct-ugarte-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ugarte-gal-grid {
+    grid-template-columns: 1fr;
+  }
+}

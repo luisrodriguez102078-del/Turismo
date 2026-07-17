@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     aplicarVerMas(el);
   });
 
-  // Monumentos y museo: solo párrafos <p>, NUNCA .cul-cita
-  document.querySelectorAll('.cul-info, .museo-intro-texto').forEach(contenedor => {
-    const parrafos = Array.from(contenedor.querySelectorAll('p.cul-desc, p')).filter(
-    p => !p.closest('blockquote')
+  // Monumentos, museo y Plaza Mayor: solo párrafos <p>, NUNCA citas
+  document.querySelectorAll('.cul-info, .museo-intro-texto, .pm-bloque').forEach(contenedor => {
+    const parrafos = Array.from(contenedor.children).filter(el =>
+    el.tagName === 'P'
 );
     if (parrafos.length >= 2) {
       aplicarVerMasGrupo(Array.from(parrafos));
@@ -97,7 +97,7 @@ function aplicarVerMas(el) {
 }
 
 function aplicarVerMasGrupo(parrafos) {
-  if (parrafos.length < 2) return;
+  if (parrafos.length < 3) return;
   const primero = parrafos[0];
   const ocultos = parrafos.slice(1);
 
@@ -213,6 +213,8 @@ function aplicarVerMasVisual(selectorContenedor, selectorItems, cantidadVisible,
 document.addEventListener('DOMContentLoaded', () => {
   aplicarVerMasVisual('.museo-gal-grid', '.museo-gal-item', 6, 'Ver más fotos');
   aplicarVerMasVisual('.museo-tl-grid', '.museo-tl-item', 3, 'Ver más historia');
+  aplicarVerMasVisual('.pm-noche-grid', '.pm-noche-item', 3, 'Ver más fotos nocturnas');
+    aplicarVerMasVisual('.pm-dia-grid', '.pm-dia-item', 3, 'Ver más fotos nocturnas');
 });
 
 // ══════════ QR HACIA PÁGINA EXTERNA (no ancla de culturales.html) ══════════
@@ -235,3 +237,4 @@ function abrirQRPagina(urlCompleta, nombre) {
 
   modal.classList.add('active');
 }
+

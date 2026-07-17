@@ -30,13 +30,14 @@
       z-index: 0;
     }
 
-    .sapito-hero-img img {
+   .sapito-hero-img img,
+    .sapito-hero-img video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       filter: brightness(0.55);
     }
-
+    
     .sapito-hero-overlay {
       position: absolute;
       inset: 0;
@@ -497,7 +498,9 @@
   <!-- ══════════ HERO ══════════ -->
   <section class="sapito-hero">
     <div class="sapito-hero-img">
-      <img src="https://i.ibb.co/gM4VHDkC/Whats-App-Image-2026-06-24-at-12-10-01-PM.jpg" alt="El Sapito del Museo de Chiclín"/>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dmtzm0btl/video/upload/q_auto/f_auto/Sapo_tzhdva.mp4" type="video/mp4"/>
+      </video>
     </div>
     <div class="sapito-hero-overlay"></div>
     <a href="culturales.html#museo" class="sapito-volver">
