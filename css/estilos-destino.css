@@ -531,10 +531,8 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
 
 /* ══════════════════════════════════════════
    DANZAS FOLKLÓRICAS — layout alternado
-   Pega esto al final de estilos-destino.css
    ══════════════════════════════════════════ */
 
-/* ── Fila de danza: fotos + info ── */
 .danza-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -550,15 +548,13 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   border-bottom: none;
 }
 
-/* Invertir orden para filas pares */
 .danza-row--reverse {
-  direction: rtl; /* truco para invertir sin tocar el HTML */
+  direction: rtl;
 }
 .danza-row--reverse > * {
-  direction: ltr; /* restaurar dirección de texto */
+  direction: ltr;
 }
 
-/* ── Grid de 4 fotos ── */
 .danza-foto-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -587,13 +583,11 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   filter: brightness(1);
 }
 
-/* Foto grande a la izquierda ocupa toda la altura */
 .danza-foto--tall {
   grid-row: 1 / -1;
   height: 100%;
 }
 
-/* Columna derecha: 3 fotos apiladas */
 .danza-foto-col {
   display: flex;
   flex-direction: column;
@@ -604,7 +598,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   flex: 1;
 }
 
-/* ── Info de la danza ── */
 .danza-info {
   display: flex;
   flex-direction: column;
@@ -637,7 +630,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   padding-left: 18px;
 }
 
-/* Fila de metadatos */
 .danza-meta {
   display: flex;
   gap: 0;
@@ -712,7 +704,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   line-height: 1.6;
 }
 
-/* BANNER NOVENARIO */
 .novenas-banner {
   display: flex;
   align-items: flex-start;
@@ -744,14 +735,12 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   margin-top: 2px;
 }
 
-/* GRID 3 TARJETAS */
 .dias-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* TARJETA */
 .dia-card {
   position: relative;
   border-radius: 12px;
@@ -777,7 +766,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   transform: scale(1.05);
 }
 
-/* ETIQUETA ABAJO */
 .dia-card-label {
   position: absolute;
   bottom: 0;
@@ -805,7 +793,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   font-weight: 600;
 }
 
-/* CUADRO HOVER BLANCO */
 .dia-card-hover {
   position: absolute;
   inset: 0;
@@ -849,21 +836,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
 
 .dia-card-hover ul li:last-child {
   border-bottom: none;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .dias-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .festividad-titulo {
-    font-size: 2rem;
-  }
-
-  .festividad-section {
-    padding: 50px 20px;
-  }
 }
 
 /* ── INTRO FESTIVIDAD ── */
@@ -925,17 +897,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   color: #888;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-@media (max-width: 768px) {
-  .festividad-intro {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .festividad-intro-img {
-    flex: none;
-    width: 100%;
-    height: 280px;
-  }
 }
 .festividad-section {
   padding-top: 60px;
@@ -1011,7 +972,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   color: #c9a84c;
 }
 
-/* STATS BAR */
 .ugarte-stats {
   display: flex;
   align-items: center;
@@ -1047,163 +1007,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   margin-top: 2px;
 }
 
-@media (max-width: 768px) {
-  .ugarte-hero { height: 360px; }
-  .ugarte-nombre { font-size: 3.5rem; }
-  .ugarte-hero-content { left: 24px; right: 24px; bottom: 24px; }
-  .ugarte-stats { flex-wrap: wrap; gap: 20px; padding: 24px; border-radius: 0 0 12px 12px; }
-  .ugarte-stat-sep { display: none; }
-  .ugarte-stat-item { flex: 0 0 45%; }
-}
-
- /* ══════════ FESTIVIDAD SEÑOR DE LA CAÑA ══════════ */
-    .festividad-section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .festividad-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .festividad-titulo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
-      color: #fff;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-    .festividad-subtitulo {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      color: #aaa;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    .novenas-banner {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      background: rgba(255,255,255,0.05);
-      border-left: 4px solid #c9a84c;
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin-bottom: 50px;
-      color: #ccc;
-      font-family: 'Outfit', sans-serif;
-    }
-    .novenas-banner strong {
-      display: block;
-      color: #c9a84c;
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-    .novenas-banner p {
-      margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-    .novenas-icono {
-      font-size: 2rem;
-      margin-top: 2px;
-    }
-    .dias-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .dia-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      height: 320px;
-    }
-    .dia-card-img {
-      width: 100%;
-      height: 100%;
-    }
-    .dia-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .dia-card:hover .dia-card-img img {
-      transform: scale(1.05);
-    }
-    .dia-card-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 16px 20px;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-    }
-    .dia-fecha {
-      font-size: 0.75rem;
-      color: #c9a84c;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 4px;
-    }
-    .dia-card-label h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    .dia-card-hover {
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.97);
-      color: #222;
-      padding: 24px 20px;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      border-radius: 12px;
-      font-family: 'Outfit', sans-serif;
-      overflow-y: auto;
-    }
-    .dia-card:hover .dia-card-hover {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .dia-card-hover h4 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      color: #7b3fa0;
-      margin: 0 0 14px 0;
-      letter-spacing: 1px;
-    }
-    .dia-card-hover ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .dia-card-hover ul li {
-      font-size: 0.85rem;
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-      line-height: 1.4;
-      color: #333;
-    }
-    .dia-card-hover ul li:last-child {
-      border-bottom: none;
-    }
-    @media (max-width: 768px) {
-      .dias-grid { grid-template-columns: 1fr; }
-      .festividad-titulo { font-size: 2rem; }
-      .festividad-section { padding: 50px 20px; }
-    }
-
-    /* ══════════ ALFONSO UGARTE CARDS ══════════ */
 .ugarte-intro {
   font-family: 'Outfit', sans-serif;
   font-size: 1rem;
@@ -1214,7 +1017,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   text-align: center;
 }
 
-/* CONTENEDOR ABANICO */
 .ugarte-fan-container {
   position: relative;
   display: flex;
@@ -1224,7 +1026,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   margin-bottom: 50px;
 }
 
-/* CARD NEOBRUTALIST */
 .ugarte-fan-card {
   position: relative;
   width: 320px;
@@ -1250,7 +1051,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   z-index: 10;
 }
 
-/* HEAD DE LA CARD */
 .ufc-head {
   font-family: 'Outfit', sans-serif;
   font-size: 0.9rem;
@@ -1263,7 +1063,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   letter-spacing: 0.5px;
 }
 
-/* CONTENIDO */
 .ufc-content {
   padding: 16px 14px;
   display: flex;
@@ -1308,7 +1107,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   font-weight: 700;
 }
 
-/* STATS BAR */
 .ugarte-stats-bar {
   display: flex;
   align-items: center;
@@ -1348,25 +1146,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 2px;
-}
-
-@media (max-width: 900px) {
-  .ugarte-fan-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  .ugarte-fan-card {
-    margin: 0;
-    transform: none !important;
-    width: 90%;
-  }
-  .ugarte-stats-bar {
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-  }
-  .ugarte-sb-sep { display: none; }
 }
 
 .ufc-logo {
@@ -1463,15 +1242,6 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   transform: scale(1);
 }
 
-@media (max-width: 768px) {
-  .ugarte-gal-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .ugarte-gal-item {
-    height: 180px;
-  }
-}
-
 .ct-icono-logo {
   width: 52px;
   height: 52px;
@@ -1549,514 +1319,173 @@ body { font-family: var(--font-body); background: var(--bg); color: var(--text);
   letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
-  .ugarte-intro-section {
-    flex-direction: column;
-    gap: 24px;
-  }
-  .ugarte-intro-img {
-    flex: none;
-    width: 100%;
-    height: 220px;
-  }
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE GENERAL — MÓVILES Y TABLETS
+   Se agrega al final para tener prioridad sobre las reglas
+   de escritorio anteriores (mismo orden de cascada).
+   ══════════════════════════════════════════════════════════ */
+
+/* ---------- TABLET (≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+  .container { padding: 0 28px; }
+  .section { padding: 70px 0; }
+
+  .historia-grid,
+  .mapa-grid,
+  .ct-ugarte-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .categorias-grid { grid-template-columns: repeat(2, 1fr); }
+  .ct-danzas-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .ugarte-intro-section,
+  .festividad-intro { flex-direction: column; gap: 30px; }
+  .ugarte-intro-img,
+  .festividad-intro-img { flex: none; width: 100%; height: 280px; }
+
+  .dias-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ============================================================
-   RESPONSIVE MÓVIL – agregar al final de estilos-destino.css
-   O importar con: @import 'estilos-responsive.css';
-   Compatible: 320px → 768px
-   ============================================================ */
-
-/* ── VER MÁS: texto colapsable ── */
-.texto-colapsable {
-  position: relative;
-}
-
-.texto-colapsable.colapsado {
-  max-height: 120px;
-  overflow: hidden;
-}
-
-.texto-colapsable.colapsado::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--bg));
-  pointer-events: none;
-}
-
-/* Para secciones sobre fondo oscuro alternativo */
-.section-dark .texto-colapsable.colapsado::after {
-  background: linear-gradient(to bottom, transparent, var(--bg2));
-}
-
-.btn-ver-mas {
-  display: none; /* oculto en desktop */
-  margin-top: 10px;
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 8px 20px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-ver-mas:hover {
-  background: rgba(0,229,160,0.1);
-}
-
-/* ── RESPONSIVE GENERAL ── */
+/* ---------- MÓVIL GRANDE (≤ 768px) ---------- */
 @media (max-width: 768px) {
 
-  /* Activar botón ver más solo en móvil */
-  .btn-ver-mas {
-    display: inline-block;
-  }
-
-  /* ── NAVBAR ── */
+  /* Navbar: se compacta y el menú se vuelve deslizable */
   .navbar {
     padding: 0 16px;
     height: 56px;
-    gap: 0;
+    gap: 0.75rem;
   }
-
+  .logo-text { font-size: 1.05rem; letter-spacing: 2px; }
+  .logo-img { width: 28px; height: 28px; }
   .nav-links {
-    display: none; /* ocultar links en móvil */
-  }
-
-  .logo-text {
-    font-size: 1rem;
-    letter-spacing: 2px;
-  }
-
-  .btn-volver {
-    font-size: 0.75rem;
-    padding: 5px 12px;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    padding: 70px 16px 160px;
-    min-height: 100svh;
-    height: auto;
-    align-items: flex-start;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    padding-top: 10px;
-  }
-
-  .hero-title {
-    font-size: clamp(2.8rem, 14vw, 4.5rem);
-    line-height: 0.92;
-  }
-
-  .hero-desc {
-    font-size: 0.9rem;
-    line-height: 1.65;
-    margin-bottom: 16px;
-  }
-
-  .hero-badges {
-    gap: 6px;
-  }
-
-  .badge {
-    font-size: 0.68rem;
-    padding: 4px 10px;
-  }
-
-  /* Thumbnails: fila horizontal abajo */
-  .hero-thumbs {
-    position: absolute;
-    right: auto;
-    left: 0;
-    right: 0;
-    bottom: 56px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 8px;
-    padding: 0 16px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .hero-thumbs::-webkit-scrollbar { display: none; }
-
-  .hero-thumb {
-    width: 68px;
-    height: 90px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    transform: scale(0.9) !important;
-  }
-
-  .hero-thumb.active {
-    width: 90px;
-    height: 118px;
-    transform: scale(1) translateY(0) !important;
-  }
-
-  .hero-thumb-label {
-    font-size: 0.65rem;
-    padding: 18px 8px 8px;
-    letter-spacing: 1px;
-  }
-
-  /* Dots */
-  .hero-dots {
-    bottom: 20px;
-  }
-
-  /* ── SECCIONES ── */
-  .section {
-    padding: 60px 0;
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-
-  .section-title {
-    font-size: clamp(1.7rem, 8vw, 2.5rem);
-    margin-bottom: 30px;
-  }
-
-  /* ── HISTORIA ── */
-  .historia-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .historia-img-principal img {
-    height: 240px;
-  }
-
-  .historia-img-secundaria img {
-    height: 160px;
-  }
-
-  .historia-texto {
-    gap: 14px;
-  }
-
-  .historia-texto p {
-    font-size: 0.92rem;
-    line-height: 1.75;
-  }
-
-  /* ── CATEGORÍAS ── */
-  .categorias-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .cat-big-card {
-    height: 280px;
-  }
-
-  .categorias-header-center .cat-main-title {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
-  }
-
-  /* ── COSTUMBRES ── */
-  .ct-bloque {
-    margin-bottom: 50px;
-    padding-bottom: 50px;
-  }
-
-  .ct-danzas-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .ct-titulo {
-    font-size: clamp(1.4rem, 6vw, 1.9rem);
-  }
-
-  /* ── UGARTE ── */
-  .ct-ugarte-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .ct-ugarte-img img {
-    height: 240px;
-  }
-
-  .ct-ugarte-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .ct-stat-num {
-    font-size: 1.5rem;
-  }
-
-  .ct-stat-label {
-    font-size: 0.62rem;
-  }
-
-  /* ── DANZA ROWS ── */
-  .danza-row {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    margin-bottom: 50px;
-    padding-bottom: 50px;
-  }
-
-  .danza-row--reverse {
-    direction: ltr;
-  }
-
-  .danza-foto-grid {
-    grid-template-rows: 260px;
-    height: 260px;
-  }
-
-  .danza-num {
-    font-size: 2.5rem;
-  }
-
-  .danza-nombre {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
-
-  .danza-meta {
-    flex-wrap: wrap;
-  }
-
-  .danza-meta-item {
-    flex: 0 0 50%;
-    border-right: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: rgba(10,12,16,0.98);
     border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    white-space: nowrap;
   }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { font-size: 0.78rem; padding: 6px 12px; flex-shrink: 0; }
+  .btn-volver { font-size: 0.72rem; padding: 6px 12px; }
 
-  .danza-meta-item:nth-child(odd) {
-    border-right: 1px solid var(--border);
-  }
+  /* Hero */
+  .hero { height: 100dvh; padding: 72px 18px 90px; align-items: flex-end; }
+  .hero-content { max-width: 100%; }
+  .hero-tag { font-size: 0.62rem; letter-spacing: 3px; }
+  .hero-title { font-size: clamp(2.4rem, 11vw, 3.6rem); margin-bottom: 14px; }
+  .hero-ubicacion { font-size: 0.72rem; }
+  .hero-desc { font-size: 0.88rem; margin-bottom: 18px; }
+  .hero-badges { gap: 6px; }
+  .badge { font-size: 0.65rem; padding: 4px 10px; }
 
-  /* ── VIDEO ── */
-  .section-video video {
-    max-height: 220px;
-  }
+  .hero-thumbs { display: none; }
+  .hero-dots { bottom: 20px; }
 
-  .video-tag {
-    left: 16px;
-    top: 16px;
-    font-size: 0.65rem;
-  }
+  /* Secciones y tipografía */
+  .section { padding: 56px 0; }
+  .container { padding: 0 20px; }
+  .section-title { margin-bottom: 32px; }
+  .section-header { margin-bottom: 16px; }
 
-  .video-titulo {
-    font-size: 1.6rem;
-    left: 16px;
-    bottom: 16px;
-    letter-spacing: 3px;
-  }
+  /* Historia / mapa / categorías */
+  .categorias-grid { grid-template-columns: 1fr; }
+  .cat-big-card { height: 320px; }
+  .historia-img-principal img { height: 240px; }
+  .historia-img-secundaria img { height: 160px; }
+  .mapa-embed { height: 280px; }
 
-  /* ── FESTIVIDAD ── */
-  .festividad-section {
-    padding: 50px 16px;
-  }
+  /* Bloque costumbres */
+  .ct-bloque-header { gap: 14px; margin-bottom: 26px; }
+  .ct-icono { font-size: 2rem; }
+  .ct-danzas-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 
-  .festividad-titulo {
-    font-size: 1.8rem;
-  }
-
-  .festividad-intro {
-    flex-direction: column;
+  /* Filas de danzas: apiladas, sin inversión rtl */
+  .danza-row,
+  .danza-row--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
     gap: 24px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
-
-  .festividad-intro-img {
-    flex: none;
-    width: 100%;
-    height: 240px;
-  }
-
-  .festividad-intro-datos {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .dias-grid {
+  .danza-foto-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-rows: 220px auto;
+    height: auto;
   }
+  .danza-foto--tall { grid-row: auto; height: 220px; }
+  .danza-foto-col { flex-direction: row; height: 90px; }
+  .danza-num { font-size: 2.6rem; }
+  .danza-nombre { font-size: clamp(1.5rem, 6vw, 2rem); }
+  .danza-desc { font-size: 0.88rem; padding-left: 14px; }
+  .danza-meta { flex-wrap: wrap; }
+  .danza-meta-item { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
 
-  .dia-card {
-    height: 260px;
-  }
+  /* Festividad */
+  .festividad-section { padding: 50px 0; }
+  .festividad-titulo { font-size: 1.9rem; }
+  .festividad-subtitulo { font-size: 0.85rem; }
+  .festividad-intro-img { height: 220px; }
+  .festividad-intro-titulo { font-size: 1.5rem; }
+  .festividad-intro-datos { gap: 20px; flex-wrap: wrap; }
+  .dato-num { font-size: 1.5rem; }
 
-  /* ── UGARTE HERO ── */
-  .ugarte-hero {
-    height: 320px;
-    border-radius: 12px;
-  }
+  .novenas-banner { padding: 16px 18px; gap: 12px; }
+  .novenas-icono { font-size: 1.4rem; }
 
-  .ugarte-nombre {
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-  }
+  .dias-grid { grid-template-columns: 1fr; gap: 16px; }
+  .dia-card { height: 260px; }
 
-  .ugarte-hero-content {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-  }
+  /* Alfonso Ugarte */
+  .ugarte-nombre { font-size: 2.6rem; }
+  .ugarte-hero { height: 300px; }
+  .ugarte-hero-content { left: 20px; right: 20px; bottom: 20px; }
+  .ugarte-stats { flex-wrap: wrap; gap: 16px; padding: 20px; }
+  .ugarte-stat-item { flex: 0 0 45%; }
+  .ugarte-stat-sep { display: none; }
 
-  .ugarte-desc {
-    font-size: 0.85rem;
-  }
+  .ugarte-intro-h { font-size: 1.4rem; }
+  .ugarte-intro-img { height: 200px; }
 
-  .ugarte-stats {
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 20px 16px;
-  }
+  .ugarte-fan-container { flex-direction: column; align-items: center; gap: 18px; min-height: auto; }
+  .ugarte-fan-card { margin: 0 !important; transform: none !important; width: 100%; max-width: 340px; }
 
-  .ugarte-stat-sep {
-    display: none;
-  }
-
-  .ugarte-stat-item {
-    flex: 0 0 45%;
-  }
-
-  /* ── UGARTE FAN CARDS ── */
-  .ugarte-fan-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    min-height: auto;
-  }
-
-  .ugarte-fan-card {
-    margin: 0;
-    transform: none !important;
-    width: 100%;
-    max-width: 340px;
-    min-height: auto;
-  }
-
-  .ugarte-stats-bar {
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 20px;
-  }
-
+  .ugarte-stats-bar { flex-wrap: wrap; gap: 16px; padding: 18px; }
   .ugarte-sb-sep { display: none; }
+  .ugarte-sb-item { flex: 0 0 45%; }
+  .ugarte-sb-num { font-size: 1.7rem; }
 
-  /* ── GALERÍA UGARTE ── */
-  .ugarte-gal-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .ugarte-gal-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .ugarte-gal-item { height: 150px; }
+  .ugarte-gal-titulo { font-size: 1.5rem; }
 
-  .ugarte-gal-item {
-    height: 160px;
-  }
-
-  /* ── UGARTE INTRO ── */
-  .ugarte-intro-section {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .ugarte-intro-img {
-    flex: none;
-    width: 100%;
-    height: 200px;
-  }
-
-  /* ── MAPA / UBICACIÓN ── */
-  .mapa-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .mapa-embed {
-    height: 280px;
-  }
-
-  .mapa-ico-img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .mapa-dato p {
-    font-size: 0.85rem;
-  }
-
-  .btn-maps {
-    font-size: 0.85rem;
-    padding: 12px 26px;
-  }
-
-  /* ── FOOTER ── */
-  .footer {
-    padding: 36px 16px;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    text-align: left;
-  }
-
-  /* ── ANIMACIONES: reducir movimiento en móvil ── */
-  .hero-thumb,
-  .hero-thumb.active {
-    animation: none !important;
-  }
-
-  /* ── NOVENAS BANNER ── */
-  .novenas-banner {
-    flex-direction: column;
-    gap: 10px;
-    padding: 16px;
-  }
-
-  .novenas-icono {
-    font-size: 1.5rem;
-  }
+  /* Footer */
+  .footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; text-align: center; gap: 14px; }
 }
 
-/* ── EXTRA PEQUEÑO (320px–400px) ── */
-@media (max-width: 400px) {
-  .hero-title {
-    font-size: clamp(2.4rem, 13vw, 3.5rem);
-  }
+/* ---------- MÓVIL PEQUEÑO (≤ 480px) ---------- */
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(2rem, 12vw, 2.8rem); }
+  .hero-desc { font-size: 0.82rem; }
 
-  .hero-thumb {
-    width: 56px;
-    height: 76px;
-  }
+  .ct-danzas-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .danza-meta-item { flex: 1 1 100%; }
+  .danza-meta-item:last-child { border-bottom: none; }
 
-  .hero-thumb.active {
-    width: 76px;
-    height: 100px;
-  }
+  .ugarte-gal-grid { grid-template-columns: 1fr 1fr; }
+  .ugarte-stat-item,
+  .ugarte-sb-item { flex: 0 0 100%; }
+  .ugarte-stats,
+  .ugarte-stats-bar { flex-direction: column; }
 
-  .ct-danzas-grid {
-    grid-template-columns: 1fr;
-  }
+  .dias-grid { gap: 14px; }
+  .dia-card { height: 220px; }
 
-  .ct-ugarte-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ugarte-gal-grid {
-    grid-template-columns: 1fr;
-  }
+  .ct-stat-num { font-size: 1.6rem; }
+  .ct-ugarte-stats { grid-template-columns: 1fr 1fr; }
 }
